@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require_relative 'version'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
 Dir[File.expand_path('../responses/*.rb', __FILE__)].each{|f| require f}

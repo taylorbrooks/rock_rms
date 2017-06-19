@@ -5,7 +5,7 @@ require "base64"
 
 Gem::Specification.new do |s|
   s.name          = "rock_rms"
-  s.version       = "0.0.1"
+  s.version       = RockRMS::VERSION
   s.authors       = ["Taylor Brooks"]
   s.email         = ["dGJyb29rc0BnbWFpbC5jb20="].map{ |e| Base64.decode64(e) }
   s.homepage      = "https://github.com/taylorbrooks/rock_rms"
