@@ -3,6 +3,7 @@
 ### A Ruby wrapper for the Rock RMS API
 
 To get a general overview of Rock RMS: https://www.rockrms.com
+
 To stay up-to-date with the code changes of Rock RMS: https://github.com/SparkDevNetwork/Rock
 
 I'm a big fan of Rock so if you have problems using the gem or would like to see support for new endpoints, please open a GitHub issue -- I'll get it resolved as quick as I can.
