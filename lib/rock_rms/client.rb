@@ -30,7 +30,7 @@ module RockRMS
        })
     end
 
-    def get(path, options)
+    def get(path, options = {})
       connection.get(path, options).body
     end
 
@@ -49,7 +49,7 @@ module RockRMS
       connection.put(path, options).body
     end
 
-    def delete(path, options)
+    def delete(path, options = {})
       connection.delete(path, options).body
     end
 
