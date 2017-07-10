@@ -69,6 +69,7 @@ module RockRMS
         conn.request   :json
         conn.response  :logger if logger
         conn.response  :oj
+        conn.use       Faraday::Response::RaiseError
         conn.adapter   Faraday.default_adapter
       end
     end
