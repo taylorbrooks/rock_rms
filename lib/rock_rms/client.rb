@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require 'faraday_middleware/parse_oj'
 require_relative 'version'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
@@ -7,6 +8,7 @@ Dir[File.expand_path('../responses/*.rb', __FILE__)].each{|f| require f}
 
 module RockRMS
   class Client
+    include RockRMS::Client::Batch
     include RockRMS::Client::Donation
     include RockRMS::Client::Fund
     include RockRMS::Client::PaymentMethod
@@ -15,7 +17,7 @@ module RockRMS
     attr_reader :url, :username, :password, :logger, :cookie, :connection
 
     def initialize(url:, username:, password:, logger: true)
-      @url      = url
+      @url      = "#{url}/api/"
       @username = username
       @password = password
       @logger   = logger
@@ -23,7 +25,7 @@ module RockRMS
     end
 
     def auth
-      connection.post("Auth/Login", {
+      connection.post("#{@url}Auth/Login", {
         'Username'  => username,
         'Password'  => password,
         'Persisted' => true
@@ -66,7 +68,7 @@ module RockRMS
       Faraday.new(url: url, headers: headers) do |conn|
         conn.request   :json
         conn.response  :logger if logger
-        conn.response  :json
+        conn.response  :oj
         conn.adapter   Faraday.default_adapter
       end
     end

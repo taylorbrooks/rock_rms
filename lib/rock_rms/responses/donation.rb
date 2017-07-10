@@ -14,7 +14,8 @@ module RockRMS
         date:   donation["TransactionDateTime"],
         amount: donation["TransactionDetails"].reduce(0){|sum, td| sum + td["Amount"]},
         person_id: donation["AuthorizedPersonAliasId"],
-        fund:   ""
+        fund:   "",
+        batch_id: donation["BatchId"]
       }
     end
   end

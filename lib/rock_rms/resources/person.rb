@@ -17,8 +17,19 @@ module RockRMS
       end
 
       def find_person_by_name(full_name)
-        res = get("People/Search?name=#{full_name}&includeHtml=false&includeDetails=false&includeBusinesses=false&includeDeceased=false")
+        res = get("People/Search?name=#{full_name}&includeHtml=false&includeDetails=true&includeBusinesses=false&includeDeceased=false")
         RockRMS::Person.format(res)
+      end
+
+      def create_person(first_name:, last_name:, email:)
+        options = {
+          "IsSystem" => false,
+          "FirstName" => first_name,
+          "LastName" => last_name,
+          "Email" => email,
+          "Gender" => 1
+        }
+        post(people_path, options)
       end
 
       def update_person(id, options = {})

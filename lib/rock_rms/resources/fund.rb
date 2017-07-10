@@ -2,7 +2,7 @@ module RockRMS
   class Client
     module Fund
 
-      def list_funds(options={})
+      def list_funds(options = {})
         res = get(fund_path, options)
         RockRMS::Fund.format(res)
       end
