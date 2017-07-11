@@ -1,6 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 require 'faraday_middleware/parse_oj'
+require_relative 'error'
 require_relative 'version'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
@@ -69,7 +70,7 @@ module RockRMS
         conn.request   :json
         conn.response  :logger if logger
         conn.response  :oj
-        conn.use       Faraday::Response::RaiseError
+        conn.use       FaradayMiddleware::RockRMSErrorHandler
         conn.adapter   Faraday.default_adapter
       end
     end
