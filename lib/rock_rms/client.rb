@@ -14,6 +14,7 @@ module RockRMS
     include RockRMS::Client::Fund
     include RockRMS::Client::PaymentMethod
     include RockRMS::Client::Person
+    include RockRMS::Client::TransactionDetail
 
     attr_reader :url, :username, :password, :logger, :cookie, :connection
 

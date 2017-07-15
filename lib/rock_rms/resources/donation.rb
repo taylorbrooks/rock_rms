@@ -32,11 +32,14 @@ module RockRMS
         post(transaction_path, options)
       end
 
-      def update_transaction(id, options={})
+      def update_donation(id, batch_id:)
+        options = {
+          "BatchId" => batch_id
+        }
         patch(transaction_path(id), options)
       end
 
-      def delete_transaction(id)
+      def delete_donation(id)
         delete(transaction_path(id))
       end
 
