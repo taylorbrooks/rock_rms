@@ -10,12 +10,14 @@ module RockRMS
         res = get(batches_path(id))
       end
 
-      def create_batch(options = {})
+      def create_batch(name:, start_time:, end_time:, foreign_key: nil)
         options = {
-          "Name" => options[:name],
-          "BatchStartDateTime" => options[:start_time],
-          "BatchEndDateTime" => options[:end_time],
+          "Name" => name,
+          "BatchStartDateTime" => start_time,
+          "BatchEndDateTime" => end_time,
+          "ForeignKey" => foreign_key
         }
+
         post(batches_path, options)
       end
 
