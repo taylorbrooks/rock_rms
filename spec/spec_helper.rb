@@ -12,6 +12,7 @@ RSpec.configure do |config|
   config.before :each do
     stub_request(:any, /rock/).to_rack(RockMock)
   end
+
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 
