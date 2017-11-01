@@ -26,7 +26,11 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency     'faraday_middleware-parse_oj'
   s.add_runtime_dependency     'json'
 
-  s.add_development_dependency 'bundler'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'bundler', '~> 1.15'
+  s.add_development_dependency 'dotenv'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'rake', '~> 10.4'
+  s.add_development_dependency 'rspec', '~> 3.7'
+  s.add_development_dependency 'sinatra', '~> 2.0'
+  s.add_development_dependency 'webmock', '~> 3.1'
 end

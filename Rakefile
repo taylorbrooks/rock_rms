@@ -1,8 +1,20 @@
 require "bundler/gem_tasks"
+require "rspec/core/rake_task"
 
-task :default => :test
+RSpec::Core::RakeTask.new(:spec)
 
-desc "Run the RSpec test suite"
-task :test do
-  exec "rspec ."
+task :default => :spec
+
+task :environment do
+  require 'dotenv'
+  Dotenv.load
+
+  $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
+  require 'rock_rms'
+end
+
+desc "Launch a pry shell with Formstack library loaded"
+task :pry => :environment do
+  require 'pry'
+  Pry.start
 end

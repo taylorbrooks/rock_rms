@@ -18,20 +18,15 @@ module RockRMS
 
     attr_reader :url, :username, :password, :logger, :cookie, :connection
 
-    def initialize(url:, username:, password:, logger: true)
+    def initialize(url:,
+                   username:,
+                   password:,
+                   logger: true)
       @url      = "#{url}/api/"
       @username = username
       @password = password
       @logger   = logger
       @cookie   = auth['set-cookie']
-    end
-
-    def auth
-      connection.post("#{@url}Auth/Login", {
-        'Username'  => username,
-        'Password'  => password,
-        'Persisted' => true
-       })
     end
 
     def get(path, options = {})
@@ -58,6 +53,14 @@ module RockRMS
     end
 
     private
+
+    def auth
+      connection.post("Auth/Login", {
+        'Username'  => username,
+        'Password'  => password,
+        'Persisted' => true
+       })
+    end
 
     def connection
       headers = {
