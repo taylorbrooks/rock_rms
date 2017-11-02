@@ -13,7 +13,7 @@ task :environment do
   require 'rock_rms'
 end
 
-desc "Launch a pry shell with Formstack library loaded"
+desc "Launch a pry shell with libraries loaded"
 task :pry => :environment do
   require 'pry'
   Pry.start
