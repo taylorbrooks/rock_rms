@@ -27,27 +27,24 @@ module RockRMS
       @cookie   = auth['set-cookie']
     end
 
+    def delete(path, options = {})
+      connection.delete(path, options).body
+    end
+
     def get(path, options = {})
       connection.get(path, options).body
     end
 
+    def patch(path, req_body)
+      connection.patch(path, req_body).body
+    end
+
     def post(path, req_body)
-      connection.post do |req|
-        req.url(path)
-        req.body = req_body
-      end.body
+      connection.post(path, req_body).body
     end
 
-    def patch(path, options)
-      connection.patch(path, options).body
-    end
-
-    def put(path, options)
-      connection.put(path, options).body
-    end
-
-    def delete(path, options = {})
-      connection.delete(path, options).body
+    def put(path, req_body)
+      connection.put(path, req_body).body
     end
 
     private
