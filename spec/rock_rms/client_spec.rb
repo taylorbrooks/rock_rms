@@ -48,8 +48,8 @@ RSpec.describe RockRMS::Client do
     end
   end
 
-  shared_examples 'param request' do |_method|
-    let(:endpoint) { "#{_method}_test" }
+  shared_examples 'param request' do |verb|
+    let(:endpoint) { "#{verb}_test" }
     let(:url) { "http://some-rock-uri.com/api/#{endpoint}" }
 
     before do
@@ -57,28 +57,28 @@ RSpec.describe RockRMS::Client do
     end
 
     it 'requests at `path` argument' do
-      client.public_send(_method, endpoint)
+      client.public_send(verb, endpoint)
 
-      expect(WebMock).to have_requested(_method, url)
+      expect(WebMock).to have_requested(verb, url)
     end
 
     it 'passes request parameters' do
-      client.public_send(_method, endpoint, request_params)
+      client.public_send(verb, endpoint, request_params)
 
-      expect(WebMock).to have_requested(_method, url).with(query: request_params)
+      expect(WebMock).to have_requested(verb, url).with(query: request_params)
     end
 
     it 'returns parsed response body' do
-      expect(client.public_send(_method, endpoint)).to eq(response_body)
+      expect(client.public_send(verb, endpoint)).to eq(response_body)
     end
   end
 
-  shared_examples 'body request' do |_method|
+  shared_examples 'body request' do |verb|
     let(:body) { { 'test' => 123 } }
-    let(:endpoint) { "#{_method}_test" }
+    let(:endpoint) { "#{verb}_test" }
     let(:url) { "http://some-rock-uri.com/api/#{endpoint}" }
 
-    let(:do_request) { client.public_send(_method, endpoint, body) }
+    let(:do_request) { client.public_send(verb, endpoint, body) }
 
     before do
       stub_request(:any, /_test/).to_return(body: body.to_json)
@@ -87,14 +87,14 @@ RSpec.describe RockRMS::Client do
     it 'requests at `path` argument' do
       do_request
 
-      expect(WebMock).to have_requested(_method, url)
+      expect(WebMock).to have_requested(verb, url)
     end
 
     it 'passes request body' do
       do_request
 
       expect(WebMock)
-        .to have_requested(_method, url)
+        .to have_requested(verb, url)
         .with(body: body)
     end
 
