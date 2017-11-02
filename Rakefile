@@ -15,6 +15,15 @@ end
 
 desc "Launch a pry shell with libraries loaded"
 task :pry => :environment do
+  if ENV['ROCK_USERNAME']
+    @client = RockRMS::Client.new(
+      url: ENV['ROCK_API_URL'],
+      username: ENV['ROCK_USERNAME'],
+      password: ENV['ROCK_PASSWORD'],
+      logger: !!ENV['CLIENT_LOGGER']
+    )
+  end
+
   require 'pry'
   Pry.start
 end
