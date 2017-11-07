@@ -10,6 +10,7 @@ module RockRMS
     include RockRMS::Client::Batch
     include RockRMS::Client::Donation
     include RockRMS::Client::Fund
+    include RockRMS::Client::Group
     include RockRMS::Client::PaymentMethod
     include RockRMS::Client::Person
     include RockRMS::Client::TransactionDetail
@@ -42,6 +43,14 @@ module RockRMS
 
     def put(path, req_body)
       connection.put(path, req_body).body
+    end
+
+    def format_response(response_map, data)
+      if data.is_a?(Array)
+        data.map { |object| response_map.format(object) }
+      else
+        response_map.format(data)
+      end
     end
 
     private
