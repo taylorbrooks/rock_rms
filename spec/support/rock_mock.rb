@@ -9,7 +9,7 @@ class RockMock < Sinatra::Base
     response['Content-Secuity-Policy'] = "frame-ancestors 'self'"
     response['Date'] = Time.now.httpdate
     response['Expires'] = '-1'
-    response['Pragma'] = "no-cache"
+    response['Pragma'] = 'no-cache'
     response['Set-Cookie'] = [
       ".ROCK=#{SecureRandom.hex(100)}",
       "expires=#{(Time.now + 14).httpdate}",
@@ -21,4 +21,3 @@ class RockMock < Sinatra::Base
     status 204
   end
 end
-

@@ -1,7 +1,7 @@
 module RockRMS
   class Client
     module Person
-      def list_people(options={})
+      def list_people(options = {})
         res = get(people_path, options)
         RockRMS::Person.format(res)
       end
@@ -23,11 +23,11 @@ module RockRMS
 
       def create_person(first_name:, last_name:, email:)
         options = {
-          "IsSystem" => false,
-          "FirstName" => first_name,
-          "LastName" => last_name,
-          "Email" => email,
-          "Gender" => 1
+          'IsSystem' => false,
+          'FirstName' => first_name,
+          'LastName' => last_name,
+          'Email' => email,
+          'Gender' => 1
         }
         post(people_path, options)
       end
@@ -39,7 +39,7 @@ module RockRMS
       private
 
       def people_path(id = nil)
-        id ? "People/#{id}" : "People"
+        id ? "People/#{id}" : 'People'
       end
     end
   end

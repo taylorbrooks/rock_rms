@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 RSpec.describe RockRMS::Client do
-  let(:attrs) {
+  let(:attrs) do
     {
       url: 'http://some-rock-uri.com',
       username: 'test',
-      password: 'test',
+      password: 'test'
     }
-  }
+  end
   let(:attrs_without_logging) { attrs.merge(logger: false) }
 
   subject(:client) { described_class.new(attrs_without_logging) }
@@ -31,9 +31,9 @@ RSpec.describe RockRMS::Client do
 
     context 'url' do
       it 'expects a valid URI' do
-        expect {
+        expect do
           described_class.new(url: 'test', username: 'test', password: 'test')
-        }.to raise_error(URI::InvalidURIError)
+        end.to raise_error(URI::InvalidURIError)
       end
     end
   end
@@ -104,20 +104,20 @@ RSpec.describe RockRMS::Client do
   end
 
   describe '#get(path, options = {})' do
-    let(:request_params) { { "test" => 123 } }
+    let(:request_params) { { 'test' => 123 } }
     let(:response_body) { request_params }
 
     include_examples 'param request', :get
   end
 
   describe '#delete(path, options = {})' do
-    let(:request_params) { { "test" => 123 } }
+    let(:request_params) { { 'test' => 123 } }
     let(:response_body) { {} }
 
     include_examples 'param request', :delete
   end
 
-  describe "#patch(path, req_body)" do
+  describe '#patch(path, req_body)' do
     include_examples 'body request', :patch
   end
 

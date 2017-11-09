@@ -2,8 +2,8 @@ require 'faraday'
 require 'faraday_middleware'
 require 'faraday_middleware/parse_oj'
 
-Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
-Dir[File.expand_path('../responses/*.rb', __FILE__)].each{|f| require f}
+Dir[File.expand_path('../resources/*.rb', __FILE__)].each { |f| require f }
+Dir[File.expand_path('../responses/*.rb', __FILE__)].each { |f| require f }
 
 module RockRMS
   class Client
@@ -47,11 +47,12 @@ module RockRMS
     private
 
     def auth
-      connection.post("Auth/Login", {
+      connection.post(
+        'Auth/Login',
         'Username'  => username,
         'Password'  => password,
         'Persisted' => true
-       })
+      )
     end
 
     def connection
@@ -60,7 +61,7 @@ module RockRMS
         'User-Agent' => "rock-rms-ruby-gem/v#{RockRMS::VERSION}"
       }
 
-      headers.merge!('Cookie' => cookie) if cookie
+      headers['Cookie'] = cookie if cookie
 
       Faraday.new(url: url, headers: headers) do |conn|
         conn.request   :json

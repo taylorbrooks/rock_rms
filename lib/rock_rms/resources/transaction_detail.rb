@@ -1,8 +1,7 @@
 module RockRMS
   class Client
     module TransactionDetail
-
-      def list_transaction_details(options={})
+      def list_transaction_details(options = {})
         get(transaction_detail_path, options)
       end
 
@@ -12,7 +11,7 @@ module RockRMS
 
       def update_transaction_detail(id, account_id:)
         options = {
-          "AccountId" => account_id
+          'AccountId' => account_id
         }
         patch(transaction_detail_path(id), options)
       end
@@ -20,7 +19,7 @@ module RockRMS
       private
 
       def transaction_detail_path(id = nil)
-        id ? "FinancialTransactionDetails/#{id}" : "FinancialTransactionDetails"
+        id ? "FinancialTransactionDetails/#{id}" : 'FinancialTransactionDetails'
       end
     end
   end

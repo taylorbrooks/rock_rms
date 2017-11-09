@@ -2,7 +2,7 @@ module RockRMS
   class Error < StandardError; end
 end
 
-require "faraday"
+require 'faraday'
 module FaradayMiddleware
   class RockRMSErrorHandler < Faraday::Response::Middleware
     ERROR_STATUSES = 400..600
