@@ -1,8 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
 require 'faraday_middleware/parse_oj'
-require_relative 'error'
-require_relative 'version'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
 Dir[File.expand_path('../responses/*.rb', __FILE__)].each{|f| require f}
@@ -26,38 +24,35 @@ module RockRMS
       @cookie   = auth['set-cookie']
     end
 
-    def auth
-      connection.post("#{@url}Auth/Login", {
-        'Username'  => username,
-        'Password'  => password,
-        'Persisted' => true
-       })
+    def delete(path, options = {})
+      connection.delete(path, options).body
     end
 
     def get(path, options = {})
       connection.get(path, options).body
     end
 
+    def patch(path, req_body)
+      connection.patch(path, req_body).body
+    end
+
     def post(path, req_body)
-      connection.post do |req|
-        req.url(path)
-        req.body = req_body
-      end.body
+      connection.post(path, req_body).body
     end
 
-    def patch(path, options)
-      connection.patch(path, options).body
-    end
-
-    def put(path, options)
-      connection.put(path, options).body
-    end
-
-    def delete(path, options = {})
-      connection.delete(path, options).body
+    def put(path, req_body)
+      connection.put(path, req_body).body
     end
 
     private
+
+    def auth
+      connection.post("Auth/Login", {
+        'Username'  => username,
+        'Password'  => password,
+        'Persisted' => true
+       })
+    end
 
     def connection
       headers = {
