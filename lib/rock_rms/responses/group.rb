@@ -8,7 +8,8 @@ module RockRMS
         parent_group_id: "ParentGroupId",
         campus_id: "CampusId",
         is_active: "IsActive",
-        guid: "Guid"
+        guid: "Guid",
+        members: "Members"
       }.freeze
 
       FORMAT = -> (data) {
