@@ -12,7 +12,7 @@ module RockRMS
           .join(' and ')
         opts['$expand'] ||= 'Members'
 
-        list_groups(options)
+        list_groups(opts)
       end
 
       private
