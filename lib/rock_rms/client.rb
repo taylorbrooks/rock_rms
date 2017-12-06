@@ -45,14 +45,6 @@ module RockRMS
       connection.put(path, req_body).body
     end
 
-    def format_response(response_map, data)
-      if data.is_a?(Array)
-        data.map { |object| response_map.format(object) }
-      else
-        response_map.format(data)
-      end
-    end
-
     private
 
     def auth

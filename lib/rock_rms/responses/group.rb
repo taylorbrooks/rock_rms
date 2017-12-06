@@ -11,9 +11,17 @@ module RockRMS
         guid: "Guid"
       }.freeze
 
-      def self.format(data)
+      FORMAT = -> (data) {
         MAP.each.with_object({}) do |(l,r), object|
           object[l] = data[r]
+        end
+      }
+
+      def self.format(data)
+        if data.is_a?(Array)
+          data.map { |object| FORMAT.call(object) }
+        else
+          FORMAT.call(data)
         end
       end
     end

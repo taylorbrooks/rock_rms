@@ -2,10 +2,7 @@ module RockRMS
   class Client
     module Group
       def list_groups(options = {})
-        format_response(
-          RockRMS::Responses::Group,
-          get(group_path, options)
-        )
+        RockRMS::Responses::Group.format(get(group_path, options))
       end
 
       def list_groups_for_person(person_id, options = {})
