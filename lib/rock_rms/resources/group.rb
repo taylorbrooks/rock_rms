@@ -6,10 +6,11 @@ module RockRMS
       end
 
       def list_groups_for_person(person_id, options = {})
-        options['$filter'] = Array(options['$filter'])
+        opts = options.dup
+        opts['$filter'] = Array(opts['$filter'])
           .push("Members/any(m: m/PersonId eq #{person_id})")
           .join(' and ')
-        options['$expand'] = 'Members'
+        opts['$expand'] ||= 'Members'
 
         list_groups(options)
       end
