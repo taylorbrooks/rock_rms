@@ -16,7 +16,8 @@ module RockRMS
         first_name: person['FirstName'],
         last_name:  person['LastName'],
         giving_id:  person['GivingId'],
-        alias_id:   person['PrimaryAliasId']
+        alias_id:   person['PrimaryAliasId'],
+        connection_status_value_id: person['ConnectionStatusValueId']
       }
     end
   end
