@@ -20,4 +20,20 @@ class RockMock < Sinatra::Base
 
     status 204
   end
+
+  {
+    :phone_numbers => 'PhoneNumbers'
+  }.each do |json, end_point|
+    get "/api/#{end_point}" do
+      json_response 200, "#{json}.json"
+    end
+  end
+
+  private
+
+  def json_response(response_code, file_name)
+    content_type :json
+    status response_code
+    File.open(File.dirname(__FILE__) + '/fixtures/' + file_name, 'rb').read
+  end
 end
