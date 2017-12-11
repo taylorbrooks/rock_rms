@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'securerandom'
+require_relative './fixtures_helper'
 
 class RockMock < Sinatra::Base
   post '/api/Auth/Login' do
@@ -22,7 +23,8 @@ class RockMock < Sinatra::Base
   end
 
   {
-    :phone_numbers => 'PhoneNumbers'
+    :phone_numbers => 'PhoneNumbers',
+    :groups => 'Groups'
   }.each do |json, end_point|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"
@@ -34,6 +36,6 @@ class RockMock < Sinatra::Base
   def json_response(response_code, file_name)
     content_type :json
     status response_code
-    File.open(File.dirname(__FILE__) + '/fixtures/' + file_name, 'rb').read
+    FixturesHelper.read(file_name)
   end
 end

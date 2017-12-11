@@ -1,0 +1,61 @@
+require 'spec_helper'
+
+RSpec.describe RockRMS::Client::Group, type: :model do
+  include_context 'resource specs'
+
+  describe '#list_groups(options = {})' do
+    it 'returns a array of hashes' do
+      resource = client.list_groups
+      expect(resource).to be_a(Array)
+      expect(resource.first).to be_a(Hash)
+    end
+
+    it 'queries groups' do
+      expect(client).to receive(:get).with('Groups', {})
+        .and_call_original
+      client.list_groups
+    end
+
+    it 'passes options' do
+      expect(client).to receive(:get)
+        .with('Groups', { option1: '1' })
+        .and_return([])
+      client.list_groups(option1: '1')
+    end
+
+    it 'formats with Group' do
+      response = double
+      expect(RockRMS::Responses::Group).to receive(:format).with(response)
+      allow(client).to receive(:get).and_return(response)
+      client.list_groups
+    end
+  end
+
+  describe '#list_groups_for_person' do
+    it 'delegates to `list_groups`' do
+      expect(client).to receive(:list_groups)
+      client.list_groups_for_person(123)
+    end
+
+    it 'filters members by person_id' do
+      expect(client).to receive(:list_groups).with(
+        hash_including('$filter' => 'Members/any(m: m/PersonId eq 123)')
+      )
+      client.list_groups_for_person(123)
+    end
+
+    it 'expands member data by default' do
+      expect(client).to receive(:list_groups).with(
+        hash_including('$expand' => 'Members')
+      )
+      client.list_groups_for_person(123)
+    end
+
+    it 'supports passing additional filters' do
+      expect(client).to receive(:list_groups).with(
+        hash_including('$filter' => /GroupTypeId eq 45 and /)
+      )
+      client.list_groups_for_person(123, '$filter' => 'GroupTypeId eq 45')
+    end
+  end
+end
