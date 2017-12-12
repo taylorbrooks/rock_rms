@@ -16,7 +16,16 @@ module RockRMS
         RockRMS::Donation.format(res)
       end
 
-      def create_donation(payment_type:, authorized_person_id:, amount:, date:, fund_id:, batch_id:, transaction_code: nil)
+      def create_donation(
+        amount:,
+        authorized_person_id:,
+        batch_id:,
+        date:,
+        fund_id:,
+        payment_type:,
+        source_type_id: 10,
+        transaction_code: nil
+      )
         options = {
           'AuthorizedPersonAliasId' => authorized_person_id,
           'BatchId' => batch_id,
@@ -27,8 +36,8 @@ module RockRMS
             'Amount'    => amount,
             'AccountId' => fund_id
           }],
-          'TransactionTypeValueId' => 53, # contribution, registration
-          'SourceTypeValueId' => 10,      # website, kiosk, mobile app
+          'TransactionTypeValueId' => 53,        # contribution, registration
+          'SourceTypeValueId' => source_type_id, # website, kiosk, mobile app
         }
         post(transaction_path, options)
       end
