@@ -81,8 +81,8 @@ RSpec.describe RockRMS::Client::Group, type: :model do
 
     it 'formats with Family' do
       response = double
-      expect(RockRMS::Responses::Family).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
+      expect(RockRMS::Responses::Family).to receive(:format).with(response)
       client.list_families_for_person(123)
     end
   end
