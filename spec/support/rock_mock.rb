@@ -24,7 +24,8 @@ class RockMock < Sinatra::Base
 
   {
     :phone_numbers => 'PhoneNumbers',
-    :groups => 'Groups'
+    :groups => 'Groups',
+    :families => 'Groups/GetFamilies/:id'
   }.each do |json, end_point|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"

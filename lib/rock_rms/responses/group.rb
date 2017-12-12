@@ -12,17 +12,19 @@ module RockRMS
         members: "Members"
       }.freeze
 
-      FORMAT = -> (data) {
-        MAP.each.with_object({}) do |(l,r), object|
-          object[l] = data[r]
-        end
-      }
-
       def self.format(data)
         if data.is_a?(Array)
-          data.map { |object| FORMAT.call(object) }
+          data.map { |object| format_single(object) }
         else
-          FORMAT.call(data)
+          format_single(data)
+        end
+      end
+
+      private
+
+      def self.format_single(data)
+        MAP.each.with_object({}) do |(l,r), object|
+          object[l] = data[r]
         end
       end
     end

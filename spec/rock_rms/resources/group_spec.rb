@@ -58,4 +58,32 @@ RSpec.describe RockRMS::Client::Group, type: :model do
       client.list_groups_for_person(123, '$filter' => 'GroupTypeId eq 45')
     end
   end
+
+  describe '#list_families_for_person' do
+    it 'returns a array of hashes' do
+      resource = client.list_families_for_person(123)
+      expect(resource).to be_a(Array)
+      expect(resource.first).to be_a(Hash)
+    end
+
+    it 'queries families scoped to person' do
+      expect(client).to receive(:get).with('Groups/GetFamilies/123', {})
+        .and_call_original
+      client.list_families_for_person(123)
+    end
+
+    it 'passes options' do
+      expect(client).to receive(:get)
+        .with('Groups/GetFamilies/123', { option1: '1' })
+        .and_return([])
+      client.list_families_for_person(123, option1: '1')
+    end
+
+    it 'formats with Family' do
+      response = double
+      expect(RockRMS::Responses::Family).to receive(:format).with(response)
+      allow(client).to receive(:get).and_return(response)
+      client.list_families_for_person(123)
+    end
+  end
 end

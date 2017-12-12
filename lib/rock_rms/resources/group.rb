@@ -15,6 +15,12 @@ module RockRMS
         list_groups(opts)
       end
 
+      def list_families_for_person(person_id, options = {})
+        RockRMS::Responses::Group.format(
+          get("Groups/GetFamilies/#{person_id}", options)
+        )
+      end
+
       private
 
       def group_path(id = nil)
