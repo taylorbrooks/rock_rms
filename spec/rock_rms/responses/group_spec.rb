@@ -24,5 +24,29 @@ RSpec.describe RockRMS::Responses::Group, type: :model do
         expect(r[:members]).to eq(p['Members'])
       end
     end
+
+    context 'when locations are included' do
+      let(:parsed) { JSON.parse(FixturesHelper.read('groups_with_locations.json')) }
+
+      it 'formats with GroupLocations' do
+        expect(RockRMS::Responses::GroupLocation).to receive(:format)
+          .with(parsed.first['GroupLocations'])
+          .and_return([{ some_key: :value }])
+        result
+        expect(result.first[:group_locations]).to eq([{ some_key: :value }])
+      end
+    end
+
+    context 'when campus is included' do
+      let(:parsed) { JSON.parse(FixturesHelper.read('groups_with_campus.json')) }
+
+      it 'formats with Campus' do
+        expect(RockRMS::Responses::Campus).to receive(:format)
+          .with(parsed.first['Campus'])
+          .and_return([{ some_key: :value }])
+        result
+        expect(result.first[:campus]).to eq([{ some_key: :value }])
+      end
+    end
   end
 end

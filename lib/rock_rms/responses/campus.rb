@@ -1,13 +1,16 @@
 module RockRMS
   module Responses
-    class Family
+    class Campus
       MAP = {
         id: 'Id',
         name: 'Name',
-        group_type_id: 'GroupTypeId',
-        parent_group_id: 'ParentGroupId',
-        campus_id: 'CampusId',
         is_active: 'IsActive',
+        description: 'Description',
+        short_code: 'ShortCode',
+        url: 'Url',
+        location_id: 'LocationId',
+        phone_number: 'PhoneNumber',
+        service_times: 'ServiceTimes',
         guid: 'Guid'
       }.freeze
 
@@ -22,19 +25,9 @@ module RockRMS
       private
 
       def self.format_single(data)
-        result = MAP.each.with_object({}) do |(l,r), object|
+        MAP.each.with_object({}) do |(l,r), object|
           object[l] = data[r]
         end
-
-        if group_locations = data['GroupLocations']
-          result[:group_locations] = GroupLocation.format(group_locations)
-        end
-
-        if campus = data['Campus']
-          result[:campus] = Campus.format(campus)
-        end
-
-        result
       end
     end
   end

@@ -35,5 +35,17 @@ RSpec.describe RockRMS::Responses::Family, type: :model do
         expect(result.first[:group_locations]).to eq([{ some_key: :value }])
       end
     end
+
+    context 'when campus is included' do
+      let(:parsed) { JSON.parse(FixturesHelper.read('groups_with_campus.json')) }
+
+      it 'formats with Campus' do
+        expect(RockRMS::Responses::Campus).to receive(:format)
+          .with(parsed.first['Campus'])
+          .and_return([{ some_key: :value }])
+        result
+        expect(result.first[:campus]).to eq([{ some_key: :value }])
+      end
+    end
   end
 end
