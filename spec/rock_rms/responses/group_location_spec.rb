@@ -22,7 +22,7 @@ RSpec.describe RockRMS::Responses::GroupLocation, type: :model do
     end
 
     context 'when locations are included' do
-      it 'formats with GroupLocations' do
+      it 'formats with Location' do
         location = double
         parsed.first['Location'] = location
         expect(RockRMS::Responses::Location).to receive(:format)
