@@ -79,10 +79,10 @@ RSpec.describe RockRMS::Client::Group, type: :model do
       client.list_families_for_person(123, option1: '1')
     end
 
-    it 'formats with Family' do
+    it 'formats with Group' do
       response = double
       allow(client).to receive(:get).and_return(response)
-      expect(RockRMS::Responses::Family).to receive(:format).with(response)
+      expect(RockRMS::Responses::Group).to receive(:format).with(response)
       client.list_families_for_person(123)
     end
   end

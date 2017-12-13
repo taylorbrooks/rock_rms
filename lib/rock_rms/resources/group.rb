@@ -16,7 +16,7 @@ module RockRMS
       end
 
       def list_families_for_person(person_id, options = {})
-        RockRMS::Responses::Family.format(
+        RockRMS::Responses::Group.format(
           get("Groups/GetFamilies/#{person_id}", options)
         )
       end

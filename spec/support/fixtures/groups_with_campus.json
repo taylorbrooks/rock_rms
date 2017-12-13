@@ -26,7 +26,7 @@
     "GroupTypeId": 10,
     "CampusId": 1,
     "ScheduleId": null,
-    "Name": "Some Family",
+    "Name": "Some Group",
     "Description": null,
     "IsSecurityRole": false,
     "IsActive": true,
@@ -48,6 +48,6 @@
     "Guid": "6acf289a-1b54-4d3f-bf7f-0e7e8019e5e9",
     "ForeignId": 123421,
     "ForeignGuid": null,
-    "ForeignKey": "Family"
+    "ForeignKey": "Group"
   }
 ]
