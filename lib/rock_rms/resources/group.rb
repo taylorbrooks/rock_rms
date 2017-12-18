@@ -5,6 +5,10 @@ module RockRMS
         RockRMS::Responses::Group.format(get(group_path, options))
       end
 
+      def find_group(id)
+        RockRMS::Responses::Group.format(get(group_path(id)))
+      end
+
       def list_groups_for_person(person_id, options = {})
         opts = options.dup
         opts['$filter'] = Array(opts['$filter'])
@@ -24,7 +28,7 @@ module RockRMS
       private
 
       def group_path(id = nil)
-        id ? "Groups/#{id}" : "Groups"
+        id ? "Groups/#{id}" : 'Groups'
       end
     end
   end

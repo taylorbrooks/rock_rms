@@ -3,6 +3,28 @@ require 'spec_helper'
 RSpec.describe RockRMS::Client::Group, type: :model do
   include_context 'resource specs'
 
+  describe '#find_group(id)' do
+    it 'returns a hash' do
+      expect(client.find_group(123)).to be_a(Hash)
+    end
+
+    it 'queries groups' do
+      expect(client).to receive(:get).with('Groups/123')
+        .and_call_original
+
+      resource = client.find_group(123)
+
+      expect(resource[:id]).to eq(112233)
+    end
+
+    it 'formats with Group' do
+      response = double
+      expect(RockRMS::Responses::Group).to receive(:format).with(response)
+      allow(client).to receive(:get).and_return(response)
+      client.find_group(123)
+    end
+  end
+
   describe '#list_groups(options = {})' do
     it 'returns a array of hashes' do
       resource = client.list_groups

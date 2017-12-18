@@ -15,8 +15,9 @@ class RockMock < Sinatra::Base
 
   # GET requests
   {
-    families: 'Groups/GetFamilies/:id',
-    groups: 'Groups',
+    families:      'Groups/GetFamilies/:id',
+    group:         'Groups/:id',
+    groups:        'Groups',
     people_search: 'People/Search',
     phone_numbers: 'PhoneNumbers'
   }.each do |json, end_point|
