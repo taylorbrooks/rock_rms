@@ -3,35 +3,32 @@ require 'securerandom'
 require_relative './fixtures_helper'
 
 class RockMock < Sinatra::Base
-  DELETE_REQUESTS = %w[
+  # DELETE requests
+  %w[
     GroupMembers/:id
-  ].freeze
-
-  GET_REQUESTS = {
-    families: 'Groups/GetFamilies/:id',
-    groups: 'Groups',
-    people_search: 'People/Search',
-    phone_numbers: 'PhoneNumbers'
-  }.freeze
-
-  POST_REQUESTS = {
-    create_group_member: 'GroupMembers'
-  }.freeze
-
-  DELETE_REQUESTS.each do |end_point|
+  ].each do |end_point|
     delete "/api/#{end_point}" do
       content_type :json
       status 204
     end
   end
 
-  GET_REQUESTS.each do |json, end_point|
+  # GET requests
+  {
+    families: 'Groups/GetFamilies/:id',
+    groups: 'Groups',
+    people_search: 'People/Search',
+    phone_numbers: 'PhoneNumbers'
+  }.each do |json, end_point|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"
     end
   end
 
-  POST_REQUESTS.each do |json, end_point|
+  # POST requests
+  {
+    create_group_member: 'GroupMembers'
+  }.each do |json, end_point|
     post "/api/#{end_point}" do
       json_response 201, "#{json}.json"
     end
