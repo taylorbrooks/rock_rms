@@ -1,7 +1,6 @@
 module RockRMS
   class Client
     module GroupMember
-
       def create_group_member(group_id:,
                               group_member_status:,
                               group_role_id:,
@@ -16,6 +15,10 @@ module RockRMS
             PersonId: person_id
           }
         )
+      end
+
+      def delete_group_member(id)
+        delete(group_member_path(id))
       end
 
       private

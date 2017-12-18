@@ -53,4 +53,15 @@ RSpec.describe RockRMS::Client::GroupMember, type: :model do
       resource
     end
   end
+
+  describe '#delete_group_member' do
+    it 'returns nothing' do
+      expect(client.delete_group_member(123)).to eq(nil)
+    end
+
+    it 'passes id' do
+      expect(client).to receive(:delete).with('GroupMembers/123')
+      client.delete_group_member(123)
+    end
+  end
 end
