@@ -17,25 +17,22 @@ module RockRMS
       end
 
       def create_donation(
-        amount:,
         authorized_person_id:,
         batch_id:,
         date:,
-        fund_id:,
+        funds:,
         payment_type:,
         source_type_id: 10,
         transaction_code: nil
       )
+
         options = {
           'AuthorizedPersonAliasId' => authorized_person_id,
           'BatchId' => batch_id,
           'FinancialPaymentDetailId' => payment_type,
           'TransactionCode' => transaction_code,
           'TransactionDateTime' => date,
-          'TransactionDetails'  => [{
-            'Amount'    => amount,
-            'AccountId' => fund_id
-          }],
+          'TransactionDetails'  => translate_funds(funds),
           'TransactionTypeValueId' => 53,        # contribution, registration
           'SourceTypeValueId' => source_type_id, # website, kiosk, mobile app
         }
@@ -54,6 +51,15 @@ module RockRMS
       end
 
       private
+
+      def translate_funds(funds)
+        funds.map do |fund|
+          {
+            'Amount' => fund[:amount],
+            'AccountId' => fund[:fund_id]
+          }
+        end
+      end
 
       def transaction_path(id = nil)
         id ? "FinancialTransactions/#{id}" : 'FinancialTransactions'

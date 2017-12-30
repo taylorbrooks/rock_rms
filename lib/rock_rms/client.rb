@@ -12,6 +12,7 @@ module RockRMS
     include RockRMS::Client::Fund
     include RockRMS::Client::PaymentMethod
     include RockRMS::Client::Person
+    include RockRMS::Client::RecurringDonation
     include RockRMS::Client::TransactionDetail
 
     attr_reader :url, :username, :password, :logger, :cookie, :connection
@@ -32,16 +33,16 @@ module RockRMS
       connection.get(path, options).body
     end
 
-    def patch(path, req_body)
-      connection.patch(path, req_body).body
+    def patch(path, options = {})
+      connection.patch(path, options).body
     end
 
-    def post(path, req_body)
-      connection.post(path, req_body).body
+    def post(path, options = {})
+      connection.post(path, options).body
     end
 
-    def put(path, req_body)
-      connection.put(path, req_body).body
+    def put(path, options = {})
+      connection.put(path, options).body
     end
 
     private

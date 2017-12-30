@@ -12,7 +12,7 @@ I'm a big fan of Rock so if you have problems using the gem or would like to see
 Add this line to your application's Gemfile:
 ````ruby
   # in your Gemfile
-  gem 'rock_rms', '~> 0.1'
+  gem 'rock_rms', '~> 1.0'
 
   # then...
   bundle install
@@ -46,4 +46,4 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 - Suggest or add new features
 
 ### Copyright
-Copyright (c) 2017 Taylor Brooks. See LICENSE for details.
+Copyright (c) 2018 Taylor Brooks. See LICENSE for details.
