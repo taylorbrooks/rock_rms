@@ -3,22 +3,32 @@ module RockRMS
     module Person
       def list_people(options = {})
         res = get(people_path, options)
-        RockRMS::Person.format(res)
+        RockRMS::Responses::Person.format(res)
       end
 
       def find_person(id)
         res = get(people_path(id))
-        RockRMS::Person.format(res)
+        RockRMS::Responses::Person.format(res)
       end
 
       def find_person_by_email(email)
         res = get("People/GetByEmail/#{email}")
-        RockRMS::Person.format(res)
+        RockRMS::Responses::Person.format(res)
       end
 
-      def find_person_by_name(full_name)
-        res = get("People/Search?name=#{full_name}&includeHtml=false&includeDetails=true&includeBusinesses=false&includeDeceased=false")
-        RockRMS::Person.format(res)
+      NAME_SEARCH_DEFAULTS = {
+        includeHtml: false,
+        includeDetails: true,
+        includeBusinesses: false,
+        includeDeceased: false
+      }.freeze
+
+      def find_person_by_name(full_name, options = {})
+        priority = options.merge(name: full_name)
+
+        RockRMS::Responses::Person.format(
+          get('People/Search', NAME_SEARCH_DEFAULTS.merge(priority))
+        )
       end
 
       def create_person(first_name:, last_name:, email:)

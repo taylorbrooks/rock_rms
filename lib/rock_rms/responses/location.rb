@@ -1,15 +1,20 @@
 module RockRMS
   module Responses
-    class Person
+    class Location
       MAP = {
-        id:         'Id',
-        name:       'FullName',
-        email:      'Email',
-        first_name: 'FirstName',
-        last_name:  'LastName',
-        giving_id:  'GivingId',
-        alias_id:   'PrimaryAliasId',
-        connection_status_value_id: 'ConnectionStatusValueId'
+        id: 'Id',
+        name: 'Name',
+        is_active: 'IsActive',
+        street1: 'Street1',
+        street2: 'Street2',
+        city: 'City',
+        county: 'County',
+        state: 'State',
+        country: 'Country',
+        postal_code: 'PostalCode',
+        latitude: 'Latitude',
+        longitude: 'Longitude',
+        guid: 'Guid'
       }.freeze
 
       def self.format(data)
@@ -29,7 +34,4 @@ module RockRMS
       end
     end
   end
-
-  # for backwards compatibility
-  Person = Responses::Person
 end

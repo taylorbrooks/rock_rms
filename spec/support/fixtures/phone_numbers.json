@@ -1,0 +1,28 @@
+[
+    {
+        "IsSystem": false,
+        "PersonId": 1234,
+        "CountryCode": "1",
+        "Number": "1234567890",
+        "NumberFormatted": "(123) 456-7890",
+        "Extension": "",
+        "NumberTypeValueId": 12,
+        "IsMessagingEnabled": false,
+        "IsUnlisted": false,
+        "Description": null,
+        "NumberTypeValue": null,
+        "NumberFormattedWithCountryCode": "+1 (123) 456-7890",
+        "CreatedDateTime": null,
+        "ModifiedDateTime": null,
+        "CreatedByPersonAliasId": null,
+        "ModifiedByPersonAliasId": null,
+        "ModifiedAuditValuesAlreadyUpdated": false,
+        "Attributes": null,
+        "AttributeValues": null,
+        "Id": 123456,
+        "Guid": "bc039a8e-f747-47aa-97f1-c6843b55f56b",
+        "ForeignId": null,
+        "ForeignGuid": "9db64a81-7af1-433f-84a5-3d55d383a288",
+        "ForeignKey": null
+    }
+]

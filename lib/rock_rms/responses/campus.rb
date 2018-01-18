@@ -1,15 +1,17 @@
 module RockRMS
   module Responses
-    class Person
+    class Campus
       MAP = {
-        id:         'Id',
-        name:       'FullName',
-        email:      'Email',
-        first_name: 'FirstName',
-        last_name:  'LastName',
-        giving_id:  'GivingId',
-        alias_id:   'PrimaryAliasId',
-        connection_status_value_id: 'ConnectionStatusValueId'
+        id: 'Id',
+        name: 'Name',
+        is_active: 'IsActive',
+        description: 'Description',
+        short_code: 'ShortCode',
+        url: 'Url',
+        location_id: 'LocationId',
+        phone_number: 'PhoneNumber',
+        service_times: 'ServiceTimes',
+        guid: 'Guid'
       }.freeze
 
       def self.format(data)
@@ -29,7 +31,4 @@ module RockRMS
       end
     end
   end
-
-  # for backwards compatibility
-  Person = Responses::Person
 end

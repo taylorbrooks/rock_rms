@@ -10,8 +10,11 @@ module RockRMS
     include RockRMS::Client::Batch
     include RockRMS::Client::Donation
     include RockRMS::Client::Fund
+    include RockRMS::Client::Group
+    include RockRMS::Client::GroupMember
     include RockRMS::Client::PaymentMethod
     include RockRMS::Client::Person
+    include RockRMS::Client::PhoneNumber
     include RockRMS::Client::RecurringDonation
     include RockRMS::Client::TransactionDetail
 

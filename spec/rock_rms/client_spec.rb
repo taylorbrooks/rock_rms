@@ -117,15 +117,15 @@ RSpec.describe RockRMS::Client do
     include_examples 'param request', :delete
   end
 
-  describe '#patch(path, req_body)' do
+  describe '#patch(path, options = {})' do
     include_examples 'body request', :patch
   end
 
-  describe '#post(path, req_body)' do
+  describe '#post(path, options = {})' do
     include_examples 'body request', :post
   end
 
-  describe '#put(path, req_body)' do
+  describe '#put(path, options = {})' do
     include_examples 'body request', :put
   end
 end
