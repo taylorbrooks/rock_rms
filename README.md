@@ -1,5 +1,3 @@
-⚠️  Code is highly subject to change. Consider this an alpha release.
-
 ### A Ruby wrapper for the Rock RMS API
 
 To get a general overview of Rock RMS: https://www.rockrms.com
@@ -12,7 +10,7 @@ I'm a big fan of Rock so if you have problems using the gem or would like to see
 Add this line to your application's Gemfile:
 ````ruby
   # in your Gemfile
-  gem 'rock_rms', '~> 1.0'
+  gem 'rock_rms', '~> 1.1'
 
   # then...
   bundle install
