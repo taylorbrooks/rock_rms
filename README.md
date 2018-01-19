@@ -1,5 +1,8 @@
-[![Build Status](https://travis-ci.org/taylorbrooks/rock_rms.svg?branch=master)](https://travis-ci.org/taylorbrooks/rock_rms)
-### A Ruby wrapper for the Rock RMS API
+![](https://www.rockrms.com/Themes/RockExternal/Assets/Images/rock-logo.svg)
+
+# Rock RMS Ruby Client [![Build Status](https://travis-ci.org/taylorbrooks/rock_rms.svg?branch=master)](https://travis-ci.org/taylorbrooks/rock_rms)
+
+A Ruby wrapper for the Rock RMS API
 
 To get a general overview of Rock RMS: https://www.rockrms.com
 
