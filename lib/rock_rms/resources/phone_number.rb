@@ -8,7 +8,7 @@ module RockRMS
       private
 
       def phone_number_path(id = nil)
-        id ? "PhoneNumbers/#{id}" : "PhoneNumbers"
+        id ? "PhoneNumbers/#{id}" : 'PhoneNumbers'
       end
     end
   end
