@@ -3,12 +3,12 @@ module RockRMS
     module RecurringDonation
       def list_recurring_donations(options = {})
         res = get(recurring_donation_path, options)
-        RockRMS::RecurringDonation.format(res)
+        RockRMS::Responses::RecurringDonation.format(res)
       end
 
       def find_recurring_donation(id)
         res = get(recurring_donation_path(id))
-        RockRMS::RecurringDonation.format(res)
+        RockRMS::Responses::RecurringDonation.format(res)
       end
 
       private

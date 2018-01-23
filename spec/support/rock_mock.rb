@@ -19,7 +19,9 @@ class RockMock < Sinatra::Base
     group:         'Groups/:id',
     groups:        'Groups',
     people_search: 'People/Search',
-    phone_numbers: 'PhoneNumbers'
+    phone_numbers: 'PhoneNumbers',
+    recurring_donation: 'FinancialScheduledTransactions/:id',
+    recurring_donations: 'FinancialScheduledTransactions'
   }.each do |json, end_point|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"
