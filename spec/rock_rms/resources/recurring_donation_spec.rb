@@ -27,23 +27,45 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
 
   describe '#find_recurring_donation(id)' do
     it 'returns a hash' do
-      expect(client.find_recurring_donation(12345)).to be_a(Hash)
+      expect(client.find_recurring_donation(12_345)).to be_a(Hash)
     end
 
     it 'queries recurring donations' do
-      expect(client).to receive(:get).with('FinancialScheduledTransactions/12345')
+      expect(client).to receive(:get)
+        .with('FinancialScheduledTransactions/12345')
         .and_call_original
 
-      resource = client.find_recurring_donation(12345)
+      resource = client.find_recurring_donation(12_345)
 
-      expect(resource[:id]).to eq(12345)
+      expect(resource[:id]).to eq(12_345)
     end
 
     it 'formats with RecurringDonation' do
       response = double
       expect(RockRMS::Responses::RecurringDonation).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
-      client.find_recurring_donation(12345)
+      client.find_recurring_donation(12_345)
+    end
+  end
+
+  describe '#update_recurring_donation(id)' do
+    context 'arguments' do
+      it 'require `id`' do
+        expect { client.update_recurring_donation }
+          .to raise_error(ArgumentError, /wrong number/)
+      end
+    end
+
+    subject(:resource) do
+      client.update_recurring_donation(
+        1,
+        transaction_code: 'recur_1234',
+        next_payment_date: '2018-01-01'
+      )
+    end
+
+    it 'returns integer' do
+      expect(resource).to be_nil
     end
   end
 end

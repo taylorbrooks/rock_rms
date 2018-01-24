@@ -37,6 +37,16 @@ class RockMock < Sinatra::Base
     end
   end
 
+  # PATCH requests
+  [
+    'FinancialScheduledTransactions/:id'
+  ].each do |end_point|
+    patch "/api/#{end_point}" do
+      content_type :json
+      status 204
+    end
+  end
+
   post '/api/Auth/Login' do
     content_type :json
 
