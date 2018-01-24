@@ -3,17 +3,17 @@ module RockRMS
     module Donation
       def list_donations(options = {})
         res = get(transaction_path, options)
-        RockRMS::Donation.format(res)
+        RockRMS::Responses::Donation.format(res)
       end
 
       def find_donations_by_giving_id(id, raw = false)
         res = get("FinancialTransactions/GetByGivingId/#{id}?$expand=TransactionDetails")
-        raw ? res : RockRMS::Donation.format(res)
+        raw ? res : RockRMS::Responses::Donation.format(res)
       end
 
       def find_donation(id)
         res = get(transaction_path(id))
-        RockRMS::Donation.format(res)
+        RockRMS::Responses::Donation.format(res)
       end
 
       def create_donation(
@@ -23,11 +23,14 @@ module RockRMS
         funds:,
         payment_type:,
         source_type_id: 10,
-        transaction_code: nil
+        transaction_code: nil,
+        summary: nil,
+        recurring_donation_id: nil
       )
 
         options = {
           'AuthorizedPersonAliasId' => authorized_person_id,
+          'ScheduledTransactionId' => recurring_donation_id,
           'BatchId' => batch_id,
           'FinancialPaymentDetailId' => payment_type,
           'TransactionCode' => transaction_code,
@@ -35,14 +38,22 @@ module RockRMS
           'TransactionDetails'  => translate_funds(funds),
           'TransactionTypeValueId' => 53,        # contribution, registration
           'SourceTypeValueId' => source_type_id, # website, kiosk, mobile app
+          'Summary' => summary,
         }
         post(transaction_path, options)
       end
 
-      def update_donation(id, batch_id:)
-        options = {
-          'BatchId' => batch_id
-        }
+      def update_donation(id, batch_id: nil, summary: nil, recurring_donation_id: nil)
+        options = {}
+        if summary
+          options = options.merge({'Summary' => summary})
+        end
+        if recurring_donation_id
+          options = options.merge({'ScheduledTransactionId' => recurring_donation_id})
+        end
+        if batch_id
+          options = options.merge({'BatchId' => batch_id})
+        end
         patch(transaction_path(id), options)
       end
 

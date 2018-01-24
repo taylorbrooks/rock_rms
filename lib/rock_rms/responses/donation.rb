@@ -1,22 +1,26 @@
 module RockRMS
-  class Donation
-    def self.format(response)
-      if response.is_a?(Array)
-        response.map { |donation| format_donation(donation) }
-      else
-        format_donation(response)
+  module Responses
+    class Donation
+      def self.format(response)
+        if response.is_a?(Array)
+          response.map { |donation| format_donation(donation) }
+        else
+          format_donation(response)
+        end
       end
-    end
 
-    def self.format_donation(donation)
-      {
-        id:     donation['Id'],
-        date:   donation['TransactionDateTime'],
-        amount: donation['TransactionDetails'].reduce(0) { |sum, td| sum + td['Amount'] },
-        person_id: donation['AuthorizedPersonAliasId'],
-        fund:   '',
-        batch_id: donation['BatchId']
-      }
+      def self.format_donation(donation)
+        {
+          id:     donation['Id'],
+          date:   donation['TransactionDateTime'],
+          amount: donation['TransactionDetails'].reduce(0) { |sum, td| sum + td['Amount'] },
+          person_id: donation['AuthorizedPersonAliasId'],
+          fund:   '',
+          batch_id: donation['BatchId'],
+          recurring_donation_id: donation['ScheduledTransactionId'],
+          summary: donation['Summary']
+        }
+      end
     end
   end
 end
