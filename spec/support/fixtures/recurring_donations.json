@@ -21,7 +21,13 @@
     "FinancialGateway": null,
     "FinancialPaymentDetail": null,
     "TransactionFrequencyValue": null,
-    "ScheduledTransactionDetails": [],
+    "ScheduledTransactionDetails": [
+      {
+        "ScheduledTransactionId": 1,
+        "AccountId": 1,
+        "Amount": 10.00
+      }
+    ],
     "Transactions":[],
     "CreatedDateTime": "2018-01-23T17:12:54.123",
     "ModifiedDateTime": "2018-01-23T17:12:54.123",

@@ -18,7 +18,9 @@ RSpec.describe RockRMS::Responses::RecurringDonation, type: :model do
         expect(r[:foreign_key]).to eq(p['ForeignKey'])
         expect(r[:next_payment_date]).to eq(p['NextPaymentDate'])
         expect(r[:person_id]).to eq(p['AuthorizedPersonAliasId'])
-        expect(r[:transaction_details]).to eq(p['ScheduledTransactionDetails'])
+        expect(r[:transaction_details]).to eq(
+          RockRMS::Responses::RecurringDonationDetails.format(p['ScheduledTransactionDetails'])
+        )
         expect(r[:transaction_code]).to eq(p['TransactionCode'])
       end
     end

@@ -21,7 +21,7 @@ module RockRMS
       def self.format_single(data)
         MAP.each.with_object({}) do |(l, r), object|
           object[l] = if l == :transaction_details
-                        RockRMS::RecurringDonationDetails.format(data[r])
+                        RockRMS::Responses::RecurringDonationDetails.format(data[r])
                       else
                         data[r]
                       end
