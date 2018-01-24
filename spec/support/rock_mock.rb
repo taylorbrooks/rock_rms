@@ -31,6 +31,19 @@ class RockMock < Sinatra::Base
     end
   end
 
+
+  # PATCH requests
+  {
+    update_donation: 'FinancialTransactions/:id'
+  }.each do |json, end_point|
+    patch "/api/#{end_point}" do
+      content_type :json
+      status 204
+    end
+  end
+
+
+
   # POST requests
   {
     create_group_member: 'GroupMembers',

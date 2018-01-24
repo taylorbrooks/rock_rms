@@ -105,7 +105,7 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
   describe '#update_donation' do
 
     subject(:resource) {
-      client.update_donation(123, 
+      client.update_donation(123,
         batch_id: 1,
         summary: "taco tuesday"
       )
