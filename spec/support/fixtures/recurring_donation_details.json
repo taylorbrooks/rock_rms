@@ -1,0 +1,23 @@
+[
+  {
+    "ScheduledTransactionId": 1,
+    "AccountId": 1,
+    "Amount": 10.00,
+    "Summary": null,
+    "EntityTypeId": null,
+    "EntityId": null,
+    "EntityType": null,
+    "CreatedDateTime": "2017-12-19T14:48:02.553",
+    "ModifiedDateTime": "2017-12-19T14:48:02.553",
+    "CreatedByPersonAliasId": 12,
+    "ModifiedByPersonAliasId": 12,
+    "ModifiedAuditValuesAlreadyUpdated": false,
+    "Attributes": null,
+    "AttributeValues": null,
+    "Id": 1,
+    "Guid": "c5b5ebf6-faec-41d8-8089-51b83633334f",
+    "ForeignId": null,
+    "ForeignGuid": null,
+    "ForeignKey": null
+  }
+]

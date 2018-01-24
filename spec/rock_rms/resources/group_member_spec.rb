@@ -24,17 +24,16 @@ RSpec.describe RockRMS::Client::GroupMember, type: :model do
         expect { client.create_group_member }
           .to raise_error(ArgumentError, /person_id/)
       end
-
     end
 
-    subject(:resource) {
+    subject(:resource) do
       client.create_group_member(
         group_id: 123,
         group_member_status: 1,
         group_role_id: 456,
         person_id: 123456
       )
-    }
+    end
 
     it 'returns integer' do
       expect(resource).to be_a(Integer)

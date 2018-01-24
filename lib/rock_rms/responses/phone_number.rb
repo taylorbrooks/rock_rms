@@ -18,7 +18,7 @@ module RockRMS
       end
 
       def self.format_number(data)
-        MAP.each.with_object({}) do |(l,r), object|
+        MAP.each.with_object({}) do |(l, r), object|
           object[l] = data[r]
         end
       end

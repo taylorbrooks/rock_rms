@@ -1,0 +1,45 @@
+[
+  {
+    "AuthorizedPersonAliasId": 1234,
+    "TransactionTypeValueId": null,
+    "SourceTypeValueId": 10,
+    "TransactionFrequencyValueId": 135,
+    "StartDate": "2018-01-26T00:00:00",
+    "EndDate": null,
+    "NumberOfPayments": null,
+    "NextPaymentDate": null,
+    "LastStatusUpdateDateTime": null,
+    "IsActive": true,
+    "FinancialGatewayId": 4,
+    "FinancialPaymentDetailId": 28,
+    "TransactionCode": "",
+    "GatewayScheduleId": "",
+    "CardReminderDate": null,
+    "LastRemindedDate": null,
+    "TransactionTypeValue": null,
+    "SourceTypeValue": null,
+    "FinancialGateway": null,
+    "FinancialPaymentDetail": null,
+    "TransactionFrequencyValue": null,
+    "ScheduledTransactionDetails": [
+      {
+        "ScheduledTransactionId": 1,
+        "AccountId": 1,
+        "Amount": 10.00
+      }
+    ],
+    "Transactions":[],
+    "CreatedDateTime": "2018-01-23T17:12:54.123",
+    "ModifiedDateTime": "2018-01-23T17:12:54.123",
+    "CreatedByPersonAliasId": null,
+    "ModifiedByPersonAliasId": null,
+    "ModifiedAuditValuesAlreadyUpdated": false,
+    "Attributes": null,
+    "AttributeValues": null,
+    "Id": 12345,
+    "Guid": "036c27ba-7cba-4a8f-b8d6-36a2e60a9bb0",
+    "ForeignId": 56789,
+    "ForeignGuid": null,
+    "ForeignKey": "RecurringDonation"
+  }
+]
