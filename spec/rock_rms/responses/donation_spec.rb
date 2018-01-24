@@ -18,7 +18,7 @@ RSpec.describe RockRMS::Responses::Donation, type: :model do
         expect(r[:id]).to eq(p['Id'])
         expect(r[:date]).to eq(p['TransactionDateTime'])
         expect(r[:batch_id]).to eq(p['BatchId'])
-        expect(r[:scheduled_transaction_id]).to eq(p['ScheduledTransactionId'])
+        expect(r[:recurring_donation_id]).to eq(p['ScheduledTransactionId'])
         expect(r[:summary]).to eq(p['Summary'])
       end
     end

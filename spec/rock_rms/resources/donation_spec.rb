@@ -72,7 +72,7 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
         payment_type: 1,
         transaction_code: "asdf",
         summary: "taco tuesday",
-        scheduled_transaction_id: 1
+        recurring_donation_id: 1
       )
     }
 
