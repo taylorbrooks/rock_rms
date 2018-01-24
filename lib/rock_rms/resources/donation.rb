@@ -24,11 +24,13 @@ module RockRMS
         payment_type:,
         source_type_id: 10,
         transaction_code: nil,
-        summary: nil
+        summary: nil,
+        scheduled_transaction_id: nil
       )
 
         options = {
           'AuthorizedPersonAliasId' => authorized_person_id,
+          'ScheduledTransactionId' => scheduled_transaction_id,
           'BatchId' => batch_id,
           'FinancialPaymentDetailId' => payment_type,
           'TransactionCode' => transaction_code,
@@ -41,10 +43,13 @@ module RockRMS
         post(transaction_path, options)
       end
 
-      def update_donation(id, batch_id: nil, summary: nil)
+      def update_donation(id, batch_id: nil, summary: nil, scheduled_transaction_id: nil)
         options = {}
         if summary
           options = options.merge({'Summary' => summary})
+        end
+        if scheduled_transaction_id
+          options = options.merge({'ScheduledTransactionId' => scheduled_transaction_id})
         end
         if batch_id
           options = options.merge({'BatchId' => batch_id})
