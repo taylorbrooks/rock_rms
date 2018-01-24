@@ -41,10 +41,14 @@ module RockRMS
         post(transaction_path, options)
       end
 
-      def update_donation(id, batch_id:)
-        options = {
-          'BatchId' => batch_id
-        }
+      def update_donation(id, batch_id: nil, summary: nil)
+        options = {}
+        if summary
+          options = options.merge({'Summary' => summary})
+        end
+        if batch_id
+          options = options.merge({'BatchId' => batch_id})
+        end
         patch(transaction_path(id), options)
       end
 
