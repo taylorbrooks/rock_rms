@@ -3,17 +3,17 @@ module RockRMS
     module Donation
       def list_donations(options = {})
         res = get(transaction_path, options)
-        RockRMS::Donation.format(res)
+        RockRMS::Responses::Donation.format(res)
       end
 
       def find_donations_by_giving_id(id, raw = false)
         res = get("FinancialTransactions/GetByGivingId/#{id}?$expand=TransactionDetails")
-        raw ? res : RockRMS::Donation.format(res)
+        raw ? res : RockRMS::Responses::Donation.format(res)
       end
 
       def find_donation(id)
         res = get(transaction_path(id))
-        RockRMS::Donation.format(res)
+        RockRMS::Responses::Donation.format(res)
       end
 
       def create_donation(

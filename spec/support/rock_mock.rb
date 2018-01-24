@@ -4,8 +4,9 @@ require_relative './fixtures_helper'
 
 class RockMock < Sinatra::Base
   # DELETE requests
-  %w[
-    GroupMembers/:id
+  [
+    "FinancialTransactions/:id",
+    "GroupMembers/:id"
   ].each do |end_point|
     delete "/api/#{end_point}" do
       content_type :json
@@ -15,6 +16,8 @@ class RockMock < Sinatra::Base
 
   # GET requests
   {
+    donation:      'FinancialTransactions/:id',
+    donations:     'FinancialTransactions',
     families:      'Groups/GetFamilies/:id',
     group:         'Groups/:id',
     groups:        'Groups',
@@ -28,9 +31,21 @@ class RockMock < Sinatra::Base
     end
   end
 
+
+  # PATCH requests
+  {
+    update_donation: 'FinancialTransactions/:id'
+  }.each do |json, end_point|
+    patch "/api/#{end_point}" do
+      content_type :json
+      status 204
+    end
+  end
+
   # POST requests
   {
-    create_group_member: 'GroupMembers'
+    create_group_member: 'GroupMembers',
+    create_donation: 'FinancialTransactions'
   }.each do |json, end_point|
     post "/api/#{end_point}" do
       json_response 201, "#{json}.json"
