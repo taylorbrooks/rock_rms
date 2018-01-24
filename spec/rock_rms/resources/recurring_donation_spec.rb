@@ -49,6 +49,21 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
   end
 
   describe '#update_recurring_donation(id)' do
+    it 'queries updates the recurring donation' do
+      expect(client).to receive(:patch)
+        .with(
+          'FinancialScheduledTransactions/123',
+          'NextPaymentDate' => '2018-01-01'
+      ).and_call_original
+
+      resource = client.update_recurring_donation(
+        123,
+        next_payment_date: '2018-01-01'
+      )
+
+      expect(resource).to be_nil
+    end
+
     context 'arguments' do
       it 'require `id`' do
         expect { client.update_recurring_donation }
