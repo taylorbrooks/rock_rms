@@ -17,7 +17,7 @@ module RockRMS
           person_id: donation['AuthorizedPersonAliasId'],
           fund:   '',
           batch_id: donation['BatchId'],
-          scheduled_transaction_id: donation['ScheduledTransactionId'],
+          recurring_donation_id: donation['ScheduledTransactionId'],
           summary: donation['Summary']
         }
       end
