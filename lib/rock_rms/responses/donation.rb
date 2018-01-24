@@ -15,7 +15,8 @@ module RockRMS
         amount: donation['TransactionDetails'].reduce(0) { |sum, td| sum + td['Amount'] },
         person_id: donation['AuthorizedPersonAliasId'],
         fund:   '',
-        batch_id: donation['BatchId']
+        batch_id: donation['BatchId'],
+        summary: donation['Summary']
       }
     end
   end
