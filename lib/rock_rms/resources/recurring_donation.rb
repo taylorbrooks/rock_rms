@@ -11,6 +11,19 @@ module RockRMS
         RockRMS::Responses::RecurringDonation.format(res)
       end
 
+      def update_recurring_donation(
+        id,
+        next_payment_date: nil,
+        transaction_code: nil
+      )
+        options = {
+          'NextPaymentDate' => next_payment_date,
+          'TransactionCode' => transaction_code
+        }
+
+        patch(recurring_donation_path(id), options)
+      end
+
       private
 
       def recurring_donation_path(id = nil)

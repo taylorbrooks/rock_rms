@@ -3,8 +3,11 @@ module RockRMS
     class RecurringDonation
       MAP = {
         id: 'Id',
+        foreign_key: 'ForeignKey',
+        next_payment_date: 'NextPaymentDate',
         person_id: 'AuthorizedPersonAliasId',
-        transaction_details: 'ScheduledTransactionDetails'
+        transaction_details: 'ScheduledTransactionDetails',
+        transaction_code: 'TransactionCode'
       }.freeze
 
       def self.format(data)
