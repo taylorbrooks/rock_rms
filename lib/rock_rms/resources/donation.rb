@@ -23,7 +23,8 @@ module RockRMS
         funds:,
         payment_type:,
         source_type_id: 10,
-        transaction_code: nil
+        transaction_code: nil,
+        summary: nil
       )
 
         options = {
@@ -35,6 +36,7 @@ module RockRMS
           'TransactionDetails'  => translate_funds(funds),
           'TransactionTypeValueId' => 53,        # contribution, registration
           'SourceTypeValueId' => source_type_id, # website, kiosk, mobile app
+          'Summary' => summary,
         }
         post(transaction_path, options)
       end
