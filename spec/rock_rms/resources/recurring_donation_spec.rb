@@ -64,7 +64,7 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
       )
     end
 
-    it 'returns integer' do
+    it 'returns nil' do
       expect(resource).to be_nil
     end
   end
