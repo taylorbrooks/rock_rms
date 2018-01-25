@@ -1,0 +1,26 @@
+[
+  {
+    "ForeignGuid": null,
+    "ForeignId": null,
+    "ForeignKey": null,
+    "AttributeValues" : null,
+    "Attributes" : null,
+    "CreatedDateTime": null,
+    "ModifiedByPersonAliasId": null,
+    "ModifiedDateTime": null,
+    "AccountingSystemCode": null,
+    "Campus": null,
+    "CampusId": null,
+    "Note": null,
+    "Guid": "ce01d12e-dac1-4079-b454-ae5edbafb0df",
+    "Id": 12312345,
+    "CreatedByPersonAliasId": 1,
+    "ModifiedAuditValuesAlreadyUpdated": false,
+    "ControlAmount": 300.00,
+    "Name": "SampleData1357448400000",
+    "Status": "Closed",
+    "BatchEndDateTime": "2013-01-06T00:00:00",
+    "BatchStartDateTime": "2013-01-06T00:00:00",
+    "Transactions": []
+  }
+]
