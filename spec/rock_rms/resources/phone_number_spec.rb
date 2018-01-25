@@ -12,14 +12,13 @@ RSpec.describe RockRMS::Client::PhoneNumber, type: :model do
     end
 
     it 'queries phone numbers' do
-      expect(client).to receive(:get).with('PhoneNumbers', {})
-        .and_call_original
+      expect(client).to receive(:get).with('PhoneNumbers', {}).and_call_original
       resource
     end
 
     it 'passes options' do
       expect(client).to receive(:get)
-        .with('PhoneNumbers', { option1: '1' })
+        .with('PhoneNumbers', option1: '1')
         .and_return([])
       client.list_phone_numbers(option1: '1')
     end

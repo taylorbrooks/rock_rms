@@ -21,7 +21,7 @@ module RockRMS
       end
 
       def update_batch(id, options = {})
-        options = options.collect{|k,v| [k.to_s, v]}.to_h
+        options = options.collect { |k, v| [k.to_s, v] }.to_h
         patch(batches_path(id), options)
       end
 

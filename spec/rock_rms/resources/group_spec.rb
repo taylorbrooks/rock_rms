@@ -87,7 +87,8 @@ RSpec.describe RockRMS::Client::Group, type: :model do
     end
 
     it 'queries families scoped to person' do
-      expect(client).to receive(:get).with('Groups/GetFamilies/123', {})
+      expect(client).to receive(:get)
+        .with('Groups/GetFamilies/123', {})
         .and_call_original
       client.list_families_for_person(123)
     end

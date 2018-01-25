@@ -33,8 +33,6 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
     end
   end
 
-
-
   describe '#create_donation' do
     context 'arguments' do
       it 'require `authorized_person_id`' do
@@ -59,18 +57,18 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
 
     end
 
-    subject(:resource) {
+    subject(:resource) do
       client.create_donation(
         authorized_person_id: 1,
         batch_id: 1,
         date: 1,
-        funds: [{amount: 450,fund_id: 2}],
+        funds: [{ amount: 450, fund_id: 2 }],
         payment_type: 1,
-        transaction_code: "asdf",
-        summary: "taco tuesday",
+        transaction_code: 'asdf',
+        summary: 'taco tuesday',
         recurring_donation_id: 1
       )
-    }
+    end
 
     it 'returns integer' do
       expect(resource).to be_a(Integer)
@@ -78,34 +76,32 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:post)
-        .with('FinancialTransactions', {
-           "AuthorizedPersonAliasId"=>1,
-            "ScheduledTransactionId"=>1,
-            "BatchId"=>1,
-            "FinancialPaymentDetailId"=>1,
-            "TransactionCode"=>"asdf",
-            "TransactionDateTime"=>1,
-            "TransactionDetails"=>[{"Amount"=>450, "AccountId"=>2}],
-            "TransactionTypeValueId"=>53,
-            "SourceTypeValueId"=>10,
-            "Summary"=>"taco tuesday"
-        })
+        .with(
+          'FinancialTransactions',
+          'AuthorizedPersonAliasId' => 1,
+          'ScheduledTransactionId' => 1,
+          'BatchId' => 1,
+          'FinancialPaymentDetailId' => 1,
+          'TransactionCode' => 'asdf',
+          'TransactionDateTime' => 1,
+          'TransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2 }],
+          'TransactionTypeValueId' => 53,
+          'SourceTypeValueId' => 10,
+          'Summary' => 'taco tuesday'
+        )
         .and_call_original
       resource
     end
   end
 
-
-
-
   describe '#update_donation' do
-
-    subject(:resource) {
-      client.update_donation(123,
+    subject(:resource) do
+      client.update_donation(
+        123,
         batch_id: 1,
-        summary: "taco tuesday"
+        summary: 'taco tuesday'
       )
-    }
+    end
 
     it 'returns nothing' do
       expect(client.update_donation(123)).to eq(nil)
@@ -113,16 +109,15 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:patch)
-        .with('FinancialTransactions/123', {
-            "BatchId"=>1,
-            "Summary"=>"taco tuesday"
-        })
+        .with(
+          'FinancialTransactions/123',
+          'BatchId' => 1,
+          'Summary' => 'taco tuesday'
+        )
         .and_call_original
       resource
     end
   end
-
-
 
   describe '#delete_donation' do
     it 'returns nothing' do
@@ -134,5 +129,4 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
       client.delete_donation(123)
     end
   end
-
 end
