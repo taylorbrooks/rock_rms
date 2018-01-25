@@ -14,7 +14,6 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
 
   describe '#find_batch(id)' do
     it 'returns a hash' do
-      puts client.find_batch(123)
       expect(client.find_batch(123)).to be_a(Hash)
     end
 
