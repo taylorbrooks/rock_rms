@@ -13,7 +13,6 @@ RSpec.describe RockRMS::Responses::Donation, type: :model do
     end
 
     it 'translates keys' do
-      puts parsed
       result.zip(parsed) do |r, p|
         expect(r[:id]).to eq(p['Id'])
         expect(r[:date]).to eq(p['TransactionDateTime'])
