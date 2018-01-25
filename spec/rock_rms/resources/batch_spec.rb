@@ -3,7 +3,6 @@ require 'spec_helper'
 RSpec.describe RockRMS::Client::Batch, type: :model do
   include_context 'resource specs'
 
-
   describe '#list_batches' do
     it 'returns a array' do
       resource = client.list_batches
@@ -23,15 +22,12 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
 
       resource = client.find_batch(123)
 
-      expect(resource["Id"]).to eq(123)
+      expect(resource['Id']).to eq(123)
     end
   end
 
-
-
   describe '#create_batch' do
     context 'arguments' do
-
       it 'require `name`' do
         expect { client.create_batch }
           .to raise_error(ArgumentError, /name/)
@@ -46,17 +42,16 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
         expect { client.create_batch }
           .to raise_error(ArgumentError, /end_time/)
       end
-
     end
 
-    subject(:resource) {
+    subject(:resource) do
       client.create_batch(
-        name: "1",
-        start_time: "1",
-        end_time: "1",
+        name: '1',
+        start_time: '1',
+        end_time: '1',
         foreign_key: 1
       )
-    }
+    end
 
     it 'returns integer' do
       expect(resource).to be_a(Integer)
@@ -64,28 +59,25 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:post)
-        .with('FinancialBatches', {
-           "Name"=>"1",
-            "BatchStartDateTime"=>"1",
-            "BatchEndDateTime"=>"1",
-            "ForeignKey"=>1
-        })
-        .and_call_original
+        .with(
+          'FinancialBatches',
+          'Name' => '1',
+          'BatchStartDateTime' => '1',
+          'BatchEndDateTime' => '1',
+          'ForeignKey' => 1
+        ).and_call_original
       resource
     end
   end
 
-
-
-
   describe '#update_batch' do
-
-    subject(:resource) {
-      client.update_batch(123,{ 
-        "Name" => "1",
-        "ForeignKey": 1
-      })
-    }
+    subject(:resource) do
+      client.update_batch(
+        123,
+        'Name' => '1',
+        'ForeignKey': 1
+      )
+    end
 
     it 'returns nothing' do
       expect(client.update_batch(123)).to eq(nil)
@@ -93,16 +85,14 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:patch)
-        .with('FinancialBatches/123', {
-            "Name"=>"1",
-            "ForeignKey"=>1
-        })
-        .and_call_original
+        .with(
+          'FinancialBatches/123',
+          'Name' => '1',
+          'ForeignKey' => 1
+        ).and_call_original
       resource
     end
   end
-
-
 
   describe '#delete_batch' do
     it 'returns nothing' do
@@ -114,5 +104,4 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
       client.delete_batch(123)
     end
   end
-
 end

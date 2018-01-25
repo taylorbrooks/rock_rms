@@ -38,7 +38,7 @@ module RockRMS
           'TransactionDetails'  => translate_funds(funds),
           'TransactionTypeValueId' => 53,        # contribution, registration
           'SourceTypeValueId' => source_type_id, # website, kiosk, mobile app
-          'Summary' => summary,
+          'Summary' => summary
         }
         post(transaction_path, options)
       end
