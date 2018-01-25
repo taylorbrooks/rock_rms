@@ -9,12 +9,11 @@ RSpec.describe RockRMS::Client::Group, type: :model do
     end
 
     it 'queries groups' do
-      expect(client).to receive(:get).with('Groups/123')
-        .and_call_original
+      expect(client).to receive(:get).with('Groups/123').and_call_original
 
       resource = client.find_group(123)
 
-      expect(resource[:id]).to eq(112233)
+      expect(resource[:id]).to eq(112_233)
     end
 
     it 'formats with Group' do
@@ -33,14 +32,13 @@ RSpec.describe RockRMS::Client::Group, type: :model do
     end
 
     it 'queries groups' do
-      expect(client).to receive(:get).with('Groups', {})
-        .and_call_original
+      expect(client).to receive(:get).with('Groups', {}).and_call_original
       client.list_groups
     end
 
     it 'passes options' do
       expect(client).to receive(:get)
-        .with('Groups', { option1: '1' })
+        .with('Groups', option1: '1')
         .and_return([])
       client.list_groups(option1: '1')
     end
@@ -96,7 +94,7 @@ RSpec.describe RockRMS::Client::Group, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:get)
-        .with('Groups/GetFamilies/123', { option1: '1' })
+        .with('Groups/GetFamilies/123', option1: '1')
         .and_return([])
       client.list_families_for_person(123, option1: '1')
     end
