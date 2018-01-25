@@ -25,6 +25,10 @@ module RockRMS
         patch(batches_path(id), options)
       end
 
+      def delete_batch(id)
+        delete(batches_path(id))
+      end
+
       private
 
       def batches_path(id = nil)
