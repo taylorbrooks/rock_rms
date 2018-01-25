@@ -3,10 +3,6 @@ require 'spec_helper'
 RSpec.describe RockRMS::Client::Donation, type: :model do
   include_context 'resource specs'
 
-
-  # find_donations_by_giving_id
-  # update_donation
-
   describe '#list_donations' do
     it 'returns a array' do
       resource = client.list_donations
