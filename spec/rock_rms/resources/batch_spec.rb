@@ -105,15 +105,15 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
 
 
 
-  # describe '#delete_batch' do
-  #   it 'returns nothing' do
-  #     expect(client.delete_batch(123)).to eq(nil)
-  #   end
+  describe '#delete_batch' do
+    it 'returns nothing' do
+      expect(client.delete_batch(123)).to eq(nil)
+    end
 
-  #   it 'passes id' do
-  #     expect(client).to receive(:delete).with('FinancialBatches/123')
-  #     client.delete_batch(123)
-  #   end
-  # end
+    it 'passes id' do
+      expect(client).to receive(:delete).with('FinancialBatches/123')
+      client.delete_batch(123)
+    end
+  end
 
 end
