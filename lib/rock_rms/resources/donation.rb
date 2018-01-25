@@ -45,15 +45,11 @@ module RockRMS
 
       def update_donation(id, batch_id: nil, summary: nil, recurring_donation_id: nil)
         options = {}
-        if summary
-          options = options.merge({'Summary' => summary})
-        end
-        if recurring_donation_id
-          options = options.merge({'ScheduledTransactionId' => recurring_donation_id})
-        end
-        if batch_id
-          options = options.merge({'BatchId' => batch_id})
-        end
+
+        options['Summary'] = summary  if summary
+        options['BatchId'] = batch_id if batch_id
+        options['ScheduledTransactionId'] = recurring_donation_id if recurring_donation_id
+
         patch(transaction_path(id), options)
       end
 
