@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift(File.join(__FILE__, "..", "..", "lib"))
+$LOAD_PATH.unshift(File.join(__FILE__, '..', '..', 'lib'))
 
 SPEC_DIR = File.dirname(__FILE__)
 FIXTURES_DIR = File.join(SPEC_DIR, 'support', 'fixtures')

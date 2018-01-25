@@ -7,13 +7,11 @@ module RockRMS
                               person_id:)
         post(
           group_member_path,
-          {
-            IsSystem: false,
-            GroupId: group_id,
-            GroupMemberStatus: group_member_status,
-            GroupRoleId: group_role_id,
-            PersonId: person_id
-          }
+          IsSystem: false,
+          GroupId: group_id,
+          GroupMemberStatus: group_member_status,
+          GroupRoleId: group_role_id,
+          PersonId: person_id
         )
       end
 
@@ -29,4 +27,3 @@ module RockRMS
     end
   end
 end
-

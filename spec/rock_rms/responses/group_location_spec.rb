@@ -27,9 +27,9 @@ RSpec.describe RockRMS::Responses::GroupLocation, type: :model do
         parsed.first['Location'] = location
         expect(RockRMS::Responses::Location).to receive(:format)
           .with(location)
-          .and_return({ some_key: :value })
+          .and_return(some_key: :value)
         result
-        expect(result.first[:location]).to eq({ some_key: :value })
+        expect(result.first[:location]).to eq(some_key: :value)
       end
     end
   end

@@ -2,14 +2,14 @@ require 'spec_helper'
 require 'rack/utils'
 
 RSpec.describe RockRMS::Error do
-  let(:client) {
+  let(:client) do
     RockRMS::Client.new(
       url: 'http://some-rock-uri.com',
       username: 'test',
       password: 'test',
       logger: false
     )
-  }
+  end
 
   CODES = Rack::Utils::HTTP_STATUS_CODES.keys.freeze
 

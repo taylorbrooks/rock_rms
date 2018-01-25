@@ -31,7 +31,7 @@ RSpec.describe RockRMS::Client::GroupMember, type: :model do
         group_id: 123,
         group_member_status: 1,
         group_role_id: 456,
-        person_id: 123456
+        person_id: 123_456
       )
     end
 
@@ -41,14 +41,14 @@ RSpec.describe RockRMS::Client::GroupMember, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:post)
-        .with('GroupMembers', {
+        .with(
+          'GroupMembers',
           IsSystem: false,
           GroupId: 123,
           GroupMemberStatus: 1,
           GroupRoleId: 456,
-          PersonId: 123456
-        })
-        .and_call_original
+          PersonId: 123_456
+        ).and_call_original
       resource
     end
   end

@@ -16,10 +16,8 @@ module RockRMS
         end
       end
 
-      private
-
       def self.format_single(data)
-        result = MAP.each.with_object({}) do |(l,r), object|
+        result = MAP.each.with_object({}) do |(l, r), object|
           object[l] = data[r]
         end
 
