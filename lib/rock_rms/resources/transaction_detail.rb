@@ -2,16 +2,18 @@ module RockRMS
   class Client
     module TransactionDetail
       def list_transaction_details(options = {})
-        get(transaction_detail_path, options)
+        res = get(transaction_detail_path, options)
+        RockRMS::Responses::TransactionDetail.format(res)
       end
 
       def find_transaction_detail(id)
-        get(transaction_detail_path(id))
+        res = get(transaction_detail_path(id))
+        RockRMS::Responses::TransactionDetail.format(res)
       end
 
-      def update_transaction_detail(id, account_id:)
+      def update_transaction_detail(id, fund_id:)
         options = {
-          'AccountId' => account_id
+          'AccountId' => fund_id
         }
         patch(transaction_detail_path(id), options)
       end

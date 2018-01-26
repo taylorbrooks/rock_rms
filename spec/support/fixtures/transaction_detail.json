@@ -1,0 +1,23 @@
+{
+  "TransactionId": 1422,
+  "AccountId": 23,
+  "IsNonCash": false,
+  "Amount": 100.00,
+  "Summary": null,
+  "EntityTypeId": null,
+  "EntityId": null,
+  "Account": null,
+  "EntityType": null,
+  "CreatedDateTime": "2018-01-25T02:00:14.973",
+  "ModifiedDateTime": "2018-01-25T02:00:14.973",
+  "CreatedByPersonAliasId": null,
+  "ModifiedByPersonAliasId": null,
+  "ModifiedAuditValuesAlreadyUpdated": false,
+  "Attributes": null,
+  "AttributeValues": null,
+  "Id": 345,
+  "Guid": "a3bdcc01-5476-4e08-8245-dec2630c9471",
+  "ForeignId": null,
+  "ForeignGuid": null,
+  "ForeignKey": null
+}

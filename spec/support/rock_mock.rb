@@ -26,8 +26,10 @@ class RockMock < Sinatra::Base
     groups:        'Groups',
     people_search: 'People/Search',
     phone_numbers: 'PhoneNumbers',
-    recurring_donation: 'FinancialScheduledTransactions/:id',
-    recurring_donations: 'FinancialScheduledTransactions'
+    recurring_donation:  'FinancialScheduledTransactions/:id',
+    recurring_donations: 'FinancialScheduledTransactions',
+    transaction_detail:  'FinancialTransactionDetails/:id',
+    transaction_details: 'FinancialTransactionDetails'
   }.each do |json, end_point|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"
@@ -49,7 +51,8 @@ class RockMock < Sinatra::Base
   [
     'FinancialBatches/:id',
     'FinancialScheduledTransactions/:id',
-    'FinancialTransactions/:id'
+    'FinancialTransactions/:id',
+    'FinancialTransactionDetails/:id'
   ].each do |end_point|
     patch "/api/#{end_point}" do
       content_type :json
@@ -60,12 +63,12 @@ class RockMock < Sinatra::Base
   post '/api/Auth/Login' do
     content_type :json
 
-    response['Cache-Control'] = 'no-cache'
+    response['Cache-Control']          = 'no-cache'
     response['Content-Secuity-Policy'] = "frame-ancestors 'self'"
-    response['Date'] = Time.now.httpdate
-    response['Expires'] = '-1'
-    response['Pragma'] = 'no-cache'
-    response['Set-Cookie'] = [
+    response['Date']                   = Time.now.httpdate
+    response['Expires']                = '-1'
+    response['Pragma']                 = 'no-cache'
+    response['Set-Cookie']             = [
       ".ROCK=#{SecureRandom.hex(100)}",
       "expires=#{(Time.now + 14).httpdate}",
       'path=/',

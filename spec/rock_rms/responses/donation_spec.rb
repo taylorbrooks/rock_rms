@@ -19,6 +19,11 @@ RSpec.describe RockRMS::Responses::Donation, type: :model do
         expect(r[:batch_id]).to eq(p['BatchId'])
         expect(r[:recurring_donation_id]).to eq(p['ScheduledTransactionId'])
         expect(r[:summary]).to eq(p['Summary'])
+        expect(r[:transaction_code]).to eq(p['TransactionCode'])
+        expect(r[:details]).to eq(
+          RockRMS::Responses::TransactionDetail.format(p['TransactionDetails'])
+        )
+        expect(r[:amount]).to eq(100.00)
       end
     end
   end
