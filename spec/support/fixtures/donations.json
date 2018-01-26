@@ -33,7 +33,11 @@
         "TransactionCode": 1239,
         "TransactionDateTime": "2013-01-06T00:00:00",
         "TransactionTypeValue": null,
-        "TransactionDetails": [],
+        "TransactionDetails": [{
+          "Id": 345,
+          "AccountId": 23,
+          "Amount": 100.00
+        }],
         "TransactionTypeValueId": 53
     }
 ]
