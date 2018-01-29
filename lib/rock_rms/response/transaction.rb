@@ -9,7 +9,9 @@ module RockRMS
         recurring_donation_id: 'ScheduledTransactionId',
         summary: 'Summary',
         transaction_code: 'TransactionCode',
-        details: 'TransactionDetails'
+        details: 'TransactionDetails',
+        payment_detail_id: 'FinancialPaymentDetailId',
+        transaction_type_id: 'TransactionTypeValueId'
       }.freeze
 
 

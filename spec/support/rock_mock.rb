@@ -40,7 +40,8 @@ class RockMock < Sinatra::Base
   {
     create_group_member: 'GroupMembers',
     create_transaction: 'FinancialTransactions',
-    create_batch: 'FinancialBatches'
+    create_batch: 'FinancialBatches',
+    create_refund: 'FinancialTransactionRefunds'
   }.each do |json, end_point|
     post "/api/#{end_point}" do
       json_response 201, "#{json}.json"
