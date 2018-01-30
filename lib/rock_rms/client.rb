@@ -3,12 +3,11 @@ require 'faraday_middleware'
 require 'faraday_middleware/parse_oj'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each { |f| require f }
-Dir[File.expand_path('../responses/*.rb', __FILE__)].each { |f| require f }
+Dir[File.expand_path('../response/*.rb', __FILE__)].each { |f| require f }
 
 module RockRMS
   class Client
     include RockRMS::Client::Batch
-    include RockRMS::Client::Donation
     include RockRMS::Client::Fund
     include RockRMS::Client::Group
     include RockRMS::Client::GroupMember
@@ -16,6 +15,7 @@ module RockRMS
     include RockRMS::Client::Person
     include RockRMS::Client::PhoneNumber
     include RockRMS::Client::RecurringDonation
+    include RockRMS::Client::Transaction
     include RockRMS::Client::TransactionDetail
 
     attr_reader :url, :username, :password, :logger, :cookie, :connection

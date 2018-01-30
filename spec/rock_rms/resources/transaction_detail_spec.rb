@@ -27,7 +27,7 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
 
     it 'formats with TransactionDetail' do
       response = double
-      expect(RockRMS::Responses::TransactionDetail).to receive(:format).with(response)
+      expect(RockRMS::Response::TransactionDetail).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
       client.find_transaction_detail(123)
     end

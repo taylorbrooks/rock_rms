@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Responses::RecurringDonation, type: :model do
+RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
   let(:parsed) { JSON.parse(FixturesHelper.read('recurring_donations.json')) }
 
   describe '.format' do
@@ -19,7 +19,7 @@ RSpec.describe RockRMS::Responses::RecurringDonation, type: :model do
         expect(r[:next_payment_date]).to eq(p['NextPaymentDate'])
         expect(r[:person_id]).to eq(p['AuthorizedPersonAliasId'])
         expect(r[:transaction_details]).to eq(
-          RockRMS::Responses::RecurringDonationDetails.format(p['ScheduledTransactionDetails'])
+          RockRMS::Response::RecurringDonationDetails.format(p['ScheduledTransactionDetails'])
         )
         expect(r[:transaction_code]).to eq(p['TransactionCode'])
       end

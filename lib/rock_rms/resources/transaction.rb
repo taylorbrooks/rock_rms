@@ -1,22 +1,24 @@
 module RockRMS
   class Client
-    module Donation
-      def list_donations(options = {})
+    module Transaction
+      PATH = 'FinancialTransactions'.freeze
+
+      def list_transactions(options = {})
         res = get(transaction_path, options)
-        RockRMS::Responses::Donation.format(res)
+        Response::Transaction.format(res)
       end
 
       def find_donations_by_giving_id(id, raw = false)
-        res = get("FinancialTransactions/GetByGivingId/#{id}?$expand=TransactionDetails")
-        raw ? res : RockRMS::Responses::Donation.format(res)
+        res = get("#{PATH}/GetByGivingId/#{id}?$expand=TransactionDetails")
+        raw ? res : Response::Transaction.format(res)
       end
 
-      def find_donation(id)
+      def find_transaction(id)
         res = get(transaction_path(id))
-        RockRMS::Responses::Donation.format(res)
+        Response::Transaction.format(res)
       end
 
-      def create_donation(
+      def create_transaction(
         authorized_person_id:,
         batch_id:,
         date:,
@@ -43,7 +45,7 @@ module RockRMS
         post(transaction_path, options)
       end
 
-      def update_donation(id, batch_id: nil, summary: nil, recurring_donation_id: nil)
+      def update_transaction(id, batch_id: nil, summary: nil, recurring_donation_id: nil)
         options = {}
 
         options['Summary'] = summary  if summary
@@ -53,7 +55,7 @@ module RockRMS
         patch(transaction_path(id), options)
       end
 
-      def delete_donation(id)
+      def delete_transaction(id)
         delete(transaction_path(id))
       end
 
@@ -69,7 +71,7 @@ module RockRMS
       end
 
       def transaction_path(id = nil)
-        id ? "FinancialTransactions/#{id}" : 'FinancialTransactions'
+        id ? "#{PATH}/#{id}" : PATH
       end
     end
   end

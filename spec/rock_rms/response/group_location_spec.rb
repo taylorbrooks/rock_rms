@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Responses::GroupLocation, type: :model do
+RSpec.describe RockRMS::Response::GroupLocation, type: :model do
   let(:parsed) { JSON.parse(FixturesHelper.read('group_locations.json')) }
 
   describe '.format' do
@@ -25,7 +25,7 @@ RSpec.describe RockRMS::Responses::GroupLocation, type: :model do
       it 'formats with Location' do
         location = double
         parsed.first['Location'] = location
-        expect(RockRMS::Responses::Location).to receive(:format)
+        expect(RockRMS::Response::Location).to receive(:format)
           .with(location)
           .and_return(some_key: :value)
         result

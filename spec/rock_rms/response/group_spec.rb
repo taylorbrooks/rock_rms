@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Responses::Group, type: :model do
+RSpec.describe RockRMS::Response::Group, type: :model do
   let(:parsed) { JSON.parse(FixturesHelper.read('groups_with_members.json')) }
 
   describe '.format' do
@@ -29,7 +29,7 @@ RSpec.describe RockRMS::Responses::Group, type: :model do
       let(:parsed) { JSON.parse(FixturesHelper.read('groups_with_locations.json')) }
 
       it 'formats with GroupLocations' do
-        expect(RockRMS::Responses::GroupLocation).to receive(:format)
+        expect(RockRMS::Response::GroupLocation).to receive(:format)
           .with(parsed.first['GroupLocations'])
           .and_return([{ some_key: :value }])
         result
@@ -41,7 +41,7 @@ RSpec.describe RockRMS::Responses::Group, type: :model do
       let(:parsed) { JSON.parse(FixturesHelper.read('groups_with_campus.json')) }
 
       it 'formats with Campus' do
-        expect(RockRMS::Responses::Campus).to receive(:format)
+        expect(RockRMS::Response::Campus).to receive(:format)
           .with(parsed.first['Campus'])
           .and_return([{ some_key: :value }])
         result

@@ -19,7 +19,7 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
 
     it 'formats with RecurringDonation' do
       response = double
-      expect(RockRMS::Responses::RecurringDonation).to receive(:format).with(response)
+      expect(RockRMS::Response::RecurringDonation).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
       client.list_recurring_donations
     end
@@ -42,7 +42,7 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
 
     it 'formats with RecurringDonation' do
       response = double
-      expect(RockRMS::Responses::RecurringDonation).to receive(:format).with(response)
+      expect(RockRMS::Response::RecurringDonation).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
       client.find_recurring_donation(12_345)
     end

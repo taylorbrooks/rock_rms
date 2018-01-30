@@ -18,7 +18,7 @@ RSpec.describe RockRMS::Client::Group, type: :model do
 
     it 'formats with Group' do
       response = double
-      expect(RockRMS::Responses::Group).to receive(:format).with(response)
+      expect(RockRMS::Response::Group).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
       client.find_group(123)
     end
@@ -45,7 +45,7 @@ RSpec.describe RockRMS::Client::Group, type: :model do
 
     it 'formats with Group' do
       response = double
-      expect(RockRMS::Responses::Group).to receive(:format).with(response)
+      expect(RockRMS::Response::Group).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
       client.list_groups
     end
@@ -103,7 +103,7 @@ RSpec.describe RockRMS::Client::Group, type: :model do
     it 'formats with Group' do
       response = double
       allow(client).to receive(:get).and_return(response)
-      expect(RockRMS::Responses::Group).to receive(:format).with(response)
+      expect(RockRMS::Response::Group).to receive(:format).with(response)
       client.list_families_for_person(123)
     end
   end

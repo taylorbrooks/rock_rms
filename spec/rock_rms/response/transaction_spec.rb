@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Responses::Donation, type: :model do
-  let(:parsed) { JSON.parse(FixturesHelper.read('donations.json')) }
+RSpec.describe RockRMS::Response::Transaction, type: :model do
+  let(:parsed) { JSON.parse(FixturesHelper.read('transactions.json')) }
 
   describe '.format' do
     subject(:result) { described_class.format(parsed) }
@@ -21,7 +21,7 @@ RSpec.describe RockRMS::Responses::Donation, type: :model do
         expect(r[:summary]).to eq(p['Summary'])
         expect(r[:transaction_code]).to eq(p['TransactionCode'])
         expect(r[:details]).to eq(
-          RockRMS::Responses::TransactionDetail.format(p['TransactionDetails'])
+          RockRMS::Response::TransactionDetail.format(p['TransactionDetails'])
         )
         expect(r[:amount]).to eq(100.00)
       end
