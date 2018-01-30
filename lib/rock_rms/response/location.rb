@@ -1,6 +1,6 @@
 module RockRMS
-  module Responses
-    class Location
+  module Response
+    class Location < Base
       MAP = {
         id: 'Id',
         name: 'Name',
@@ -17,18 +17,8 @@ module RockRMS
         guid: 'Guid'
       }.freeze
 
-      def self.format(data)
-        if data.is_a?(Array)
-          data.map { |object| format_single(object) }
-        else
-          format_single(data)
-        end
-      end
-
-      def self.format_single(data)
-        MAP.each.with_object({}) do |(l, r), object|
-          object[l] = data[r]
-        end
+      def format_single(data)
+        to_h(MAP, data)
       end
     end
   end

@@ -42,7 +42,7 @@ RSpec.describe RockRMS::Client::Person, type: :model do
 
     it 'formats with Person' do
       response = double
-      expect(RockRMS::Responses::Person).to receive(:format).with(response)
+      expect(RockRMS::Response::Person).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
       client.find_person_by_name('Some Name')
     end

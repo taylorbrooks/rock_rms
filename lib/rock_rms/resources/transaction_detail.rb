@@ -3,12 +3,12 @@ module RockRMS
     module TransactionDetail
       def list_transaction_details(options = {})
         res = get(transaction_detail_path, options)
-        RockRMS::Responses::TransactionDetail.format(res)
+        Response::TransactionDetail.format(res)
       end
 
       def find_transaction_detail(id)
         res = get(transaction_detail_path(id))
-        RockRMS::Responses::TransactionDetail.format(res)
+        Response::TransactionDetail.format(res)
       end
 
       def update_transaction_detail(id, fund_id:)

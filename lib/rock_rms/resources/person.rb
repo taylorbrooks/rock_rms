@@ -3,17 +3,17 @@ module RockRMS
     module Person
       def list_people(options = {})
         res = get(people_path, options)
-        RockRMS::Responses::Person.format(res)
+        Response::Person.format(res)
       end
 
       def find_person(id)
         res = get(people_path(id))
-        RockRMS::Responses::Person.format(res)
+        Response::Person.format(res)
       end
 
       def find_person_by_email(email)
         res = get("People/GetByEmail/#{email}")
-        RockRMS::Responses::Person.format(res)
+        Response::Person.format(res)
       end
 
       NAME_SEARCH_DEFAULTS = {
@@ -26,7 +26,7 @@ module RockRMS
       def find_person_by_name(full_name, options = {})
         priority = options.merge(name: full_name)
 
-        RockRMS::Responses::Person.format(
+        Response::Person.format(
           get('People/Search', NAME_SEARCH_DEFAULTS.merge(priority))
         )
       end

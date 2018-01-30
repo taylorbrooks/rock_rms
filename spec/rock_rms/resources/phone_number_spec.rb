@@ -25,7 +25,7 @@ RSpec.describe RockRMS::Client::PhoneNumber, type: :model do
 
     it 'formats with PhoneNumber' do
       response = double
-      expect(RockRMS::Responses::PhoneNumber).to receive(:format).with(response)
+      expect(RockRMS::Response::PhoneNumber).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
       resource
     end

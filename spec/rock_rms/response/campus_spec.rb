@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Responses::Campus, type: :model do
+RSpec.describe RockRMS::Response::Campus, type: :model do
   let(:parsed) { JSON.parse(FixturesHelper.read('campuses.json')) }
 
   describe '.format' do

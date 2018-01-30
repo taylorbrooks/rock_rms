@@ -19,8 +19,8 @@ class RockMock < Sinatra::Base
   {
     batch:         'FinancialBatches/:id',
     batches:       'FinancialBatches',
-    donation:      'FinancialTransactions/:id',
-    donations:     'FinancialTransactions',
+    transaction:   'FinancialTransactions/:id',
+    transactions:  'FinancialTransactions',
     families:      'Groups/GetFamilies/:id',
     group:         'Groups/:id',
     groups:        'Groups',
@@ -39,7 +39,7 @@ class RockMock < Sinatra::Base
   # POST requests
   {
     create_group_member: 'GroupMembers',
-    create_donation: 'FinancialTransactions',
+    create_transaction: 'FinancialTransactions',
     create_batch: 'FinancialBatches'
   }.each do |json, end_point|
     post "/api/#{end_point}" do

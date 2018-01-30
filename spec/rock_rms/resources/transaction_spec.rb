@@ -1,64 +1,64 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Client::Donation, type: :model do
+RSpec.describe RockRMS::Client::Transaction, type: :model do
   include_context 'resource specs'
 
-  describe '#list_donations' do
+  describe '#list_transactions' do
     it 'returns a array' do
-      resource = client.list_donations
+      resource = client.list_transactions
       expect(resource).to be_a(Array)
       expect(resource.first).to be_a(Hash)
     end
   end
 
-  describe '#find_donation(id)' do
+  describe '#find_transaction(id)' do
     it 'returns a hash' do
-      expect(client.find_donation(123)).to be_a(Hash)
+      expect(client.find_transaction(123)).to be_a(Hash)
     end
 
     it 'queries groups' do
       expect(client).to receive(:get).with('FinancialTransactions/123')
         .and_call_original
 
-      resource = client.find_donation(123)
+      resource = client.find_transaction(123)
 
       expect(resource[:id]).to eq(1422)
     end
 
-    it 'formats with Donation' do
+    it 'formats with Transaction' do
       response = double
-      expect(RockRMS::Responses::Donation).to receive(:format).with(response)
+      expect(RockRMS::Response::Transaction).to receive(:format).with(response)
       allow(client).to receive(:get).and_return(response)
-      client.find_donation(123)
+      client.find_transaction(123)
     end
   end
 
-  describe '#create_donation' do
+  describe '#create_transaction' do
     context 'arguments' do
       it 'require `authorized_person_id`' do
-        expect { client.create_donation }
+        expect { client.create_transaction }
           .to raise_error(ArgumentError, /authorized_person_id/)
       end
 
       it 'require `batch_id`' do
-        expect { client.create_donation }
+        expect { client.create_transaction }
           .to raise_error(ArgumentError, /batch_id/)
       end
 
       it 'require `date`' do
-        expect { client.create_donation }
+        expect { client.create_transaction }
           .to raise_error(ArgumentError, /date/)
       end
 
       it 'require `funds`' do
-        expect { client.create_donation }
+        expect { client.create_transaction }
           .to raise_error(ArgumentError, /funds/)
       end
 
     end
 
     subject(:resource) do
-      client.create_donation(
+      client.create_transaction(
         authorized_person_id: 1,
         batch_id: 1,
         date: 1,
@@ -94,9 +94,9 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
     end
   end
 
-  describe '#update_donation' do
+  describe '#update_transaction' do
     subject(:resource) do
-      client.update_donation(
+      client.update_transaction(
         123,
         batch_id: 1,
         summary: 'taco tuesday'
@@ -104,7 +104,7 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
     end
 
     it 'returns nothing' do
-      expect(client.update_donation(123)).to eq(nil)
+      expect(client.update_transaction(123)).to eq(nil)
     end
 
     it 'passes options' do
@@ -119,14 +119,14 @@ RSpec.describe RockRMS::Client::Donation, type: :model do
     end
   end
 
-  describe '#delete_donation' do
+  describe '#delete_transaction' do
     it 'returns nothing' do
-      expect(client.delete_donation(123)).to eq(nil)
+      expect(client.delete_transaction(123)).to eq(nil)
     end
 
     it 'passes id' do
       expect(client).to receive(:delete).with('FinancialTransactions/123')
-      client.delete_donation(123)
+      client.delete_transaction(123)
     end
   end
 end

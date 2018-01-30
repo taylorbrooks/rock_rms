@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Responses::PhoneNumber, type: :model do
+RSpec.describe RockRMS::Response::PhoneNumber, type: :model do
   let(:parsed) { JSON.parse(FixturesHelper.read('phone_numbers.json')) }
 
   describe '.format' do
