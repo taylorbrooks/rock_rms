@@ -2,11 +2,13 @@ module RockRMS
   class Client
     module Batch
       def list_batches(options = {})
-        get(batches_path, options)
+        res = get(batches_path, options)
+        Response::Batch.format(res)
       end
 
       def find_batch(id)
-        get(batches_path(id))
+        res = get(batches_path(id))
+        Response::Batch.format(res)
       end
 
       def create_batch(name:, start_time:, end_time:, foreign_key: nil)
