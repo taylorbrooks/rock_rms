@@ -22,7 +22,14 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
 
       resource = client.find_batch(123)
 
-      expect(resource['Id']).to eq(123)
+      expect(resource[:id]).to eq(123)
+    end
+
+    it 'formats with Batch' do
+      response = double
+      expect(RockRMS::Response::Batch).to receive(:format).with(response)
+      allow(client).to receive(:get).and_return(response)
+      client.find_batch(123)
     end
   end
 
