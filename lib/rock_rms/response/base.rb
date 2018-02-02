@@ -20,6 +20,7 @@ module RockRMS
       end
 
       def to_h(dict, data)
+        return {} if data.nil?
         dict.each_with_object({}) do |(l, r), object|
           object[l] = data[r]
         end
