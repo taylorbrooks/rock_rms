@@ -3,6 +3,7 @@ require 'faraday_middleware'
 require 'faraday_middleware/parse_oj'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each { |f| require f }
+require File.expand_path('../response/base.rb', __FILE__)
 Dir[File.expand_path('../response/*.rb', __FILE__)].each { |f| require f }
 
 module RockRMS
