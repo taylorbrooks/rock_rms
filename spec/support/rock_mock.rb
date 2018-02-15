@@ -25,6 +25,7 @@ class RockMock < Sinatra::Base
     group:         'Groups/:id',
     groups:        'Groups',
     people_search: 'People/Search',
+    person_by_alias: 'People/GetByPersonAliasId/:id',
     phone_numbers: 'PhoneNumbers',
     recurring_donation:  'FinancialScheduledTransactions/:id',
     recurring_donations: 'FinancialScheduledTransactions',

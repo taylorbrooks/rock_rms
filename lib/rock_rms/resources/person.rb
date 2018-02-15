@@ -11,6 +11,10 @@ module RockRMS
         Response::Person.format(res)
       end
 
+      def find_person_by_alias_id(id)
+        Response::Person.format(get("People/GetByPersonAliasId/#{id}"))
+      end
+
       def find_person_by_email(email)
         res = get("People/GetByEmail/#{email}")
         Response::Person.format(res)
