@@ -3,6 +3,27 @@ require 'spec_helper'
 RSpec.describe RockRMS::Client::Person, type: :model do
   include_context 'resource specs'
 
+  describe '#find_person_by_alias_id(id)' do
+    it 'returns a Hash' do
+      resource = client.find_person_by_alias_id(1234)
+      expect(resource).to be_a(Hash)
+    end
+
+    it 'queries for person with alias id' do
+      expect(client).to receive(:get)
+        .with('People/GetByPersonAliasId/1234')
+        .and_call_original
+      client.find_person_by_alias_id(1234)
+    end
+
+    it 'formats with Person' do
+      response = double
+      expect(RockRMS::Response::Person).to receive(:format).with(response)
+      allow(client).to receive(:get).and_return(response)
+      client.find_person_by_alias_id(1234)
+    end
+  end
+
   describe '#find_person_by_name(full_name)' do
     it 'returns a array of hashes' do
       resource = client.find_person_by_name('Some Name')
