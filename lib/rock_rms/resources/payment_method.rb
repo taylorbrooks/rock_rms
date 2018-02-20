@@ -3,7 +3,7 @@ module RockRMS
     module PaymentMethod
       def list_payment_methods(options = {})
         res = get(payment_method_path, options)
-        RockRMS::PaymentMethod.format(res)
+        Response::PaymentMethod.format(res)
       end
 
       def create_payment_method(payment_type:, foreign_key: nil)

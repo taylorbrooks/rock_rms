@@ -24,6 +24,7 @@ class RockMock < Sinatra::Base
     families:      'Groups/GetFamilies/:id',
     group:         'Groups/:id',
     groups:        'Groups',
+    payment_methods: 'FinancialPaymentDetails',
     people_search: 'People/Search',
     person_by_alias: 'People/GetByPersonAliasId/:id',
     phone_numbers: 'PhoneNumbers',
@@ -41,6 +42,7 @@ class RockMock < Sinatra::Base
   {
     create_group_member: 'GroupMembers',
     create_transaction: 'FinancialTransactions',
+    create_payment_method: 'FinancialPaymentDetails',
     create_batch: 'FinancialBatches',
     create_refund: 'FinancialTransactionRefunds'
   }.each do |json, end_point|
