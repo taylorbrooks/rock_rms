@@ -10,15 +10,17 @@ module RockRMS
         summary: 'Summary',
         transaction_code: 'TransactionCode',
         details: 'TransactionDetails',
+        payment_details: 'FinancialPaymentDetail',
         payment_detail_id: 'FinancialPaymentDetailId',
         transaction_type_id: 'TransactionTypeValueId'
       }.freeze
 
 
       def format_single(data)
-        response           = to_h(MAP, data)
-        response[:details] = TransactionDetail.format(response[:details])
-        response[:amount]  = calculate_total(response[:details])
+        response                   = to_h(MAP, data)
+        response[:details]         = TransactionDetail.format(response[:details])
+        response[:payment_details] = PaymentMethod.format(response[:payment_details])
+        response[:amount]          = calculate_total(response[:details])
         response
       end
 

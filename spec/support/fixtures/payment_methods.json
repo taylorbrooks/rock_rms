@@ -1,0 +1,29 @@
+[
+  {
+    "AccountNumberMasked": "************1111",
+    "CurrencyTypeValueId": 156,
+    "CreditCardTypeValueId": 7,
+    "NameOnCardEncrypted": "EAAAAIZOotKRjRcqVcy3zbJRy095Kr33m7CyddIM4y2HIsSX",
+    "ExpirationMonthEncrypted": "EAAAAP3V+qVlIG+A+1WHGwfYg9uN2mRZVXQWpTODxG/6LeJV",
+    "ExpirationYearEncrypted": "EAAAAO8zsLLFj7ObDUBd7EeSUOIORulOs8xXv4Plsrsl5L9F",
+    "BillingLocationId": 14,
+    "NameOnCard": "Elvis Presley",
+    "ExpirationMonth": 1,
+    "ExpirationYear": 2018,
+    "CurrencyTypeValue": null,
+    "CreditCardTypeValue": null,
+    "BillingLocation": null,
+    "CreatedDateTime": "2017-12-19T14:48:02.553",
+    "ModifiedDateTime": "2017-12-19T14:48:02.553",
+    "CreatedByPersonAliasId": 12,
+    "ModifiedByPersonAliasId": 12,
+    "ModifiedAuditValuesAlreadyUpdated": false,
+    "Attributes": null,
+    "AttributeValues": null,
+    "Id": 1,
+    "Guid": "3685e8d5-052e-458d-ba9c-62328b7c3853",
+    "ForeignId": null,
+    "ForeignGuid": null,
+    "ForeignKey": null
+  }
+]
