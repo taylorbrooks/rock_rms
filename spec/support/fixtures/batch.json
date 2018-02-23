@@ -9,7 +9,7 @@
   "ModifiedDateTime": null,
   "AccountingSystemCode": null,
   "Campus": null,
-  "CampusId": null,
+  "CampusId": 1,
   "Note": null,
   "Guid": "ce01d12e-dac1-4079-b454-ae5edbafb0df",
   "Id": 123,

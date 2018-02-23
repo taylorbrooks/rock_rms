@@ -56,6 +56,7 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
         name: '1',
         start_time: '1',
         end_time: '1',
+        campus_id: 1,
         foreign_key: 1
       )
     end
@@ -69,6 +70,7 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
         .with(
           'FinancialBatches',
           'Name' => '1',
+          'CampusId' => 1,
           'BatchStartDateTime' => '1',
           'BatchEndDateTime' => '1',
           'ForeignKey' => 1
