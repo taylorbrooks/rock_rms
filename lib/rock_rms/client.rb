@@ -11,6 +11,7 @@ module RockRMS
   class Client
     include RockRMS::Client::Batch
     include RockRMS::Client::Fund
+    include RockRMS::Client::Campus
     include RockRMS::Client::Group
     include RockRMS::Client::GroupMember
     include RockRMS::Client::PaymentMethod

@@ -1,0 +1,21 @@
+{
+  "IsSystem": false,
+  "Name": "Campus Name",
+  "Description": "A campus description here.",
+  "IsActive": true,
+  "ShortCode": "CampusName",
+  "Url": "http://some-url.com",
+  "LocationId": 12,
+  "PhoneNumber": "1234567890",
+  "LeaderPersonAliasId": null,
+  "ServiceTimes": "Service Times Here",
+  "CreatedDateTime": null,
+  "ModifiedDateTime": "2017-07-26T14:41:58.103",
+  "CreatedByPersonAliasId": null,
+  "ModifiedByPersonAliasId": 12,
+  "Id": 1,
+  "Guid": "76882ae3",
+  "ForeignId": 1,
+  "ForeignGuid": null,
+  "ForeignKey": null
+}
