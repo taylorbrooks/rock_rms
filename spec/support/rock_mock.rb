@@ -19,6 +19,7 @@ class RockMock < Sinatra::Base
   {
     batch:         'FinancialBatches/:id',
     batches:       'FinancialBatches',
+    campus:        'Campuses/:id',
     transaction:   'FinancialTransactions/:id',
     transactions:  'FinancialTransactions',
     families:      'Groups/GetFamilies/:id',

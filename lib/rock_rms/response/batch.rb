@@ -5,13 +5,20 @@ module RockRMS
         id: 'Id',
         name: 'Name',
         control_amount: 'ControlAmount',
-        transactions: 'Transactions'
+        transactions: 'Transactions',
+        start_date: 'BatchStartDateTime',
+        end_date: 'BatchEndDateTime',
+        campus_id: 'CampusId',
+        is_campus: 'Campus',
+        status: 'Status',
       }.freeze
 
       def format_single(data)
         response = to_h(MAP, data)
         response[:transactions] = Transaction.format(response[:transactions])
         response[:amount]       = calculate_total(response[:transactions])
+        response[:start_date]   = DateTime.parse(response[:start_date])
+        response[:end_date]     = DateTime.parse(response[:end_date])
         response
       end
 
