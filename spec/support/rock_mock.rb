@@ -24,6 +24,7 @@ class RockMock < Sinatra::Base
     campus:        'Campuses/:id',
     transaction:   'FinancialTransactions/:id',
     transactions:  'FinancialTransactions',
+    defined_values:'DefinedValues',
     families:      'Groups/GetFamilies/:id',
     gateways:      'FinancialGateways',
     group:         'Groups/:id',
@@ -49,7 +50,8 @@ class RockMock < Sinatra::Base
     create_transaction: 'FinancialTransactions',
     create_payment_method: 'FinancialPaymentDetails',
     create_batch: 'FinancialBatches',
-    create_refund: 'FinancialTransactionRefunds'
+    create_refund: 'FinancialTransactionRefunds',
+    create_refund_reason: 'DefinedValues'
   }.each do |json, end_point|
     post "/api/#{end_point}" do
       json_response 201, "#{json}.json"

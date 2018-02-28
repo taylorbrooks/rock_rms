@@ -1,0 +1,13 @@
+[
+
+    {
+        "Guid": "36cf10d6-c695-413d-8e7c-4546efef385e",
+        "Id": 1,
+        "DefinedTypeId": 1,
+        "Description": "A Person Record",
+        "IsSystem": true,
+        "Order": 0, 
+        "Value": "Person"
+    }
+
+]
