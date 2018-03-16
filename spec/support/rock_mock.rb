@@ -6,6 +6,7 @@ class RockMock < Sinatra::Base
   # DELETE requests
   [
     'FinancialBatches/:id',
+    'FinancialPaymentDetails/:id',
     'FinancialTransactions/:id',
     'GroupMembers/:id'
   ].each do |end_point|

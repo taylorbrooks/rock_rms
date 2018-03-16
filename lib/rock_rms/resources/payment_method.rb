@@ -15,6 +15,10 @@ module RockRMS
         post(payment_method_path, options)
       end
 
+      def delete_payment_method(id)
+        delete(payment_method_path(id))
+      end
+
       private
 
       def cast_payment_type(payment_type)
