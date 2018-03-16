@@ -38,4 +38,15 @@ RSpec.describe RockRMS::Client::PaymentMethod, type: :model do
       resource
     end
   end
+
+  describe '#delete_payment_method' do
+    it 'returns nothing' do
+      expect(client.delete_payment_method(123)).to eq(nil)
+    end
+
+    it 'passes id' do
+      expect(client).to receive(:delete).with('FinancialPaymentDetails/123')
+      client.delete_payment_method(123)
+    end
+  end
 end
