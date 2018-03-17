@@ -11,13 +11,21 @@ module RockRMS
         Response::Batch.format(res)
       end
 
-      def create_batch(name:, start_time:, end_time:, foreign_key: nil, campus_id: nil)
+      def create_batch(
+        name:,
+        start_time:,
+        end_time:,
+        foreign_key: nil,
+        campus_id: nil,
+        status: 1
+      )
         options = {
           'Name' => name,
           'BatchStartDateTime' => start_time,
           'CampusId' => campus_id,
           'BatchEndDateTime' => end_time,
-          'ForeignKey' => foreign_key
+          'ForeignKey' => foreign_key,
+          'Status' => status
         }
 
         post(batches_path, options)

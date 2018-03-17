@@ -7,6 +7,7 @@ class RockMock < Sinatra::Base
   [
     'FinancialBatches/:id',
     'FinancialPaymentDetails/:id',
+    'FinancialPersonSavedAccounts/:id',
     'FinancialTransactions/:id',
     'GroupMembers/:id'
   ].each do |end_point|
@@ -32,6 +33,7 @@ class RockMock < Sinatra::Base
     phone_numbers: 'PhoneNumbers',
     recurring_donation:  'FinancialScheduledTransactions/:id',
     recurring_donations: 'FinancialScheduledTransactions',
+    saved_payment_methods: 'FinancialPersonSavedAccounts',
     transaction_detail:  'FinancialTransactionDetails/:id',
     transaction_details: 'FinancialTransactionDetails'
   }.each do |json, end_point|

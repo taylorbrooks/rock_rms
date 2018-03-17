@@ -1,0 +1,41 @@
+[
+  {
+    "FinancialPaymentDetail": {
+      "AccountNumberMasked": "************2275",
+      "CurrencyTypeValueId": 156,
+      "CreditCardTypeValueId": 7,
+      "NameOnCardEncrypted": null,
+      "ExpirationMonthEncrypted": "EAAAAPzfIIHnzhPkr31/UktbdyZ34dSccQYeK0j9tyJGaeBT",
+      "ExpirationYearEncrypted": "EAAAAJKi2w4n7x7AUi/qvdbVVKLTSnmR/FQs1KOEvE8bikxF",
+      "BillingLocationId": 53,
+      "NameOnCard": "",
+      "ExpirationMonth": 4,
+      "ExpirationYear": 2019,
+      "CreatedDateTime": "2018-03-15T11:37:47.553",
+      "ModifiedDateTime": "2018-03-15T11:37:47.553",
+      "CreatedByPersonAliasId": 123,
+      "ModifiedByPersonAliasId": 123,
+      "Id": 123,
+      "Guid": "038d7d43-eb25-45d7-85e2-5e8d5008c102",
+      "ForeignId": null,
+      "ForeignGuid": null,
+      "ForeignKey": null
+    },
+    "PersonAliasId": 123,
+    "GroupId": null,
+    "ReferenceNumber": "card_8fba20635f520941f21d",
+    "Name": "John's Visa",
+    "TransactionCode": "chrg_bdf113601b1187452181",
+    "FinancialGatewayId": 5,
+    "FinancialPaymentDetailId": 123,
+    "CreatedDateTime": "2018-03-15T11:37:47.553",
+    "ModifiedDateTime": "2018-03-15T11:37:47.553",
+    "CreatedByPersonAliasId": 20024,
+    "ModifiedByPersonAliasId": 20024,
+    "Id": 56,
+    "Guid": "6b65a3c9-32e2-41e2-9d07-d9b8b3787364",
+    "ForeignId": null,
+    "ForeignGuid": null,
+    "ForeignKey": null
+  }
+]
