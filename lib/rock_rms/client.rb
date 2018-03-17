@@ -18,6 +18,7 @@ module RockRMS
     include RockRMS::Client::PhoneNumber
     include RockRMS::Client::RecurringDonation
     include RockRMS::Client::Refund
+    include RockRMS::Client::SavedPaymentMethod
     include RockRMS::Client::Transaction
     include RockRMS::Client::TransactionDetail
 

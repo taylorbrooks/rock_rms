@@ -73,7 +73,8 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
           'CampusId' => 1,
           'BatchStartDateTime' => '1',
           'BatchEndDateTime' => '1',
-          'ForeignKey' => 1
+          'ForeignKey' => 1,
+          'Status' => 1
         ).and_call_original
       resource
     end
