@@ -14,7 +14,7 @@ I'm a big fan of Rock so if you have problems using the gem or would like to see
 Add this line to your application's Gemfile:
 ````ruby
   # in your Gemfile
-  gem 'rock_rms', '~> 1.1'
+  gem 'rock_rms', '~> 3.5'
 
   # then...
   bundle install
