@@ -81,6 +81,7 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
           'AuthorizedPersonAliasId' => 1,
           'ScheduledTransactionId' => 1,
           'BatchId' => 1,
+          'FinancialGatewayId' => nil,
           'FinancialPaymentDetailId' => 1,
           'TransactionCode' => 'asdf',
           'TransactionDateTime' => 1,

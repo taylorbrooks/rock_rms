@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Simple Donation",
+    "Description": null,
+    "EntityTypeId": 5367,
+    "BatchTimeOffsetTicks": 0,
+    "IsActive": false,
+    "EntityType": null,
+    "CreatedDateTime": null,
+    "ModifiedDateTime": null,
+    "CreatedByPersonAliasId": null,
+    "ModifiedByPersonAliasId": null,
+    "ModifiedAuditValuesAlreadyUpdated": false,
+    "Attributes": null,
+    "AttributeValues": null,
+    "Id": 3,
+    "Guid": "b96bc08c-84e7-4c44-92e8-73a9488ed212",
+    "ForeignId": null,
+    "ForeignGuid": null,
+    "ForeignKey": null
+  }
+]
