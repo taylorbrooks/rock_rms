@@ -25,6 +25,7 @@ class RockMock < Sinatra::Base
     transaction:   'FinancialTransactions/:id',
     transactions:  'FinancialTransactions',
     families:      'Groups/GetFamilies/:id',
+    gateways:      'FinancialGateways',
     group:         'Groups/:id',
     groups:        'Groups',
     payment_methods: 'FinancialPaymentDetails',

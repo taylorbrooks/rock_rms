@@ -6,6 +6,7 @@ module RockRMS
         date: 'TransactionDateTime',
         person_id: 'AuthorizedPersonAliasId',
         batch_id: 'BatchId',
+        gateway_id: 'FinancialGatewayId',
         recurring_donation_id: 'ScheduledTransactionId',
         summary: 'Summary',
         transaction_code: 'TransactionCode',

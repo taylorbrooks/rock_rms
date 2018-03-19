@@ -27,13 +27,15 @@ module RockRMS
         source_type_id: 10,
         transaction_code: nil,
         summary: nil,
-        recurring_donation_id: nil
+        recurring_donation_id: nil,
+        gateway_id: nil
       )
 
         options = {
           'AuthorizedPersonAliasId' => authorized_person_id,
           'ScheduledTransactionId' => recurring_donation_id,
           'BatchId' => batch_id,
+          'FinancialGatewayId' => gateway_id,
           'FinancialPaymentDetailId' => payment_type,
           'TransactionCode' => transaction_code,
           'TransactionDateTime' => date,
@@ -45,11 +47,18 @@ module RockRMS
         post(transaction_path, options)
       end
 
-      def update_transaction(id, batch_id: nil, summary: nil, recurring_donation_id: nil)
+      def update_transaction(
+        id,
+        batch_id: nil,
+        summary: nil,
+        recurring_donation_id: nil,
+        gateway_id: nil
+      )
         options = {}
 
         options['Summary'] = summary  if summary
         options['BatchId'] = batch_id if batch_id
+        options['FinancialGatewayId']     = gateway_id            if gateway_id
         options['ScheduledTransactionId'] = recurring_donation_id if recurring_donation_id
 
         patch(transaction_path(id), options)
