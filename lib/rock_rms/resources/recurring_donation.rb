@@ -14,10 +14,12 @@ module RockRMS
       def update_recurring_donation(
         id,
         next_payment_date:,
-        transaction_code: nil
+        transaction_code: nil,
+        active: nil
       )
         options = { 'NextPaymentDate' => next_payment_date }
         options['TransactionCode'] = transaction_code if transaction_code
+        options['IsActive']        = active           if active
 
         patch(recurring_donation_path(id), options)
       end

@@ -3,6 +3,7 @@ module RockRMS
     class RecurringDonation < Base
       MAP = {
         id: 'Id',
+        active: 'IsActive',
         foreign_key: 'ForeignKey',
         next_payment_date: 'NextPaymentDate',
         payment_details: 'FinancialPaymentDetail',
