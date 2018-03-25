@@ -19,7 +19,7 @@ module RockRMS
       )
         options = { 'NextPaymentDate' => next_payment_date }
         options['TransactionCode'] = transaction_code if transaction_code
-        options['IsActive']        = active           if active
+        options['IsActive']        = active           if !active.nil?
 
         patch(recurring_donation_path(id), options)
       end
