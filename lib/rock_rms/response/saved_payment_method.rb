@@ -13,7 +13,7 @@ module RockRMS
 
       def format_single(data)
         response = to_h(MAP, data)
-        response[:payment_details] = PaymentMethod.format(response[:payment_details])
+        response[:payment_details] = PaymentDetail.format(response[:payment_details])
         response
       end
     end

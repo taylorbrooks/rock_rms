@@ -29,7 +29,7 @@ class RockMock < Sinatra::Base
     gateways:      'FinancialGateways',
     group:         'Groups/:id',
     groups:        'Groups',
-    payment_methods: 'FinancialPaymentDetails',
+    payment_details: 'FinancialPaymentDetails',
     people_search: 'People/Search',
     person_by_alias: 'People/GetByPersonAliasId/:id',
     phone_numbers: 'PhoneNumbers',
@@ -48,7 +48,7 @@ class RockMock < Sinatra::Base
   {
     create_group_member: 'GroupMembers',
     create_transaction: 'FinancialTransactions',
-    create_payment_method: 'FinancialPaymentDetails',
+    create_payment_detail: 'FinancialPaymentDetails',
     create_batch: 'FinancialBatches',
     create_recurring_donation: 'FinancialScheduledTransactions',
     create_refund: 'FinancialTransactionRefunds',

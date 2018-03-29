@@ -15,7 +15,7 @@ module RockRMS
       def format_single(data)
         result = to_h(MAP, data)
         result[:transaction_details] = RecurringDonationDetails.format(result[:transaction_details])
-        result[:payment_details]     = PaymentMethod.format(result[:payment_details])
+        result[:payment_details]     = PaymentDetail.format(result[:payment_details])
         result
       end
     end

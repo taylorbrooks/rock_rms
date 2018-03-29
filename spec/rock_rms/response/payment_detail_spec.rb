@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Response::PaymentMethod, type: :model do
-  let(:parsed) { JSON.parse(FixturesHelper.read('payment_methods.json')) }
+RSpec.describe RockRMS::Response::PaymentDetail, type: :model do
+  let(:parsed) { JSON.parse(FixturesHelper.read('payment_details.json')) }
 
   describe '.format' do
     subject(:result) { described_class.format(parsed) }
