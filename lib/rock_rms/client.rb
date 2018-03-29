@@ -14,7 +14,7 @@ module RockRMS
     include RockRMS::Client::Gateway
     include RockRMS::Client::Group
     include RockRMS::Client::GroupMember
-    include RockRMS::Client::PaymentMethod
+    include RockRMS::Client::PaymentDetail
     include RockRMS::Client::Person
     include RockRMS::Client::PhoneNumber
     include RockRMS::Client::RecurringDonation

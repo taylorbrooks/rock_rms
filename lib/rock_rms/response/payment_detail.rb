@@ -1,6 +1,6 @@
 module RockRMS
   module Response
-    class PaymentMethod < Base
+    class PaymentDetail < Base
       MAP = {
         id: 'Id',
         exp_month: 'ExpirationMonth',

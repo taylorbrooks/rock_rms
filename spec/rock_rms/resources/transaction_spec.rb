@@ -63,7 +63,7 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
         batch_id: 1,
         date: 1,
         funds: [{ amount: 450, fund_id: 2 }],
-        payment_type: 1,
+        payment_detail_id: 1,
         transaction_code: 'asdf',
         summary: 'taco tuesday',
         recurring_donation_id: 1
