@@ -3,12 +3,15 @@ module RockRMS
     class TransactionDetail < Base
       MAP = {
         id: 'Id',
+        fund: 'Account',
         fund_id: 'AccountId',
         amount: 'Amount'
       }.freeze
 
       def format_single(response)
-        to_h(MAP, response)
+        response        = to_h(MAP, response)
+        response[:fund] = Fund.format(response[:fund])
+        response
       end
     end
   end

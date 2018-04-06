@@ -4,6 +4,7 @@ module RockRMS
       MAP = {
         id: 'Id',
         date: 'TransactionDateTime',
+        person: 'AuthorizedPersonAlias',
         person_id: 'AuthorizedPersonAliasId',
         batch_id: 'BatchId',
         gateway_id: 'FinancialGatewayId',
@@ -21,8 +22,14 @@ module RockRMS
         response                   = to_h(MAP, data)
         response[:details]         = TransactionDetail.format(response[:details])
         response[:payment_details] = PaymentMethod.format(response[:payment_details])
+        response[:person]          = format_person(response[:person])
         response[:amount]          = calculate_total(response[:details])
         response
+      end
+
+      def format_person(res)
+        return res if res.nil?
+        Person.format(res['Person'])
       end
 
       def calculate_total(details)

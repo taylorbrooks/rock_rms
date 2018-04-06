@@ -3,6 +3,7 @@ module RockRMS
     class Fund < Base
       MAP = {
         id:   'Id',
+        campus_id: 'CampusId',
         name: 'Name'
       }.freeze
 

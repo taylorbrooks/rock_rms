@@ -8,6 +8,7 @@ module RockRMS
         first_name: 'FirstName',
         last_name:  'LastName',
         giving_id:  'GivingId',
+        giving_group_id: 'GivingGroupId',
         alias_id:   'PrimaryAliasId',
         connection_status_value_id: 'ConnectionStatusValueId'
       }.freeze
