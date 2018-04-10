@@ -18,7 +18,7 @@ module RockRMS
         frequency:,
         funds:,
         gateway_id: nil,
-        gateway_schedule_id:,
+        gateway_schedule_id: nil,
         next_payment_date:,
         source_type_id: 10,
         transaction_code: nil,
@@ -26,17 +26,17 @@ module RockRMS
       )
 
         options = {
-          'AuthorizedPersonAliasId': authorized_person_id,
-          'TransactionFrequencyValueId': RECURRING_FREQUENCIES[frequency],
-          'StartDate': start_date,
-          'NextPaymentDate': next_payment_date,
-          'IsActive': active,
-          'FinancialGatewayId': gateway_id,
-          'TransactionCode': transaction_code,
-          'ScheduledTransactionDetails': translate_funds(funds),
-          'GatewayScheduleId': gateway_schedule_id,
-          'SourceTypeValueId': source_type_id,
-          'ForeignKey': foreign_key
+          'AuthorizedPersonAliasId'     => authorized_person_id,
+          'TransactionFrequencyValueId' => RECURRING_FREQUENCIES[frequency],
+          'StartDate'                   => start_date,
+          'NextPaymentDate'             => next_payment_date,
+          'IsActive'                    => active,
+          'FinancialGatewayId'          => gateway_id,
+          'TransactionCode'             => transaction_code,
+          'ScheduledTransactionDetails' => translate_funds(funds),
+          'GatewayScheduleId'           => gateway_schedule_id,
+          'SourceTypeValueId'           => source_type_id,
+          'ForeignKey'                  => foreign_key
         }
         post(recurring_donation_path, options)
       end

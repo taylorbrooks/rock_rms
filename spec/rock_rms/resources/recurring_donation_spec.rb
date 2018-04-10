@@ -83,4 +83,68 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
       expect(resource).to be_nil
     end
   end
+
+  describe '#create_recurring_donation' do
+    context 'arguments' do
+      it 'require `authorized_person_id`' do
+        expect { client.create_recurring_donation }
+          .to raise_error(ArgumentError, /authorized_person_id/)
+      end
+
+      it 'require `frequency`' do
+        expect { client.create_recurring_donation }
+          .to raise_error(ArgumentError, /frequency/)
+      end
+
+      it 'require `next_payment_date`' do
+        expect { client.create_recurring_donation }
+          .to raise_error(ArgumentError, /next_payment_date/)
+      end
+
+      it 'require `start_date`' do
+        expect { client.create_recurring_donation }
+          .to raise_error(ArgumentError, /start_date/)
+      end
+
+      it 'require `funds`' do
+        expect { client.create_recurring_donation }
+          .to raise_error(ArgumentError, /funds/)
+      end
+    end
+
+    subject(:resource) do
+      client.create_recurring_donation(
+        authorized_person_id: 1,
+        funds: [{ amount: 450, fund_id: 2 }],
+        transaction_code: 'asdf',
+        frequency: 'monthly',
+        next_payment_date: '2010-01-01',
+        start_date: '2010-01-01'
+      )
+    end
+
+    it 'returns integer' do
+      expect(resource).to be_a(Integer)
+    end
+
+    it 'passes options' do
+      expect(client).to receive(:post)
+        .with(
+          'FinancialScheduledTransactions',
+          'AuthorizedPersonAliasId' => 1,
+          'TransactionFrequencyValueId' => 135,
+          'StartDate' => '2010-01-01',
+          'NextPaymentDate' => '2010-01-01',
+          'IsActive' => true,
+          'FinancialGatewayId' => nil,
+          'TransactionCode' => 'asdf',
+          'ScheduledTransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2 }],
+          'GatewayScheduleId' => nil,
+          'SourceTypeValueId' => 10,
+          'ForeignKey' => nil
+        )
+        .and_call_original
+      resource
+    end
+  end
 end

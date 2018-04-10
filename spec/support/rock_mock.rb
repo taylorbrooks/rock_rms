@@ -50,6 +50,7 @@ class RockMock < Sinatra::Base
     create_transaction: 'FinancialTransactions',
     create_payment_method: 'FinancialPaymentDetails',
     create_batch: 'FinancialBatches',
+    create_recurring_donation: 'FinancialScheduledTransactions',
     create_refund: 'FinancialTransactionRefunds',
     create_refund_reason: 'DefinedValues'
   }.each do |json, end_point|
