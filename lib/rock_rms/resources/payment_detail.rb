@@ -45,8 +45,6 @@ module RockRMS
           161
         when 'jcb'
           162
-        else
-          nil
         end
       end
 
