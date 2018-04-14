@@ -1,0 +1,17 @@
+[
+  {
+    "IsSystem": false,
+    "AttributeId": 12993,
+    "EntityId": 731,
+    "Value": "23",
+    "ValueAsNumeric": 23.0000,
+    "ValueAsBoolean": false,
+    "CreatedDateTime": "2018-04-13T07:22:23.723",
+    "ModifiedDateTime": "2018-04-13T07:22:23.723",
+    "CreatedByPersonAliasId": 1,
+    "ModifiedByPersonAliasId": 1,
+    "ModifiedAuditValuesAlreadyUpdated": false,
+    "Id": 11615,
+    "Guid": "70d06b09-97cd-4788-9667-6f0b11dcde70"
+  }
+]
