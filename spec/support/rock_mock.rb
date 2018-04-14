@@ -20,6 +20,7 @@ class RockMock < Sinatra::Base
   # GET requests
   {
     attributes:    'Attributes',
+    attribute_values: 'AttributeValues',
     batch:         'FinancialBatches/:id',
     batches:       'FinancialBatches',
     campus:        'Campuses/:id',
@@ -48,6 +49,7 @@ class RockMock < Sinatra::Base
   # POST requests
   {
     create_attribute: 'Attributes',
+    create_attribute_value: 'AttributeValues',
     create_group_member: 'GroupMembers',
     create_transaction: 'FinancialTransactions',
     create_payment_detail: 'FinancialPaymentDetails',

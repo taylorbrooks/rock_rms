@@ -9,6 +9,7 @@ Dir[File.expand_path('../response/*.rb', __FILE__)].each { |f| require f }
 module RockRMS
   class Client
     include RockRMS::Client::Attribute
+    include RockRMS::Client::AttributeValue
     include RockRMS::Client::Batch
     include RockRMS::Client::Fund
     include RockRMS::Client::Campus
