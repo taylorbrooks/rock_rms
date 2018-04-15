@@ -21,7 +21,14 @@ module RockRMS
           'Key'          => key,
           'Name'         => name,
           'Description'  => description,
-          'Order'        => order
+          'Order'        => order,
+
+          # Required fields
+          'IsSystem'     => false,
+          'IsGridColumn' => false,
+          'IsMultiValue' => false,
+          'IsRequired'   => false,
+          'AllowSearch'  => false
         }
 
         post(attributes_path, options)

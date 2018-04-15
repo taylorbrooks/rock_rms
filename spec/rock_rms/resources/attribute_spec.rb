@@ -58,7 +58,12 @@ RSpec.describe RockRMS::Client::Attribute, type: :model do
           'Key' => 'TransactionFee',
           'Name' => 'Transaction Fee',
           'Description' => 'Transaction fees for a specific gateway',
-          'Order' => 1234
+          'Order' => 1234,
+          'IsSystem'     => false,
+          'IsGridColumn' => false,
+          'IsMultiValue' => false,
+          'IsRequired'   => false,
+          'AllowSearch'  => false
         )
         .and_call_original
       resource
