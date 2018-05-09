@@ -56,7 +56,8 @@ class RockMock < Sinatra::Base
     create_batch: 'FinancialBatches',
     create_recurring_donation: 'FinancialScheduledTransactions',
     create_refund: 'FinancialTransactionRefunds',
-    create_refund_reason: 'DefinedValues'
+    create_refund_reason: 'DefinedValues',
+    create_saved_payment_method: 'FinancialPersonSavedAccounts'
   }.each do |json, end_point|
     post "/api/#{end_point}" do
       json_response 201, "#{json}.json"

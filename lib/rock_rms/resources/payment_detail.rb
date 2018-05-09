@@ -6,12 +6,13 @@ module RockRMS
         Response::PaymentDetail.format(res)
       end
 
-      def create_payment_detail(payment_type:, foreign_key: nil, card_type: nil)
+      def create_payment_detail(payment_type:, foreign_key: nil, card_type: nil, last_4: nil)
         options = {
           'CurrencyTypeValueId' => cast_payment_type(payment_type),
           'CreditCardTypeValueId' => cast_card_type(card_type),
           'ForeignKey' => foreign_key
         }
+        options['AccountNumberMasked'] = "************#{last_4}" if last_4
 
         post(payment_detail_path, options)
       end
