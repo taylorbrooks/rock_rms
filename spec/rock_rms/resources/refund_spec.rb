@@ -57,7 +57,8 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
                 'AccountId' => 23
               }
             ],
-            'TransactionTypeValueId' => 53
+            'TransactionTypeValueId' => 53,
+            'TransactionCode' => nil
           }
         )
         .and_call_original

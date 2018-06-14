@@ -7,7 +7,8 @@ module RockRMS
         batch_id:,
         date:,
         reason_id:,
-        transaction_id:
+        transaction_id:,
+        transaction_code: nil
       )
         old_transaction = list_transactions(
           '$expand' => 'TransactionDetails',
@@ -21,6 +22,7 @@ module RockRMS
             'AuthorizedPersonAliasId' => old_transaction[:person_id],
             'BatchId' => batch_id,
             'FinancialPaymentDetailId' => old_transaction[:payment_detail_id],
+            'TransactionCode'     => transaction_code,
             'TransactionDateTime' => date,
             'TransactionDetails'  => translate_negative(old_transaction[:details]),
             'TransactionTypeValueId' => old_transaction[:transaction_type_id]
