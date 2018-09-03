@@ -36,7 +36,12 @@
         "TransactionDetails": [{
           "Id": 345,
           "AccountId": 23,
-          "Amount": 100.00
+          "Amount": 10.00
+        },
+        {
+          "Id": 346,
+          "AccountId": 24,
+          "Amount": 90.00
         }],
         "TransactionTypeValueId": 53
     }

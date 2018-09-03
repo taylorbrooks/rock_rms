@@ -27,42 +27,81 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
 
     end
 
-    subject(:resource) do
-      client.create_refund(
-        transaction_id: 1422,
-        batch_id: 1,
-        date: '2018-02-01',
-        reason_id: 1
-      )
-    end
+    context "without amount param" do
 
-    it 'returns integer' do
-      expect(resource).to be_a(Integer)
-    end
-
-    it 'passes options' do
-      expect(client).to receive(:post)
-        .with(
-          'FinancialTransactionRefunds',
-          'OriginalTransactionId' => 1422,
-          'RefundReasonValueId' => 1,
-          'FinancialTransaction' => {
-            'AuthorizedPersonAliasId' => 120,
-            'BatchId' => 1,
-            'FinancialPaymentDetailId' => 156,
-            'TransactionDateTime' => '2018-02-01',
-            'TransactionDetails'  => [
-              {
-                'Amount' => -100.0,
-                'AccountId' => 23
-              }
-            ],
-            'TransactionTypeValueId' => 53,
-            'TransactionCode' => nil
-          }
+      subject(:resource) do
+        client.create_refund(
+          transaction_id: 3000,
+          batch_id: 1,
+          date: '2018-02-01',
+          reason_id: 1
         )
-        .and_call_original
-      resource
+      end
+
+      it 'returns integer' do
+        expect(resource).to be_a(Integer)
+      end
+
+      it 'passes options' do
+        expect(client).to receive(:post)
+          .with(
+            'FinancialTransactionRefunds',
+            'OriginalTransactionId' => 3000,
+            'RefundReasonValueId' => 1,
+            'FinancialTransaction' => {
+              'AuthorizedPersonAliasId' => 120,
+              'BatchId' => 1,
+              'FinancialPaymentDetailId' => 156,
+              'TransactionDateTime' => '2018-02-01',
+              'TransactionDetails'  => [{"Amount"=>-10.0, "AccountId"=>23}, {"Amount"=>-90.0, "AccountId"=>24}],
+              'TransactionTypeValueId' => 53,
+              'TransactionCode' => nil
+            }
+          )
+          .and_call_original
+        resource
+      end
+
     end
+
+    context "with amount param" do
+
+      subject(:resource) do
+        client.create_refund(
+          transaction_id: 3000,
+          batch_id: 1,
+          date: '2018-02-01',
+          reason_id: 1,
+          amount: 75.55,
+        )
+      end
+
+      it 'returns integer' do
+        expect(resource).to be_a(Integer)
+      end
+
+      it 'passes options' do
+        expect(client).to receive(:post)
+          .with(
+            'FinancialTransactionRefunds',
+            'OriginalTransactionId' => 3000,
+            'RefundReasonValueId' => 1,
+            'FinancialTransaction' => {
+              'AuthorizedPersonAliasId' => 120,
+              'BatchId' => 1,
+              'FinancialPaymentDetailId' => 156,
+              'TransactionDateTime' => '2018-02-01',
+              'TransactionDetails'  => [{"Amount"=>-7.56, "AccountId"=>23}, {"Amount"=>-67.99, "AccountId"=>24}],
+              'TransactionTypeValueId' => 53,
+              'TransactionCode' => nil
+            }
+          )
+          .and_call_original
+        resource
+      end
+      
+    end
+
   end
+
 end

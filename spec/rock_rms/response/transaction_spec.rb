@@ -13,7 +13,7 @@ RSpec.describe RockRMS::Response::Transaction, type: :model do
     end
 
     it 'translates keys' do
-      result.zip(parsed) do |r, p|
+      result.take(1).zip(parsed) do |r, p|
         expect(r[:id]).to eq(p['Id'])
         expect(r[:date]).to eq(p['TransactionDateTime'])
         expect(r[:batch_id]).to eq(p['BatchId'])
