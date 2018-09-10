@@ -19,7 +19,7 @@ module RockRMS
 
         transaction_amount = old_transaction[:details].map{|d| d[:amount]}.reduce(0.0){|sum,x| sum + x }
 
-        refund_amount = amount ||= transaction_amount
+        refund_amount = amount || transaction_amount
 
         params = {
           'OriginalTransactionId' => transaction_id,
