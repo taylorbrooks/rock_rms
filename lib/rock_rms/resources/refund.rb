@@ -40,7 +40,7 @@ module RockRMS
       private
 
       def refunded_details(details, transaction_amount, refund_amount)
-        apportion_refund_amount_over_fees(details, transaction_amount, refund_amount).map do |dt|
+        apportion_refund_amount_over_accounts(details, transaction_amount, refund_amount).map do |dt|
           {
             'Amount' => -dt[:amount],
             'AccountId' => dt[:fund_id]
@@ -48,8 +48,7 @@ module RockRMS
         end
       end
 
-      def apportion_refund_amount_over_fees(details, transaction_amount, refund_amount)
-
+      def apportion_refund_amount_over_accounts(details, transaction_amount, refund_amount)
         if refund_amount >= transaction_amount
           details
         else
