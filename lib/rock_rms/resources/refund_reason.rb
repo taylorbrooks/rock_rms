@@ -9,7 +9,7 @@ module RockRMS
         )
       end
 
-      def create_refund_reason(value:, description:, order: nil)
+      def create_refund_reason(value:, description:, order: nil, active: nil)
         order ||= Random.rand(100..1000)
 
         options = {
@@ -19,6 +19,7 @@ module RockRMS
           'IsSystem'      => false,
           'DefinedTypeId' => 37
         }
+        options['IsActive'] = active if active
         post(defined_values_path, options)
       end
 
