@@ -28,8 +28,11 @@ module RockRMS
         transaction_code: nil,
         summary: nil,
         recurring_donation_id: nil,
-        gateway_id: nil
+        gateway_id: nil,
+        transaction_type: nil
       )
+
+        transaction_value_type = transaction_type == 'event_registration' ?  54 : 53
 
         options = {
           'AuthorizedPersonAliasId' => authorized_person_id,
@@ -40,7 +43,7 @@ module RockRMS
           'TransactionCode' => transaction_code,
           'TransactionDateTime' => date,
           'TransactionDetails'  => translate_funds(funds),
-          'TransactionTypeValueId' => 53,        # contribution, registration
+          'TransactionTypeValueId' => transaction_value_type,        # contribution, registration
           'SourceTypeValueId' => source_type_id, # website, kiosk, mobile app
           'Summary' => summary
         }

@@ -93,6 +93,43 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
         .and_call_original
       resource
     end
+
+    context 'event_registration' do
+      subject(:resource) do
+        client.create_transaction(
+          authorized_person_id: 1,
+          batch_id: 1,
+          date: 1,
+          funds: [{ amount: 450, fund_id: 2 }],
+          payment_detail_id: 1,
+          transaction_code: 'asdf',
+          summary: 'taco tuesday',
+          recurring_donation_id: 1,
+          transaction_type: 'event_registration'
+        )
+      end
+
+      it 'returns passes TransactionTypeValueId 54' do
+
+        expect(client).to receive(:post)
+          .with(
+            'FinancialTransactions',
+            'AuthorizedPersonAliasId' => 1,
+            'ScheduledTransactionId' => 1,
+            'BatchId' => 1,
+            'FinancialGatewayId' => nil,
+            'FinancialPaymentDetailId' => 1,
+            'TransactionCode' => 'asdf',
+            'TransactionDateTime' => 1,
+            'TransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2 }],
+            'TransactionTypeValueId' => 54,
+            'SourceTypeValueId' => 10,
+            'Summary' => 'taco tuesday'
+          )
+          .and_call_original
+        resource
+      end
+    end
   end
 
   describe '#update_transaction' do
