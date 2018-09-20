@@ -100,7 +100,9 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
       client.update_transaction(
         123,
         batch_id: 1,
-        summary: 'taco tuesday'
+        summary: 'taco tuesday',
+        source_type_id: 5,
+        transaction_type_value_id: 54
       )
     end
 
@@ -113,7 +115,9 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
         .with(
           'FinancialTransactions/123',
           'BatchId' => 1,
-          'Summary' => 'taco tuesday'
+          'Summary' => 'taco tuesday',
+          'TransactionTypeValueId' => 54,
+          'SourceTypeValueId' => 5
         )
         .and_call_original
       resource
