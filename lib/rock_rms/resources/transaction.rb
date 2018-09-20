@@ -54,16 +54,18 @@ module RockRMS
         recurring_donation_id: nil,
         gateway_id: nil,
         source_type_id: nil,
-        transaction_code: nil
+        transaction_code: nil,
+        transaction_type_value_id: nil
       )
         options = {}
 
         options['Summary'] = summary  if summary
         options['BatchId'] = batch_id if batch_id
-        options['FinancialGatewayId']     = gateway_id            if gateway_id
-        options['ScheduledTransactionId'] = recurring_donation_id if recurring_donation_id
-        options['SourceTypeValueId']      = source_type_id        if source_type_id
-        options['TransactionCode']        = transaction_code      if transaction_code
+        options['FinancialGatewayId']     = gateway_id                  if gateway_id
+        options['ScheduledTransactionId'] = recurring_donation_id       if recurring_donation_id
+        options['SourceTypeValueId']      = source_type_id              if source_type_id
+        options['TransactionTypeValueId'] = transaction_type_value_id   if transaction_type_value_id
+        options['TransactionCode']        = transaction_code            if transaction_code
 
         patch(transaction_path(id), options)
       end
