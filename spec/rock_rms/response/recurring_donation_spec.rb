@@ -12,10 +12,32 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
       end
     end
 
+    it 'has the following keys' do
+      response = result.first
+      expected_keys = %i[
+        id
+        active
+        financial_gateway_id
+        foreign_key
+        frequency
+        next_payment_date
+        payment_details
+        person_id
+        start_date
+        transaction_details
+        transaction_code
+      ]
+
+      expect(response.keys).to eq(expected_keys)
+    end
+
     it 'translates keys' do
       result.zip(parsed) do |r, p|
         expect(r[:id]).to eq(p['Id'])
+        expect(r[:active]).to eq(p['IsActive'])
+        expect(r[:financial_gateway_id]).to eq(p['FinancialGatewayId'])
         expect(r[:foreign_key]).to eq(p['ForeignKey'])
+        expect(r[:frequency]).to eq('monthly')
         expect(r[:next_payment_date]).to eq(p['NextPaymentDate'])
         expect(r[:person_id]).to eq(p['AuthorizedPersonAliasId'])
         expect(r[:transaction_details]).to eq(

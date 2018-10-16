@@ -4,10 +4,12 @@ require 'faraday_middleware/parse_oj'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each { |f| require f }
 require File.expand_path('../response/base.rb', __FILE__)
+require File.expand_path('../recurring_frequencies.rb', __FILE__)
 Dir[File.expand_path('../response/*.rb', __FILE__)].each { |f| require f }
 
 module RockRMS
   class Client
+    include RecurringFrequencies
     include RockRMS::Client::Attribute
     include RockRMS::Client::AttributeValue
     include RockRMS::Client::Batch
