@@ -75,6 +75,16 @@ module RockRMS
         delete(transaction_path(id))
       end
 
+      def launch_transaction_workflow(
+        id,
+        workflow_type_id:,
+        workflow_name:,
+        attributes: {}
+      )
+        query_string = "?workflowTypeId=#{workflow_type_id}&workflowName=#{workflow_name}"
+        post(transaction_path + "/LaunchWorkflow/#{id}#{query_string}", attributes)
+      end
+
       private
 
       def translate_funds(funds)

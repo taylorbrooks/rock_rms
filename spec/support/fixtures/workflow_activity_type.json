@@ -1,0 +1,21 @@
+{
+  "IsActive": true,
+  "WorkflowTypeId": 10,
+  "Name": "Family Search",
+  "Description": "",
+  "IsActivatedWithWorkflow": false,
+  "Order": 0,
+  "ActionTypes": [],
+  "CreatedDateTime": null,
+  "ModifiedDateTime": null,
+  "CreatedByPersonAliasId": null,
+  "ModifiedByPersonAliasId": null,
+  "ModifiedAuditValuesAlreadyUpdated": false,
+  "Attributes": null,
+  "AttributeValues": null,
+  "Id": 2,
+  "Guid": "5617683e-b061-4043-8e7b-fb7b25248000",
+  "ForeignId": null,
+  "ForeignGuid": null,
+  "ForeignKey": null
+}
