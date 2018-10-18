@@ -39,7 +39,13 @@ class RockMock < Sinatra::Base
     recurring_donations: 'FinancialScheduledTransactions',
     saved_payment_methods: 'FinancialPersonSavedAccounts',
     transaction_detail:  'FinancialTransactionDetails/:id',
-    transaction_details: 'FinancialTransactionDetails'
+    transaction_details: 'FinancialTransactionDetails',
+    workflow_type: 'WorkflowTypes/:id',
+    workflow_types: 'WorkflowTypes',
+    workflow_activity_type: 'WorkflowActivityTypes/:id',
+    workflow_activity_types: 'WorkflowActivityTypes',
+    workflow_action_type: 'WorkflowActionTypes/:id',
+    workflow_action_types: 'WorkflowActionTypes'
   }.each do |json, end_point|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"

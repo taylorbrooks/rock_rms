@@ -1,0 +1,28 @@
+[
+  {
+    "ActivityTypeId": 2,
+    "Name": "Find Families",
+    "Order": 0,
+    "EntityTypeId": 144,
+    "IsActionCompletedOnSuccess": true,
+    "IsActivityCompletedOnSuccess": false,
+    "WorkflowFormId": null,
+    "CriteriaAttributeGuid": null,
+    "CriteriaComparisonType": 0,
+    "CriteriaValue": null,
+    "EntityType": null,
+    "WorkflowForm": null,
+    "CreatedDateTime": null,
+    "ModifiedDateTime": null,
+    "CreatedByPersonAliasId": null,
+    "ModifiedByPersonAliasId": null,
+    "ModifiedAuditValuesAlreadyUpdated": false,
+    "Attributes": null,
+    "AttributeValues": null,
+    "Id": 2,
+    "Guid": "350e349f-1cf7-4fb6-a48f-f9fd42869695",
+    "ForeignId": null,
+    "ForeignGuid": null,
+    "ForeignKey": null
+  }
+]

@@ -28,6 +28,9 @@ module RockRMS
     include RockRMS::Client::Transaction
     include RockRMS::Client::TransactionDetail
     include RockRMS::Client::Utility
+    include RockRMS::Client::WorkflowActionType
+    include RockRMS::Client::WorkflowActivityType
+    include RockRMS::Client::WorkflowType
 
     attr_reader :url, :username, :password, :logger, :cookie, :connection
 
