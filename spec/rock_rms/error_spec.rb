@@ -20,7 +20,7 @@ RSpec.describe RockRMS::Error do
   def expect_failure(code, body)
     expect {
       client.get('anything')
-    }.to raise_error(RockRMS::Error, "#{code}: #{body}")
+    }.to raise_error(RockRMS::Error, /#{code}: #{body}/)
   end
 
   def expect_success

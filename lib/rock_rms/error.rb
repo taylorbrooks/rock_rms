@@ -9,7 +9,7 @@ module FaradayMiddleware
     def on_complete(env)
       case env[:status]
       when ERROR_STATUSES
-        raise RockRMS::Error, "#{env[:status]}: #{env[:body]}"
+        raise RockRMS::Error, "#{env[:status]}: #{env[:body]} #{env[:url]}"
       end
     end
   end
