@@ -20,6 +20,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         financial_gateway_id
         foreign_key
         frequency
+        gateway_schedule_id
         next_payment_date
         payment_details
         person_id
@@ -36,6 +37,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         expect(r[:id]).to eq(p['Id'])
         expect(r[:active]).to eq(p['IsActive'])
         expect(r[:financial_gateway_id]).to eq(p['FinancialGatewayId'])
+        expect(r[:gateway_schedule_id]).to eq(p['GatewayScheduleId'])
         expect(r[:foreign_key]).to eq(p['ForeignKey'])
         expect(r[:frequency]).to eq('monthly')
         expect(r[:next_payment_date]).to eq(p['NextPaymentDate'])

@@ -12,7 +12,7 @@
     "FinancialGatewayId": 4,
     "FinancialPaymentDetailId": 28,
     "TransactionCode": "",
-    "GatewayScheduleId": "",
+    "GatewayScheduleId": "1234",
     "CardReminderDate": null,
     "LastRemindedDate": null,
     "TransactionTypeValue": null,

@@ -7,6 +7,7 @@ module RockRMS
         financial_gateway_id: 'FinancialGatewayId',
         foreign_key: 'ForeignKey',
         frequency: 'TransactionFrequencyValueId',
+        gateway_schedule_id: 'GatewayScheduleId',
         next_payment_date: 'NextPaymentDate',
         payment_details: 'FinancialPaymentDetail',
         person_id: 'AuthorizedPersonAliasId',
