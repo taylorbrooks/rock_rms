@@ -47,6 +47,7 @@ RSpec.describe RockRMS::Client::RefundReason, type: :model do
           'Order' => 500,
           'Description' => "Very Very not Happy",
           'Value' => "Angry Donor",
+          'IsActive' => false
         )
         .and_call_original
       resource

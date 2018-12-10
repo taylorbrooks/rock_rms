@@ -35,13 +35,14 @@ module RockRMS
         )
       end
 
-      def create_person(first_name:, last_name:, email:)
+      def create_person(first_name:, last_name:, email:, connection_status_value_id: nil)
         options = {
           'IsSystem' => false,
           'FirstName' => first_name,
           'LastName' => last_name,
           'Email' => email,
-          'Gender' => 1
+          'Gender' => 1,
+          'ConnectionStatusValueId' => connection_status_value_id
         }
         post(people_path, options)
       end
