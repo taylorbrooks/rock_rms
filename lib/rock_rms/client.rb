@@ -13,6 +13,8 @@ module RockRMS
     include RockRMS::Client::Attribute
     include RockRMS::Client::AttributeValue
     include RockRMS::Client::Batch
+    include RockRMS::Client::Block
+    include RockRMS::Client::BlockType
     include RockRMS::Client::Fund
     include RockRMS::Client::Campus
     include RockRMS::Client::DefinedType
@@ -20,6 +22,7 @@ module RockRMS
     include RockRMS::Client::Gateway
     include RockRMS::Client::Group
     include RockRMS::Client::GroupMember
+    include RockRMS::Client::Page
     include RockRMS::Client::PaymentDetail
     include RockRMS::Client::Person
     include RockRMS::Client::PhoneNumber
