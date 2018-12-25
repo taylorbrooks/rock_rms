@@ -1,3 +1,3 @@
 module RockRMS
-  VERSION = '4.12.1'.freeze
+  VERSION = '4.12.2'.freeze
 end
