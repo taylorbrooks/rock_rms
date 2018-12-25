@@ -25,6 +25,10 @@ module RockRMS
 
       def cast_payment_type(payment_type)
         case payment_type
+        when 'cash'
+          6
+        when 'check'
+          9
         when 'card'
           156
         when 'bank account', 'ach'
