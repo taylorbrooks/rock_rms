@@ -59,6 +59,7 @@ class RockMock < Sinatra::Base
     create_group_member: 'GroupMembers',
     create_transaction: 'FinancialTransactions',
     create_payment_detail: 'FinancialPaymentDetails',
+    create_phone_number: 'PhoneNumbers',
     create_batch: 'FinancialBatches',
     create_recurring_donation: 'FinancialScheduledTransactions',
     create_refund: 'FinancialTransactionRefunds',

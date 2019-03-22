@@ -5,6 +5,7 @@ module RockRMS
         id: 'Id',
         person_id: 'PersonId',
         number: 'Number',
+        number_type_value_id: 'NumberTypeValueId',
         formatted: 'NumberFormatted',
         formatted_with_cc: 'NumberFormattedWithCountryCode'
       }.freeze
