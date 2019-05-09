@@ -18,6 +18,16 @@ module RockRMS
         post(attribute_values_path, options)
       end
 
+      def update_attribute_value(id, attribute_id:, entity_id:, value:)
+        options = {
+          'AttributeId' => attribute_id,
+          'EntityId'    => entity_id,
+          'Value'       => value,
+        }
+
+        patch("#{attribute_values_path}/#{id}", options)
+      end
+
       private
 
       def attribute_values_path
