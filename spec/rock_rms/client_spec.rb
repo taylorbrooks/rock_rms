@@ -19,16 +19,6 @@ RSpec.describe RockRMS::Client do
         .to raise_error(ArgumentError, /url/)
     end
 
-    it 'requries `username` param' do
-      expect { described_class.new }
-        .to raise_error(ArgumentError, /username/)
-    end
-
-    it 'requries `password` param' do
-      expect { described_class.new }
-        .to raise_error(ArgumentError, /password/)
-    end
-
     context 'url' do
       it 'expects a valid URI' do
         expect do

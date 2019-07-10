@@ -22,10 +22,17 @@ Add this line to your application's Gemfile:
 
 ### Usage
 ````ruby
+  # Using Username and Password
   client = RockRMS::Client.new(
     url: ...,
     username: ...,
     password: ...,
+  )
+  
+  # Using REST Key
+  client = RockRMS::Client.new(
+    url: ...,
+    authorization_token: ...,
   )
 
   # Find a specific person
