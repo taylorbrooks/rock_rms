@@ -39,7 +39,7 @@ module RockRMS
 
     attr_reader :url, :username, :password, :logger, :cookie, :connection, :authorization_token
 
-    def initialize(url:, username:, password:, logger: true, authorization_token: nil)
+    def initialize(url:, username: nil, password: nil, logger: true, authorization_token: nil)
       @url      = "#{url}/api/"
       @username = username
       @password = password
