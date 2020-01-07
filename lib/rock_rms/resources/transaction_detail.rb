@@ -11,10 +11,11 @@ module RockRMS
         Response::TransactionDetail.format(res)
       end
 
-      def update_transaction_detail(id, fund_id:)
-        options = {
-          'AccountId' => fund_id
-        }
+      def update_transaction_detail(id, fund_id: nil, fee_amount: nil)
+        options = {}
+        options['AccountId'] = fund_id    if fund_id
+        options['FeeAmount'] = fee_amount if fee_amount
+
         patch(transaction_detail_path(id), options)
       end
 
