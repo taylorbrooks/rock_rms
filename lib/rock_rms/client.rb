@@ -32,6 +32,7 @@ module RockRMS
     include RockRMS::Client::SavedPaymentMethod
     include RockRMS::Client::Transaction
     include RockRMS::Client::TransactionDetail
+    include RockRMS::Client::UserLogin
     include RockRMS::Client::Utility
     include RockRMS::Client::WorkflowActionType
     include RockRMS::Client::WorkflowActivityType
