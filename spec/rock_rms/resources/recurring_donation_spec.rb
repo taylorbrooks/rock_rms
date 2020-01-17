@@ -137,6 +137,7 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
           'NextPaymentDate' => '2010-01-01',
           'IsActive' => true,
           'FinancialGatewayId' => nil,
+          'FinancialPaymentDetailId' => nil,
           'TransactionCode' => 'asdf',
           'ScheduledTransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2 }],
           'GatewayScheduleId' => nil,

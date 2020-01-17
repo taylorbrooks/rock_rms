@@ -20,6 +20,7 @@ module RockRMS
         gateway_id: nil,
         gateway_schedule_id: nil,
         next_payment_date:,
+        payment_detail_id: nil,
         source_type_id: 10,
         transaction_code: nil,
         start_date:
@@ -32,6 +33,7 @@ module RockRMS
           'NextPaymentDate'             => next_payment_date,
           'IsActive'                    => active,
           'FinancialGatewayId'          => gateway_id,
+          'FinancialPaymentDetailId'    => payment_detail_id,
           'TransactionCode'             => transaction_code,
           'ScheduledTransactionDetails' => translate_funds(funds),
           'GatewayScheduleId'           => gateway_schedule_id,
@@ -45,11 +47,13 @@ module RockRMS
         id,
         next_payment_date:,
         transaction_code: nil,
+        payment_detail_id: nil,
         active: nil
       )
         options = { 'NextPaymentDate' => next_payment_date }
-        options['TransactionCode'] = transaction_code if transaction_code
-        options['IsActive']        = active           if !active.nil?
+        options['FinancialPaymentDetailId'] = payment_detail_id if payment_detail_id
+        options['TransactionCode']          = transaction_code  if transaction_code
+        options['IsActive']                 = active            if !active.nil?
 
         patch(recurring_donation_path(id), options)
       end
