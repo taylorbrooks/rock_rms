@@ -49,7 +49,7 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
   end
 
   describe '#update_recurring_donation(id)' do
-    it 'queries updates the recurring donation' do
+    it 'updates the recurring donation' do
       expect(client).to receive(:patch)
         .with(
           'FinancialScheduledTransactions/123',
@@ -59,6 +59,24 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
       resource = client.update_recurring_donation(
         123,
         next_payment_date: '2018-01-01'
+      )
+
+      expect(resource).to be_nil
+    end
+
+    it 'queries updates the recurring donation ScheduledTransactionDetails' do
+      expect(client).to receive(:patch)
+        .with(
+          'FinancialScheduledTransactions/123',
+          'NextPaymentDate' => '2018-01-01',
+          'ScheduledTransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2 }],
+
+      ).and_call_original
+
+      resource = client.update_recurring_donation(
+        123,
+        next_payment_date: '2018-01-01',
+        funds: [{ amount: 450, fund_id: 2 }],
       )
 
       expect(resource).to be_nil
