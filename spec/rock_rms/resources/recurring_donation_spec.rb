@@ -64,7 +64,7 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
       expect(resource).to be_nil
     end
 
-    it 'queries updates the recurring donation ScheduledTransactionDetails' do
+    it 'updates the recurring donation ScheduledTransactionDetails' do
       expect(client).to receive(:patch)
         .with(
           'FinancialScheduledTransactions/123',
