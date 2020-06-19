@@ -3,7 +3,8 @@ module RockRMS
     class RecurringDonationDetails < Base
       MAP = {
         amount: 'Amount',
-        fund_id: 'AccountId'
+        fund_id: 'AccountId',
+        id: 'Id'
       }.freeze
 
       def format_single(data)
