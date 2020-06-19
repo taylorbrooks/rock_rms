@@ -49,7 +49,7 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
   end
 
   describe '#update_recurring_donation(id)' do
-    it 'queries updates the recurring donation' do
+    it 'updates the recurring donation' do
       expect(client).to receive(:patch)
         .with(
           'FinancialScheduledTransactions/123',
