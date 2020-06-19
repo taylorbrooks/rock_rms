@@ -76,7 +76,8 @@ class RockMock < Sinatra::Base
     'FinancialBatches/:id',
     'FinancialScheduledTransactions/:id',
     'FinancialTransactions/:id',
-    'FinancialTransactionDetails/:id'
+    'FinancialTransactionDetails/:id',
+    'FinancialScheduledTransactionDetails/:id',
   ].each do |end_point|
     patch "/api/#{end_point}" do
       content_type :json

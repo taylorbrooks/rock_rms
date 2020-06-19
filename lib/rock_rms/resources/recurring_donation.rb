@@ -48,17 +48,12 @@ module RockRMS
         next_payment_date:,
         transaction_code: nil,
         payment_detail_id: nil,
-        active: nil,
-        funds: nil
+        active: nil
       )
         options = { 'NextPaymentDate' => next_payment_date }
         options['FinancialPaymentDetailId'] = payment_detail_id if payment_detail_id
         options['TransactionCode']          = transaction_code  if transaction_code
         options['IsActive']                 = active            if !active.nil?
-
-        if funds
-          options['ScheduledTransactionDetails'] = translate_funds(funds)
-        end
 
         patch(recurring_donation_path(id), options)
       end
