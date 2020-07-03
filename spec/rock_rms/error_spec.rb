@@ -18,9 +18,11 @@ RSpec.describe RockRMS::Error do
   end
 
   def expect_failure(code, body)
+    url = 'http://some-rock-uri.com/api/Auth/Login'
+
     expect {
       client.get('anything')
-    }.to raise_error(RockRMS::Error, /#{code}: #{body}/)
+    }.to raise_error(RockRMS::Error, /#{code}: #{url} #{body}/)
   end
 
   def expect_success
