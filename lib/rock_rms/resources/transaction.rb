@@ -77,6 +77,10 @@ module RockRMS
         delete(transaction_path(id))
       end
 
+      def refund_transaction(id)
+        post(transaction_path + "/Refund/#{id}")
+      end
+
       def launch_transaction_workflow(
         id,
         workflow_type_id:,
