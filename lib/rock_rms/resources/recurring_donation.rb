@@ -58,6 +58,16 @@ module RockRMS
         patch(recurring_donation_path(id), options)
       end
 
+      def launch_scheduled_transaction_workflow(
+        id,
+        workflow_type_id:,
+        workflow_name:,
+        attributes: {}
+      )
+        query_string = "?workflowTypeId=#{workflow_type_id}&workflowName=#{workflow_name}"
+        post(recurring_donation_path + "/LaunchWorkflow/#{id}#{query_string}", attributes)
+      end
+
       private
 
       def translate_funds(funds)
