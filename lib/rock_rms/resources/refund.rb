@@ -9,7 +9,8 @@ module RockRMS
         reason_id:,
         transaction_id:,
         transaction_code: nil,
-        amount: nil
+        amount: nil,
+        gateway_id: nil
       )
 
         old_transaction = list_transactions(
@@ -27,6 +28,7 @@ module RockRMS
           'FinancialTransaction' => {
             'AuthorizedPersonAliasId' => old_transaction[:person_id],
             'BatchId' => batch_id,
+            'FinancialGatewayId' => gateway_id,
             'FinancialPaymentDetailId' => old_transaction[:payment_detail_id],
             'TransactionCode'     => transaction_code,
             'TransactionDateTime' => date,

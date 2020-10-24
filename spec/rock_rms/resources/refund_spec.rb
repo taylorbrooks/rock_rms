@@ -51,6 +51,7 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
             'FinancialTransaction' => {
               'AuthorizedPersonAliasId' => 120,
               'BatchId' => 1,
+              'FinancialGatewayId' => nil,
               'FinancialPaymentDetailId' => 156,
               'TransactionDateTime' => '2018-02-01',
               'TransactionDetails'  => [{"Amount"=>-10.0, "AccountId"=>23}, {"Amount"=>-90.0, "AccountId"=>24}],
@@ -89,6 +90,7 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
             'FinancialTransaction' => {
               'AuthorizedPersonAliasId' => 120,
               'BatchId' => 1,
+              'FinancialGatewayId' => nil,
               'FinancialPaymentDetailId' => 156,
               'TransactionDateTime' => '2018-02-01',
               'TransactionDetails'  => [{"Amount"=>-7.56, "AccountId"=>23}, {"Amount"=>-67.99, "AccountId"=>24}],
@@ -99,9 +101,6 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
           .and_call_original
         resource
       end
-      
     end
-
   end
-
 end
