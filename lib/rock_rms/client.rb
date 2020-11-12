@@ -22,6 +22,7 @@ module RockRMS
     include RockRMS::Client::Gateway
     include RockRMS::Client::Group
     include RockRMS::Client::GroupMember
+    include RockRMS::Client::History
     include RockRMS::Client::Page
     include RockRMS::Client::PaymentDetail
     include RockRMS::Client::Person
@@ -31,6 +32,7 @@ module RockRMS
     include RockRMS::Client::Refund
     include RockRMS::Client::RefundReason
     include RockRMS::Client::SavedPaymentMethod
+    include RockRMS::Client::ServiceJob
     include RockRMS::Client::Transaction
     include RockRMS::Client::TransactionDetail
     include RockRMS::Client::UserLogin
