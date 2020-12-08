@@ -9,6 +9,7 @@ class RockMock < Sinatra::Base
     'FinancialPaymentDetails/:id',
     'FinancialPersonSavedAccounts/:id',
     'FinancialTransactions/:id',
+    'FinancialScheduledTransactionDetails/:id',
     'GroupMembers/:id'
   ].each do |end_point|
     delete "/api/#{end_point}" do
@@ -64,7 +65,8 @@ class RockMock < Sinatra::Base
     create_recurring_donation: 'FinancialScheduledTransactions',
     create_refund: 'FinancialTransactionRefunds',
     create_refund_reason: 'DefinedValues',
-    create_saved_payment_method: 'FinancialPersonSavedAccounts'
+    create_saved_payment_method: 'FinancialPersonSavedAccounts',
+    create_recurring_donation_detail: 'FinancialScheduledTransactionDetails',
   }.each do |json, end_point|
     post "/api/#{end_point}" do
       json_response 201, "#{json}.json"
