@@ -58,6 +58,10 @@ module RockRMS
         patch(recurring_donation_path(id), options)
       end
 
+      def delete_recurring_donation(id)
+        delete(recurring_donation_path(id))
+      end
+
       def launch_scheduled_transaction_workflow(
         id,
         workflow_type_id:,
