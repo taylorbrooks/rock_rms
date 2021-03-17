@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'bundler', '~> 2.0'
   s.add_development_dependency 'dotenv'
   s.add_development_dependency 'pry'
-  s.add_development_dependency 'rake', '~> 10.4'
+  s.add_development_dependency 'rake', '~> 12.3.3'
   s.add_development_dependency 'rspec', '~> 3.7'
   s.add_development_dependency 'sinatra', '~> 2.0'
   s.add_development_dependency 'webmock', '~> 3.1'
