@@ -17,6 +17,8 @@ RSpec.describe RockRMS::Response::TransactionDetail, type: :model do
         expect(r[:id]).to eq(p['Id'])
         expect(r[:fund_id]).to eq(p['AccountId'])
         expect(r[:amount]).to eq(p['Amount'])
+        expect(r[:entity_type_id]).to eq(p['EntityTypeId'])
+        expect(r[:entity_id]).to eq(p['EntityId'])
       end
     end
   end

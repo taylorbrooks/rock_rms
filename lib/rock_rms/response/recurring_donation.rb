@@ -13,7 +13,8 @@ module RockRMS
         person_id: 'AuthorizedPersonAliasId',
         start_date: 'StartDate',
         transaction_details: 'ScheduledTransactionDetails',
-        transaction_code: 'TransactionCode'
+        transaction_code: 'TransactionCode',
+        summary: 'Summary'
       }.freeze
 
       def format_single(data)
