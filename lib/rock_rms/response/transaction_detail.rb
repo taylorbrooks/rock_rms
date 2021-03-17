@@ -6,7 +6,9 @@ module RockRMS
         fee_amount: 'FeeAmount',
         fund: 'Account',
         fund_id: 'AccountId',
-        amount: 'Amount'
+        amount: 'Amount',
+        entity_type_id: 'EntityTypeId',
+        entity_id: 'EntityId'
       }.freeze
 
       def format_single(response)

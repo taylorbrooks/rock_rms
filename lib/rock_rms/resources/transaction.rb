@@ -97,7 +97,9 @@ module RockRMS
         funds.map do |fund|
           {
             'Amount' => fund[:amount],
-            'AccountId' => fund[:fund_id]
+            'AccountId' => fund[:fund_id],
+            'EntityTypeId' => fund[:entity_type_id],
+            'EntityId' => fund[:entity_id]
           }
         end
       end
