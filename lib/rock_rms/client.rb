@@ -75,8 +75,20 @@ module RockRMS
     private
 
     def auth
+      begin
+        auth_request('Auth/Login')
+      rescue Faraday::Error::ParsingError => e
+        if e.message.include?('Document Moved')
+          auth_request('auth/login')
+        else
+          raise e
+        end
+      end
+    end
+
+    def auth_request(path)
       connection.post(
-        'Auth/Login',
+        path,
         'Username'  => username,
         'Password'  => password,
         'Persisted' => true
