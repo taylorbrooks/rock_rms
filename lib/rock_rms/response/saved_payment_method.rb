@@ -5,6 +5,7 @@ module RockRMS
         id: 'Id',
         foreign_key: 'ForeignKey',
         gateway_id: 'FinancialGatewayId',
+        gateway_person_id: 'GatewayPersonIdentifier',
         name: 'Name',
         payment_details: 'FinancialPaymentDetail',
         payment_detail_id: 'FinancialPaymentDetailId',
