@@ -14,6 +14,7 @@ module RockRMS
         start_date: 'StartDate',
         transaction_details: 'ScheduledTransactionDetails',
         transaction_code: 'TransactionCode',
+        transaction_type_id: 'TransactionTypeValueId',
         summary: 'Summary'
       }.freeze
 

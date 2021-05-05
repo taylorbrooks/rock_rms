@@ -27,6 +27,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         start_date
         transaction_details
         transaction_code
+        transaction_type_id
         summary
       ]
 
