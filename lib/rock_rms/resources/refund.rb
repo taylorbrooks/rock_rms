@@ -45,7 +45,9 @@ module RockRMS
         apportion_refund_amount_over_accounts(details, transaction_amount, refund_amount).map do |dt|
           {
             'Amount' => -dt[:amount],
-            'AccountId' => dt[:fund_id]
+            'AccountId' => dt[:fund_id],
+            'EntityTypeId' => dt[:entity_type_id],
+            'EntityId' => dt[:entity_id]
           }
         end
       end

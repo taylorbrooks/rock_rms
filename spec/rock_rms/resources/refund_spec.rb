@@ -54,7 +54,20 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
               'FinancialGatewayId' => nil,
               'FinancialPaymentDetailId' => 156,
               'TransactionDateTime' => '2018-02-01',
-              'TransactionDetails'  => [{"Amount"=>-10.0, "AccountId"=>23}, {"Amount"=>-90.0, "AccountId"=>24}],
+              'TransactionDetails'  => [
+                {
+                  "Amount"=>-10.0,
+                  "AccountId"=>23,
+                  "EntityTypeId" => nil,
+                  "EntityId" => nil
+                },
+                {
+                  "Amount"=> -90.0,
+                  "AccountId"=>24,
+                  "EntityTypeId" => nil,
+                  "EntityId" => nil
+                }
+              ],
               'TransactionTypeValueId' => 53,
               'TransactionCode' => nil
             }
@@ -93,7 +106,20 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
               'FinancialGatewayId' => nil,
               'FinancialPaymentDetailId' => 156,
               'TransactionDateTime' => '2018-02-01',
-              'TransactionDetails'  => [{"Amount"=>-7.56, "AccountId"=>23}, {"Amount"=>-67.99, "AccountId"=>24}],
+              'TransactionDetails'  => [
+                {
+                  "Amount"=>-7.56,
+                  "AccountId"=>23,
+                  "EntityTypeId" => nil,
+                  "EntityId" => nil
+                },
+                {
+                  "Amount"=>-67.99,
+                  "AccountId"=>24,
+                  "EntityTypeId" => nil,
+                  "EntityId" => nil
+                }
+              ],
               'TransactionTypeValueId' => 53,
               'TransactionCode' => nil
             }
