@@ -48,12 +48,14 @@ module RockRMS
         next_payment_date:,
         transaction_code: nil,
         payment_detail_id: nil,
-        active: nil
+        active: nil,
+        frequency: nil
       )
         options = { 'NextPaymentDate' => next_payment_date }
         options['FinancialPaymentDetailId'] = payment_detail_id if payment_detail_id
         options['TransactionCode']          = transaction_code  if transaction_code
         options['IsActive']                 = active            if !active.nil?
+        options['TransactionFrequencyValueId'] = RecurringFrequencies::RECURRING_FREQUENCIES[frequency] if !frequency.nil?
 
         patch(recurring_donation_path(id), options)
       end
