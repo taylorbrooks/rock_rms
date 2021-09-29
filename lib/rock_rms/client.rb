@@ -41,14 +41,15 @@ module RockRMS
     include RockRMS::Client::WorkflowActivityType
     include RockRMS::Client::WorkflowType
 
-    attr_reader :url, :username, :password, :logger, :cookie, :connection, :adapter
+    attr_reader :url, :username, :password, :logger, :cookie, :connection, :adapter, :ssl
 
-    def initialize(url:, username:, password:, logger: true, adapter: Faraday.default_adapter)
+    def initialize(url:, username:, password:, logger: true, adapter: Faraday.default_adapter, ssl: nil)
       @url      = "#{url}/api/"
       @username = username
       @password = password
       @logger   = logger
       @adapter  = adapter
+      @ssl      = ssl
       @cookie   = auth['set-cookie']
     end
 
@@ -103,7 +104,14 @@ module RockRMS
 
       headers['Cookie'] = cookie if cookie
 
-      Faraday.new(url: url, headers: headers) do |conn|
+      client_opts = {
+        url: url,
+        headers: headers
+      }
+
+      client_opts[:ssl] = ssl if ssl
+
+      Faraday.new(client_opts) do |conn|
         conn.request   :json
         conn.response  :logger if logger
         conn.response  :oj
