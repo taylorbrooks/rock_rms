@@ -20,6 +20,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         financial_gateway_id
         foreign_key
         frequency
+        end_date
         gateway_schedule_id
         next_payment_date
         payment_details
