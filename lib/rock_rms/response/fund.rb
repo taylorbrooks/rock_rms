@@ -4,7 +4,8 @@ module RockRMS
       MAP = {
         id:   'Id',
         campus_id: 'CampusId',
-        name: 'Name'
+        name: 'Name',
+        gl_code: 'GlCode'
       }.freeze
 
       def format_single(data)

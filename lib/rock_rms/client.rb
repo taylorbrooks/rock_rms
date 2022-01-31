@@ -31,6 +31,7 @@ module RockRMS
     include RockRMS::Client::RecurringDonationDetail
     include RockRMS::Client::Refund
     include RockRMS::Client::RefundReason
+    include RockRMS::Client::Registration
     include RockRMS::Client::SavedPaymentMethod
     include RockRMS::Client::ServiceJob
     include RockRMS::Client::Transaction
