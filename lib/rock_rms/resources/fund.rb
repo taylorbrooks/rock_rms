@@ -6,6 +6,11 @@ module RockRMS
         Response::Fund.format(res)
       end
 
+      def find_fund(id)
+        res = get(fund_path(id))
+        Response::Fund.format(res)
+      end
+
       private
 
       def fund_path(id = nil)
