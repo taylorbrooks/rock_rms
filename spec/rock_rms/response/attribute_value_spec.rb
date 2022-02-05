@@ -14,7 +14,7 @@ RSpec.describe RockRMS::Response::AttributeValue, type: :model do
 
     it 'has the correct number keys' do
       keys = result.first.keys
-      expect(keys.count).to eq(4)
+      expect(keys.count).to eq(6)
     end
 
     it 'translates keys' do
@@ -23,6 +23,8 @@ RSpec.describe RockRMS::Response::AttributeValue, type: :model do
         expect(r[:value]).to eq(p['Value'])
         expect(r[:value_as_number]).to eq(p['ValueAsNumeric'])
         expect(r[:entity_id]).to eq(p['EntityId'])
+        expect(r[:created_date_time]).to eq(p['CreatedDateTime'])
+        expect(r[:modified_date_time]).to eq(p['ModifiedDateTime'])
       end
     end
   end

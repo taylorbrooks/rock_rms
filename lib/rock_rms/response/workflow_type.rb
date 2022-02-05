@@ -8,7 +8,7 @@ module RockRMS
         description: 'Description',
         summary: 'SummaryViewText',
         activities: 'ActivityTypes'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         response = to_h(MAP, data)

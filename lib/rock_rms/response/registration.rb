@@ -10,7 +10,7 @@ module RockRMS
         registration_instance_id: 'RegistrationInstanceId',
         registration_instance: 'RegistrationInstance',
         registrants: 'Registrants'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         response = to_h(MAP, data)

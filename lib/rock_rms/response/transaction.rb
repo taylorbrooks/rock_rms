@@ -15,7 +15,7 @@ module RockRMS
         payment_details: 'FinancialPaymentDetail',
         payment_detail_id: 'FinancialPaymentDetailId',
         transaction_type_id: 'TransactionTypeValueId'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
 
       def format_single(data)

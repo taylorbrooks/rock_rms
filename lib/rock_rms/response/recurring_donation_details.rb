@@ -7,7 +7,7 @@ module RockRMS
         fund_id: 'AccountId',
         entity_type_id: 'EntityTypeId',
         entity_id: 'EntityId'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

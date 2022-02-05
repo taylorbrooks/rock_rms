@@ -8,7 +8,7 @@ module RockRMS
         defined_values: 'DefinedValues',
         order: 'Order',
         value: 'Value',
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         response = to_h(MAP, data)

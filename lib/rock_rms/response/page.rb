@@ -7,7 +7,7 @@ module RockRMS
         page_title: 'PageTitle',
         browser_title: 'BrowserTitle',
         blocks: 'Blocks'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         response = to_h(MAP, data)

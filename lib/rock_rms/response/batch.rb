@@ -12,7 +12,7 @@ module RockRMS
         is_campus: 'Campus',
         status: 'Status',
         foreign_key: 'ForeignKey'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         response = to_h(MAP, data)

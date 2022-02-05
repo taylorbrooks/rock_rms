@@ -7,7 +7,7 @@ module RockRMS
         start_date: 'StartDateTime',
         end_date: 'EndDateTime',
         fund_id: 'AccountId'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         response = to_h(MAP, data)

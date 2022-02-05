@@ -15,7 +15,7 @@ module RockRMS
         latitude: 'Latitude',
         longitude: 'Longitude',
         guid: 'Guid'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

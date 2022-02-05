@@ -6,7 +6,7 @@ module RockRMS
         campus_id: 'CampusId',
         name: 'Name',
         gl_code: 'GlCode'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

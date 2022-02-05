@@ -1,6 +1,11 @@
 module RockRMS
   module Response
     class Base
+      TIMESTAMPS = {
+        created_date_time: "CreatedDateTime",
+        modified_date_time: "ModifiedDateTime",
+      }.freeze
+
       attr_reader :data
 
       def self.format(data)

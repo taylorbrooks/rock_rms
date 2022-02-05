@@ -9,7 +9,7 @@ module RockRMS
         old_value: 'OldValue',
         new_value: 'NewValue',
         alias_id: 'CreatedByPersonAliasId'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

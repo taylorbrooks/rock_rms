@@ -17,7 +17,7 @@ module RockRMS
         transaction_code: 'TransactionCode',
         transaction_type_id: 'TransactionTypeValueId',
         summary: 'Summary'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         result = to_h(MAP, data)

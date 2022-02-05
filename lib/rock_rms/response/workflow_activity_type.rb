@@ -8,7 +8,7 @@ module RockRMS
         order: 'Order',
         actions: 'ActionTypes',
         workflow_type_id: 'WorkflowTypeId'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         response = to_h(MAP, data)

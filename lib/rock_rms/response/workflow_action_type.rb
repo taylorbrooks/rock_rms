@@ -6,7 +6,7 @@ module RockRMS
         name: 'Name',
         activity_type_id: 'ActivityTypeId',
         order: 'Order'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

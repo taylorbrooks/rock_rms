@@ -6,7 +6,7 @@ module RockRMS
         group_id: 'GroupId',
         location_id: 'LocationId',
         guid: 'Guid'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         result = to_h(MAP, data)

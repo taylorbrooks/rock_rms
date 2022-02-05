@@ -7,7 +7,7 @@ module RockRMS
         description: 'Description',
         order: 'Order',
         value: 'Value',
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

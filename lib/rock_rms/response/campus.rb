@@ -12,7 +12,7 @@ module RockRMS
         phone_number: 'PhoneNumber',
         service_times: 'ServiceTimes',
         guid: 'Guid'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

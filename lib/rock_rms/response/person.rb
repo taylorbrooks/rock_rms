@@ -11,7 +11,7 @@ module RockRMS
         giving_group_id: 'GivingGroupId',
         alias_id:   'PrimaryAliasId',
         connection_status_value_id: 'ConnectionStatusValueId'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

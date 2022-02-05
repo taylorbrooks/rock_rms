@@ -9,7 +9,7 @@ module RockRMS
         amount: 'Amount',
         entity_type_id: 'EntityTypeId',
         entity_id: 'EntityId'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(response)
         response        = to_h(MAP, response)

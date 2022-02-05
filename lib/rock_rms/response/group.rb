@@ -10,7 +10,7 @@ module RockRMS
         is_active: 'IsActive',
         guid: 'Guid',
         members: 'Members'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         result = to_h(MAP, data)

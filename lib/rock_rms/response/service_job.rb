@@ -7,7 +7,7 @@ module RockRMS
         active: 'IsActive',
         description: 'Description',
         cron: 'CronExpression'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         to_h(MAP, data)

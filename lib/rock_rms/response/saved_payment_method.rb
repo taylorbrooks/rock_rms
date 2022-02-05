@@ -10,7 +10,7 @@ module RockRMS
         payment_details: 'FinancialPaymentDetail',
         payment_detail_id: 'FinancialPaymentDetailId',
         reference_number: 'ReferenceNumber'
-      }.freeze
+      }.merge(TIMESTAMPS).freeze
 
       def format_single(data)
         response = to_h(MAP, data)
