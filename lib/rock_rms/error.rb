@@ -1,5 +1,6 @@
 module RockRMS
   class Error < StandardError; end
+  class BadGateway < Error; end
   class BadRequest < Error; end
   class Forbidden < Error; end
   class GatewayTimeout < Error; end
@@ -26,6 +27,8 @@ module FaradayMiddleware
         raise RockRMS::NotFound, error_message(env)
       when 500
         raise RockRMS::InternalServerError, error_message(env)
+      when 502
+        raise RockRMS::BadGateway, error_message(env)
       when 503
         raise RockRMS::ServiceUnavailable, error_message(env)
       when 504
