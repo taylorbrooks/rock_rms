@@ -34,24 +34,49 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
   end
 
   describe '#update_transaction_detail' do
-    subject(:resource) do
-      client.update_transaction_detail(
-        123,
-        fund_id: 2,
-      )
+    context 'simple' do
+      subject(:resource) do
+        client.update_transaction_detail(
+          123,
+          fund_id: 2,
+        )
+      end
+
+      it 'returns nothing' do
+        expect(client.update_transaction_detail(123, fund_id: 5)).to eq(nil)
+      end
+
+      it 'passes options' do
+        expect(client).to receive(:patch)
+          .with(
+            'FinancialTransactionDetails/123',
+            'AccountId' => 2
+          ).and_call_original
+        resource
+      end
     end
 
-    it 'returns nothing' do
-      expect(client.update_transaction_detail(123, fund_id: 5)).to eq(nil)
+    context 'complex' do
+      subject(:resource) do
+        client.update_transaction_detail(
+          123,
+          fund_id: 2,
+          fee_amount: 50,
+          fee_coverage_amount: 50
+        )
+      end
+
+      it 'passes options' do
+        expect(client).to receive(:patch)
+          .with(
+            'FinancialTransactionDetails/123',
+            'FeeAmount' => 50,
+            'FeeCoverageAmount' => 50,
+            'AccountId' => 2
+          ).and_call_original
+        resource
+      end
     end
 
-    it 'passes options' do
-      expect(client).to receive(:patch)
-        .with(
-          'FinancialTransactionDetails/123',
-          'AccountId' => 2
-        ).and_call_original
-      resource
-    end
   end
 end
