@@ -85,7 +85,7 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
           'FinancialPaymentDetailId' => 1,
           'TransactionCode' => 'asdf',
           'TransactionDateTime' => 1,
-          'TransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2, 'EntityTypeId' => nil, 'EntityId' => nil }],
+          'TransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2, 'EntityTypeId' => nil, 'EntityId' => nil, 'FeeAmount' => nil }],
           'TransactionTypeValueId' => 53,
           'SourceTypeValueId' => 10,
           'Summary' => 'taco tuesday'
