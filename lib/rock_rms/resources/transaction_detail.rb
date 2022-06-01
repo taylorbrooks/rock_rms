@@ -24,9 +24,9 @@ module RockRMS
         options['AccountId']          = fund_id        if fund_id
         options['Amount']             = amount         if amount
         options['FeeAmount']          = fee_amount     if fee_amount
-        options['FeeCoverageAmount']  = fee_amount     if fee_amount
         options['EntityTypeId']       = entity_type_id if entity_type_id
         options['EntityId']           = entity_id      if entity_id
+        options['FeeCoverageAmount']  = fee_coverage_amount     if fee_coverage_amount
 
         patch(transaction_detail_path(id), options)
       end
