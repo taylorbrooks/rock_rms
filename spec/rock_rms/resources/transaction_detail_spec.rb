@@ -62,7 +62,7 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
           123,
           fund_id: 2,
           fee_amount: 50,
-          fee_coverage_amount: 50
+          fee_coverage_amount: 45
         )
       end
 
@@ -71,7 +71,7 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
           .with(
             'FinancialTransactionDetails/123',
             'FeeAmount' => 50,
-            'FeeCoverageAmount' => 50,
+            'FeeCoverageAmount' => 45,
             'AccountId' => 2
           ).and_call_original
         resource
