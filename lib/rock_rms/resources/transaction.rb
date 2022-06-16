@@ -102,7 +102,8 @@ module RockRMS
             'AccountId' => fund[:fund_id],
             'EntityTypeId' => fund[:entity_type_id],
             'EntityId' => fund[:entity_id],
-            'FeeAmount' => fund[:fee_amount]
+            'FeeAmount' => fund[:fee_amount],
+            'FeeCoverageAmount' => fund[:fee_coverage_amount]
           }
         end
       end

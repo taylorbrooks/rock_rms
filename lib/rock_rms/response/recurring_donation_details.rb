@@ -4,6 +4,7 @@ module RockRMS
       MAP = {
         id: 'Id',
         amount: 'Amount',
+        fee_coverage_amount: 'FeeCoverageAmount',
         fund_id: 'AccountId',
         entity_type_id: 'EntityTypeId',
         entity_id: 'EntityId'

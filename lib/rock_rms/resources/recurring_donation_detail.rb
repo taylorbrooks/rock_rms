@@ -22,10 +22,11 @@ module RockRMS
         delete(recurring_donation_detail_path(id))
       end
 
-      def update_recurring_donation_detail(id, fund_id: nil, amount: nil)
+      def update_recurring_donation_detail(id, fund_id: nil, amount: nil, fee_coverage_amount: nil)
         options = {}
         options['AccountId'] = fund_id if fund_id
         options['Amount']    = amount  if amount
+        options['FeeCoverageAmount'] = fee_coverage_amount if fee_coverage_amount
 
         patch(recurring_donation_detail_path(id), options)
       end
