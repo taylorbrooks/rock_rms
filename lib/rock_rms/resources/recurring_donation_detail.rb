@@ -5,15 +5,17 @@ module RockRMS
     module RecurringDonationDetail
       def create_recurring_donation_detail(
         recurring_donation_id:,
+        fee_coverage_amount: nil,
         fund_id:,
         amount:
       )
-
         options = {
           'AccountId' => fund_id,
           'Amount' => amount,
           'ScheduledTransactionId' => recurring_donation_id
         }
+
+        options['FeeCoverageAmount'] = fee_coverage_amount if fee_coverage_amount
 
         post(recurring_donation_detail_path, options)
       end
