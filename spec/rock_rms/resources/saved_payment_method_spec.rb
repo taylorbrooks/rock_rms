@@ -60,6 +60,7 @@ RSpec.describe RockRMS::Client::SavedPaymentMethod, type: :model do
           'Name' => 'Sapphire Preferred',
           'ReferenceNumber' => 'card_1234',
           'PersonAliasId' => 1,
+          'IsDefault' => 0,
           'FinancialGatewayId' => 2,
           'FinancialPaymentDetailId' => 1
         ).and_call_original

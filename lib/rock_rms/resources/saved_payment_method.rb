@@ -9,6 +9,7 @@ module RockRMS
       def create_saved_payment_method(
         gateway_id:,
         gateway_person_id: nil,
+        is_default: 0,
         payment_detail_id:,
         person_alias_id:,
         name:,
@@ -17,6 +18,7 @@ module RockRMS
         options = {
           'FinancialGatewayId'       => gateway_id,
           'FinancialPaymentDetailId' => payment_detail_id,
+          'IsDefault'                => is_default,
           'Name'                     => name,
           'PersonAliasId'            => person_alias_id,
           'ReferenceNumber'          => reference_number
@@ -33,6 +35,7 @@ module RockRMS
         id,
         gateway_id: nil,
         gateway_person_id: nil,
+        is_default: nil,
         payment_detail_id: nil,
         person_alias_id: nil,
         name: nil,
@@ -42,6 +45,7 @@ module RockRMS
 
         options['FinancialGatewayId']       = gateway_id        if gateway_id
         options['GatewayPersonIdentifier']  = gateway_person_id if gateway_person_id
+        options['IsDefault']                = is_default        if is_default
         options['FinancialPaymentDetailId'] = payment_detail_id if payment_detail_id
         options['Name']                     = name              if name
         options['PersonAliasId']            = person_alias_id   if person_alias_id
