@@ -17,6 +17,16 @@ module RockRMS
         post(payment_detail_path, options)
       end
 
+      def update_payment_detail(id, foreign_key: nil, card_type: nil, last_4: nil)
+        options = {}
+
+        options['CreditCardTypeValueId'] = cast_card_type(card_type) if card_type
+        options['ForeignKey'] = foreign_key if foreign_key
+        options['AccountNumberMasked'] = "************#{last_4}" if last_4
+
+        patch(payment_detail_path(id), options)
+      end
+
       def delete_payment_detail(id)
         delete(payment_detail_path(id))
       end
