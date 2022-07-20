@@ -53,10 +53,10 @@ module RockRMS
         post(people_path, options)
       end
 
-      def create_business(last_name:, email:, connection_status_value_id: nil, record_status_value_id: nil, record_type_value_id: 2)
+      def create_business(name:, email:, connection_status_value_id: nil, record_status_value_id: nil, record_type_value_id: 2)
         options = {
           'IsSystem' => false,
-          'LastName' => last_name,
+          'LastName' => name,
           'Email' => email,
           'Gender' => 1,
           'ConnectionStatusValueId' => connection_status_value_id,
