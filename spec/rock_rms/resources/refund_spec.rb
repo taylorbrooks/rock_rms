@@ -46,30 +46,32 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
         expect(client).to receive(:post)
           .with(
             'FinancialTransactionRefunds',
-            'OriginalTransactionId' => 3000,
-            'RefundReasonValueId' => 1,
-            'FinancialTransaction' => {
-              'AuthorizedPersonAliasId' => 120,
-              'BatchId' => 1,
-              'FinancialGatewayId' => nil,
-              'FinancialPaymentDetailId' => 156,
-              'TransactionDateTime' => '2018-02-01',
-              'TransactionDetails'  => [
-                {
-                  "Amount"=>-10.0,
-                  "AccountId"=>23,
-                  "EntityTypeId" => nil,
-                  "EntityId" => nil
-                },
-                {
-                  "Amount"=> -90.0,
-                  "AccountId"=>24,
-                  "EntityTypeId" => nil,
-                  "EntityId" => nil
-                }
-              ],
-              'TransactionTypeValueId' => 53,
-              'TransactionCode' => nil
+            {
+              'OriginalTransactionId' => 3000,
+              'RefundReasonValueId' => 1,
+              'FinancialTransaction' => {
+                'AuthorizedPersonAliasId' => 120,
+                'BatchId' => 1,
+                'FinancialGatewayId' => nil,
+                'FinancialPaymentDetailId' => 156,
+                'TransactionDateTime' => '2018-02-01',
+                'TransactionDetails'  => [
+                  {
+                    "Amount"=>-10.0,
+                    "AccountId"=>23,
+                    "EntityTypeId" => nil,
+                    "EntityId" => nil
+                  },
+                  {
+                    "Amount"=> -90.0,
+                    "AccountId"=>24,
+                    "EntityTypeId" => nil,
+                    "EntityId" => nil
+                  }
+                ],
+                'TransactionTypeValueId' => 53,
+                'TransactionCode' => nil
+              }
             }
           )
           .and_call_original
@@ -79,7 +81,6 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
     end
 
     context "with amount param" do
-
       subject(:resource) do
         client.create_refund(
           transaction_id: 3000,
@@ -98,30 +99,32 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
         expect(client).to receive(:post)
           .with(
             'FinancialTransactionRefunds',
-            'OriginalTransactionId' => 3000,
-            'RefundReasonValueId' => 1,
-            'FinancialTransaction' => {
-              'AuthorizedPersonAliasId' => 120,
-              'BatchId' => 1,
-              'FinancialGatewayId' => nil,
-              'FinancialPaymentDetailId' => 156,
-              'TransactionDateTime' => '2018-02-01',
-              'TransactionDetails'  => [
-                {
-                  "Amount"=>-7.56,
-                  "AccountId"=>23,
-                  "EntityTypeId" => nil,
-                  "EntityId" => nil
-                },
-                {
-                  "Amount"=>-67.99,
-                  "AccountId"=>24,
-                  "EntityTypeId" => nil,
-                  "EntityId" => nil
-                }
-              ],
-              'TransactionTypeValueId' => 53,
-              'TransactionCode' => nil
+            {
+              'OriginalTransactionId' => 3000,
+              'RefundReasonValueId' => 1,
+              'FinancialTransaction' => {
+                'AuthorizedPersonAliasId' => 120,
+                'BatchId' => 1,
+                'FinancialGatewayId' => nil,
+                'FinancialPaymentDetailId' => 156,
+                'TransactionDateTime' => '2018-02-01',
+                'TransactionDetails'  => [
+                  {
+                    "Amount"=>-7.56,
+                    "AccountId"=>23,
+                    "EntityTypeId" => nil,
+                    "EntityId" => nil
+                  },
+                  {
+                    "Amount"=>-67.99,
+                    "AccountId"=>24,
+                    "EntityTypeId" => nil,
+                    "EntityId" => nil
+                  }
+                ],
+                'TransactionTypeValueId' => 53,
+                'TransactionCode' => nil
+              }
             }
           )
           .and_call_original

@@ -36,11 +36,13 @@ RSpec.describe RockRMS::Client::PhoneNumber, type: :model do
       expect(client).to receive(:post)
         .with(
           'PhoneNumbers',
-          'IsSystem' => true,
-          'IsMessagingEnabled' => false,
-          'NumberTypeValueId' => 13,
-          'Number' => '5555555555',
-          'PersonId' => 1
+          {
+            'IsSystem' => true,
+            'IsMessagingEnabled' => false,
+            'NumberTypeValueId' => 13,
+            'Number' => '5555555555',
+            'PersonId' => 1
+          }
         ).and_call_original
       resource
     end
@@ -61,7 +63,7 @@ RSpec.describe RockRMS::Client::PhoneNumber, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:get)
-        .with('PhoneNumbers', option1: '1')
+        .with('PhoneNumbers', { option1: '1' })
         .and_return([])
       client.list_phone_numbers(option1: '1')
     end

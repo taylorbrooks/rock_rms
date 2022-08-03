@@ -10,8 +10,8 @@ RSpec.describe RockRMS::Client do
   end
   let(:attrs_without_logging) { attrs.merge(logger: false) }
 
-  subject(:client) { described_class.new(attrs_without_logging) }
-  let(:noisy_client) { described_class.new(attrs) }
+  subject(:client) { described_class.new(**attrs_without_logging) }
+  let(:noisy_client) { described_class.new(**attrs) }
 
   describe '#initialize' do
     it 'requries `url` param' do

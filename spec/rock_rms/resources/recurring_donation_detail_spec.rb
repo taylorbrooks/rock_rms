@@ -38,9 +38,11 @@ RSpec.describe RockRMS::Client::RecurringDonationDetail, type: :model do
       expect(client).to receive(:post)
         .with(
           'FinancialScheduledTransactionDetails',
-          'AccountId' => 1,
-          'ScheduledTransactionId' => 1,
-          'Amount' => 5.00,
+          {
+            'AccountId' => 1,
+            'ScheduledTransactionId' => 1,
+            'Amount' => 5.00,
+          }
         )
         .and_call_original
       resource
@@ -64,8 +66,10 @@ RSpec.describe RockRMS::Client::RecurringDonationDetail, type: :model do
       expect(client).to receive(:patch)
         .with(
           'FinancialScheduledTransactionDetails/123',
-          'AccountId' => 2,
-          'Amount' => 100.0
+          {
+            'AccountId' => 2,
+            'Amount' => 100.0
+          }
         ).and_call_original
       resource
     end

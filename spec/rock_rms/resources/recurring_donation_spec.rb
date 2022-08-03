@@ -53,7 +53,9 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
       expect(client).to receive(:patch)
         .with(
           'FinancialScheduledTransactions/123',
-          'NextPaymentDate' => '2018-01-01'
+          {
+            'NextPaymentDate' => '2018-01-01'
+          }
       ).and_call_original
 
       resource = client.update_recurring_donation(
@@ -131,18 +133,20 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
       expect(client).to receive(:post)
         .with(
           'FinancialScheduledTransactions',
-          'AuthorizedPersonAliasId' => 1,
-          'TransactionFrequencyValueId' => 135,
-          'StartDate' => '2010-01-01',
-          'NextPaymentDate' => '2010-01-01',
-          'IsActive' => true,
-          'FinancialGatewayId' => nil,
-          'FinancialPaymentDetailId' => nil,
-          'TransactionCode' => 'asdf',
-          'ScheduledTransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2, 'EntityId' => nil, 'EntityTypeId' => nil, 'FeeAmount' => nil, 'FeeCoverageAmount' => nil}],
-          'GatewayScheduleId' => nil,
-          'SourceTypeValueId' => 10,
-          'ForeignKey' => nil
+          {
+            'AuthorizedPersonAliasId' => 1,
+            'TransactionFrequencyValueId' => 135,
+            'StartDate' => '2010-01-01',
+            'NextPaymentDate' => '2010-01-01',
+            'IsActive' => true,
+            'FinancialGatewayId' => nil,
+            'FinancialPaymentDetailId' => nil,
+            'TransactionCode' => 'asdf',
+            'ScheduledTransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2, 'EntityId' => nil, 'EntityTypeId' => nil, 'FeeAmount' => nil, 'FeeCoverageAmount' => nil}],
+            'GatewayScheduleId' => nil,
+            'SourceTypeValueId' => 10,
+            'ForeignKey' => nil
+          }
         )
         .and_call_original
       resource

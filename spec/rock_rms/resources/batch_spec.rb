@@ -69,12 +69,14 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
       expect(client).to receive(:post)
         .with(
           'FinancialBatches',
-          'Name' => '1',
-          'CampusId' => 1,
-          'BatchStartDateTime' => '1',
-          'BatchEndDateTime' => '1',
-          'ForeignKey' => 1,
-          'Status' => 1
+          {
+            'Name' => '1',
+            'CampusId' => 1,
+            'BatchStartDateTime' => '1',
+            'BatchEndDateTime' => '1',
+            'ForeignKey' => 1,
+            'Status' => 1
+          }
         ).and_call_original
       resource
     end
@@ -97,8 +99,10 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
       expect(client).to receive(:patch)
         .with(
           'FinancialBatches/123',
-          'Name' => '1',
-          'ForeignKey' => 1
+          {
+            'Name' => '1',
+            'ForeignKey' => 1
+          }
         ).and_call_original
       resource
     end

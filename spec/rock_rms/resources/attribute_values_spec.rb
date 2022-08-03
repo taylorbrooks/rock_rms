@@ -45,10 +45,12 @@ RSpec.describe RockRMS::Client::AttributeValue, type: :model do
       expect(client).to receive(:post)
         .with(
           'AttributeValues',
-          'AttributeId' => 12993,
-          'EntityId'    => 731,
-          'Value'       => 100,
-          'IsSystem'    => false
+          {
+            'AttributeId' => 12993,
+            'EntityId'    => 731,
+            'Value'       => 100,
+            'IsSystem'    => false
+          }
         )
         .and_call_original
       resource

@@ -31,9 +31,11 @@ RSpec.describe RockRMS::Client::PaymentDetail, type: :model do
       expect(client).to receive(:post)
         .with(
           'FinancialPaymentDetails',
-          'CurrencyTypeValueId' => 156,
-          'CreditCardTypeValueId' => 159,
-          'ForeignKey' => nil
+          {
+            'CurrencyTypeValueId' => 156,
+            'CreditCardTypeValueId' => 159,
+            'ForeignKey' => nil
+          }
         )
         .and_call_original
       resource

@@ -38,7 +38,7 @@ RSpec.describe RockRMS::Client::Group, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:get)
-        .with('Groups', option1: '1')
+        .with('Groups', { option1: '1' })
         .and_return([])
       client.list_groups(option1: '1')
     end
@@ -95,7 +95,7 @@ RSpec.describe RockRMS::Client::Group, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:get)
-        .with('Groups/GetFamilies/123', option1: '1')
+        .with('Groups/GetFamilies/123', { option1: '1' })
         .and_return([])
       client.list_families_for_person(123, option1: '1')
     end

@@ -8,5 +8,5 @@ RSpec.shared_context 'resource specs' do
   end
   let(:attrs_without_logging) { attrs.merge(logger: false) }
 
-  let(:client) { RockRMS::Client.new(attrs_without_logging) }
+  let(:client) { RockRMS::Client.new(**attrs_without_logging) }
 end

@@ -50,7 +50,9 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
         expect(client).to receive(:patch)
           .with(
             'FinancialTransactionDetails/123',
-            'AccountId' => 2
+            {
+              'AccountId' => 2
+            }
           ).and_call_original
         resource
       end
@@ -70,9 +72,11 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
         expect(client).to receive(:patch)
           .with(
             'FinancialTransactionDetails/123',
-            'FeeAmount' => 50,
-            'FeeCoverageAmount' => 45,
-            'AccountId' => 2
+            {
+              'FeeAmount' => 50,
+              'FeeCoverageAmount' => 45,
+              'AccountId' => 2
+            }
           ).and_call_original
         resource
       end

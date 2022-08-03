@@ -42,12 +42,14 @@ RSpec.describe RockRMS::Client::RefundReason, type: :model do
       expect(client).to receive(:post)
         .with(
           'DefinedValues',
-          'DefinedTypeId' => 37,
-          'IsSystem' => false,
-          'Order' => 500,
-          'Description' => "Very Very not Happy",
-          'Value' => "Angry Donor",
-          'IsActive' => false
+          {
+            'DefinedTypeId' => 37,
+            'IsSystem' => false,
+            'Order' => 500,
+            'Description' => "Very Very not Happy",
+            'Value' => "Angry Donor",
+            'IsActive' => false
+          }
         )
         .and_call_original
       resource

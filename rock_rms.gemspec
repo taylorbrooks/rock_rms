@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.executables   = s.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   s.test_files    = s.files.grep(%r{^(test)/})
 
-  s.required_ruby_version = '~> 2.3'
+  s.required_ruby_version = '~> 2.7'
 
   s.require_paths = ['lib']
 
@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency     'faraday_middleware-parse_oj'
   s.add_runtime_dependency     'json'
 
-  s.add_development_dependency 'bundler', '~> 2.0'
+  s.add_development_dependency 'bundler', '~> 2.3'
   s.add_development_dependency 'dotenv'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'rake', '~> 12.3.3'

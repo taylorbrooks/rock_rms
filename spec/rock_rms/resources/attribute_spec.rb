@@ -53,17 +53,19 @@ RSpec.describe RockRMS::Client::Attribute, type: :model do
       expect(client).to receive(:post)
         .with(
           'Attributes',
-          'FieldTypeId' => 14,
-          'EntityTypeId' => 85,
-          'Key' => 'TransactionFee',
-          'Name' => 'Transaction Fee',
-          'Description' => 'Transaction fees for a specific gateway',
-          'Order' => 1234,
-          'IsSystem'     => false,
-          'IsGridColumn' => false,
-          'IsMultiValue' => false,
-          'IsRequired'   => false,
-          'AllowSearch'  => false
+          {
+            'FieldTypeId' => 14,
+            'EntityTypeId' => 85,
+            'Key' => 'TransactionFee',
+            'Name' => 'Transaction Fee',
+            'Description' => 'Transaction fees for a specific gateway',
+            'Order' => 1234,
+            'IsSystem'     => false,
+            'IsGridColumn' => false,
+            'IsMultiValue' => false,
+            'IsRequired'   => false,
+            'AllowSearch'  => false
+          }
         )
         .and_call_original
       resource

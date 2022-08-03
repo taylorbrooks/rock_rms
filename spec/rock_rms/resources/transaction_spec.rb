@@ -78,17 +78,19 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
       expect(client).to receive(:post)
         .with(
           'FinancialTransactions',
-          'AuthorizedPersonAliasId' => 1,
-          'ScheduledTransactionId' => 1,
-          'BatchId' => 1,
-          'FinancialGatewayId' => nil,
-          'FinancialPaymentDetailId' => 1,
-          'TransactionCode' => 'asdf',
-          'TransactionDateTime' => 1,
-          'TransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2, 'EntityTypeId' => nil, 'EntityId' => nil, 'FeeAmount' => nil, 'FeeCoverageAmount' => nil }],
-          'TransactionTypeValueId' => 53,
-          'SourceTypeValueId' => 10,
-          'Summary' => 'taco tuesday'
+          {
+            'AuthorizedPersonAliasId' => 1,
+            'ScheduledTransactionId' => 1,
+            'BatchId' => 1,
+            'FinancialGatewayId' => nil,
+            'FinancialPaymentDetailId' => 1,
+            'TransactionCode' => 'asdf',
+            'TransactionDateTime' => 1,
+            'TransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2, 'EntityTypeId' => nil, 'EntityId' => nil, 'FeeAmount' => nil, 'FeeCoverageAmount' => nil }],
+            'TransactionTypeValueId' => 53,
+            'SourceTypeValueId' => 10,
+            'Summary' => 'taco tuesday'
+          }
         )
         .and_call_original
       resource
@@ -114,10 +116,12 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
       expect(client).to receive(:patch)
         .with(
           'FinancialTransactions/123',
-          'BatchId' => 1,
-          'Summary' => 'taco tuesday',
-          'TransactionTypeValueId' => 54,
-          'SourceTypeValueId' => 5
+          {
+            'BatchId' => 1,
+            'Summary' => 'taco tuesday',
+            'TransactionTypeValueId' => 54,
+            'SourceTypeValueId' => 5
+          }
         )
         .and_call_original
       resource
