@@ -33,7 +33,7 @@ RSpec.describe RockRMS::Client do
       it 'expects a valid URI' do
         expect do
           described_class.new(url: 'test', username: 'test', password: 'test')
-        end.to raise_error(URI::InvalidURIError)
+        end.to raise_error(URI::BadURIError)
       end
     end
   end

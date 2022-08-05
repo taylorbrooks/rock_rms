@@ -78,7 +78,7 @@ module RockRMS
     def auth
       begin
         auth_request('Auth/Login')
-      rescue Faraday::Error::ParsingError => e
+      rescue Faraday::ParsingError => e
         if e.message.include?('Document Moved')
           auth_request('auth/login')
         else
