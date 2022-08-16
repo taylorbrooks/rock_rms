@@ -15,7 +15,6 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
     it 'has the following keys' do
       response = result.first
       expected_keys = %i[
-        id
         active
         financial_gateway_id
         foreign_key
@@ -30,6 +29,9 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         transaction_code
         transaction_type_id
         summary
+        id
+        created_date_time
+        modified_date_time
       ]
 
       expect(response.keys).to eq(expected_keys)

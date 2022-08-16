@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class DefinedType < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         description: 'Description',
         defined_values: 'DefinedValues',

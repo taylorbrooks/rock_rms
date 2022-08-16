@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Transaction < Base
       MAP = {
-        id: 'Id',
         date: 'TransactionDateTime',
         person: 'AuthorizedPersonAlias',
         person_id: 'AuthorizedPersonAliasId',

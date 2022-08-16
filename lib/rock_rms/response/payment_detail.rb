@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class PaymentDetail < Base
       MAP = {
-        id: 'Id',
         exp_month: 'ExpirationMonth',
         exp_year: 'ExpirationYear',
         foreign_key: 'ForeignKey',

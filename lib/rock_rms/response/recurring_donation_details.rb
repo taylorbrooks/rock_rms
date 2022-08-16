@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class RecurringDonationDetails < Base
       MAP = {
-        id: 'Id',
         amount: 'Amount',
         fee_coverage_amount: 'FeeCoverageAmount',
         fund_id: 'AccountId',

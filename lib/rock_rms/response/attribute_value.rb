@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class AttributeValue < Base
       MAP = {
-        id: 'Id',
         value: 'Value',
         value_as_number: 'ValueAsNumeric',
         entity_id: 'EntityId'

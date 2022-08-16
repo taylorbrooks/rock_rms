@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Fund < Base
       MAP = {
-        id:   'Id',
         campus_id: 'CampusId',
         name: 'Name',
         gl_code: 'GlCode'

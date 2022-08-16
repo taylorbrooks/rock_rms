@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class WorkflowActivityType < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         description: 'Description',
         order: 'Order',

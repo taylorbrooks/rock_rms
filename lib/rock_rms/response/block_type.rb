@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class BlockType < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         description: 'Description',
         category: 'Category',

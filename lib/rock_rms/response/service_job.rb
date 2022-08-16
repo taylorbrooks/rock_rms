@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class ServiceJob < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         active: 'IsActive',
         description: 'Description',
