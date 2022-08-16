@@ -1,6 +1,6 @@
 ![](https://www.rockrms.com/Themes/RockExternal/Assets/Images/rock-logo.svg)
 
-# Rock RMS Ruby Client [![Build Status](https://travis-ci.org/taylorbrooks/rock_rms.svg?branch=master)](https://travis-ci.org/taylorbrooks/rock_rms)
+# Rock RMS Ruby Client ![example workflow](https://github.com/taylorbrooks/rock_rms/actions/workflows/test.yml/badge.svg)
 
 A Ruby wrapper for the Rock RMS API
 
@@ -14,7 +14,7 @@ I'm a big fan of Rock so if you have problems using the gem or would like to see
 Add this line to your application's Gemfile:
 ````ruby
   # in your Gemfile
-  gem 'rock_rms', '~> 4.2'
+  gem 'rock_rms', '~> 7.0.3'
 
   # then...
   bundle install
