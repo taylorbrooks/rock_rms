@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Attribute < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         key: 'Key',
         description: 'Description'

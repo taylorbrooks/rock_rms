@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class TransactionDetail < Base
       MAP = {
-        id: 'Id',
         fee_amount: 'FeeAmount',
         fee_coverage_amount: 'FeeCoverageAmount',
         fund: 'Account',

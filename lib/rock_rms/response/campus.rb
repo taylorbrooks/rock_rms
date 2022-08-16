@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Campus < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         is_active: 'IsActive',
         description: 'Description',

@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class DefinedValue < Base
       MAP = {
-        id: 'Id',
         defined_type_id: 'DefinedTypeId',
         description: 'Description',
         order: 'Order',

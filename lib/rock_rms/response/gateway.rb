@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Gateway < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         active: 'IsActive'
       }.freeze

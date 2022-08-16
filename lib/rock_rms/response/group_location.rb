@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class GroupLocation < Base
       MAP = {
-        id: 'Id',
         group_id: 'GroupId',
         location_id: 'LocationId',
         guid: 'Guid'

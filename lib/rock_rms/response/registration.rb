@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Registration < Base
       MAP = {
-        id: 'Id',
         first_name: 'FirstName',
         last_name: 'LastName',
         confirmation_email: 'ConfirmationEmail',

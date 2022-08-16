@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class RegistrationInstance < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         start_date: 'StartDateTime',
         end_date: 'EndDateTime',

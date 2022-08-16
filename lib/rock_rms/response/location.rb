@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Location < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         is_active: 'IsActive',
         street1: 'Street1',

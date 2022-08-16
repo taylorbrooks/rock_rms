@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class RecurringDonation < Base
       MAP = {
-        id: 'Id',
         active: 'IsActive',
         financial_gateway_id: 'FinancialGatewayId',
         foreign_key: 'ForeignKey',

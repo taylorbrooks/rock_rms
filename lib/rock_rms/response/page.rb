@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Page < Base
       MAP = {
-        id: 'Id',
         name: 'InternalName',
         page_title: 'PageTitle',
         browser_title: 'BrowserTitle',

@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class History < Base
       MAP = {
-        id: 'Id',
         verb: 'Verb',
         change_type: 'ChangeType',
         value_name: 'ValueName',

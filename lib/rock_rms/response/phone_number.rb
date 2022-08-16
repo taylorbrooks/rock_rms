@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class PhoneNumber < Base
       MAP = {
-        id: 'Id',
         person_id: 'PersonId',
         number: 'Number',
         number_type_value_id: 'NumberTypeValueId',

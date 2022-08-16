@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Group < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         group_type_id: 'GroupTypeId',
         parent_group_id: 'ParentGroupId',

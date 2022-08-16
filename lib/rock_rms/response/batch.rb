@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class Batch < Base
       MAP = {
-        id: 'Id',
         name: 'Name',
         control_amount: 'ControlAmount',
         transactions: 'Transactions',
