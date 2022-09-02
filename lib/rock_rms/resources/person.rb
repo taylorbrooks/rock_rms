@@ -35,16 +35,16 @@ module RockRMS
         )
       end
 
-      def create_person(first_name:, last_name:, email:, connection_status_value_id: nil, record_status_value_id: nil, record_type_value_id: 1)
+      def create_person(first_name:, last_name:, email:, gender: 1, connection_status_value_id: nil, record_status_value_id: nil, record_type_value_id: 1)
         options = {
           'IsSystem' => false,
           'FirstName' => first_name,
           'LastName' => last_name,
           'Email' => email,
-          'Gender' => 1,
+          'Gender' => gender,
           'ConnectionStatusValueId' => connection_status_value_id,
-          'RecordStatusValueId'     => record_status_value_id,
-          'RecordTypeValueId'     => record_type_value_id,
+          'RecordStatusValueId' => record_status_value_id,
+          'RecordTypeValueId' => record_type_value_id
         }
 
         # RecordTypeValueId 1 = Person
