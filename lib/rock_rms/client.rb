@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require 'faraday/multipart'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each { |f| require f }
 require File.expand_path('../response/base.rb', __FILE__)
@@ -12,6 +13,7 @@ module RockRMS
     include RockRMS::Client::Attribute
     include RockRMS::Client::AttributeValue
     include RockRMS::Client::Batch
+    include RockRMS::Client::BinaryFile
     include RockRMS::Client::Block
     include RockRMS::Client::BlockType
     include RockRMS::Client::Fund
@@ -35,6 +37,7 @@ module RockRMS
     include RockRMS::Client::ServiceJob
     include RockRMS::Client::Transaction
     include RockRMS::Client::TransactionDetail
+    include RockRMS::Client::TransactionImage
     include RockRMS::Client::UserLogin
     include RockRMS::Client::Utility
     include RockRMS::Client::WorkflowActionType
@@ -112,6 +115,7 @@ module RockRMS
       client_opts[:ssl] = ssl if ssl
 
       Faraday.new(client_opts) do |conn|
+        conn.request   :multipart
         conn.request   :json
         conn.response  :logger if logger
         conn.response  :oj
