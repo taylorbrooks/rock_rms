@@ -17,7 +17,9 @@ module RockRMS
         end_time:,
         foreign_key: nil,
         campus_id: nil,
-        status: 1
+        status: 1,
+        control_amount: nil,
+        control_count: nil
       )
         options = {
           'Name' => name,
@@ -25,7 +27,9 @@ module RockRMS
           'CampusId' => campus_id,
           'BatchEndDateTime' => end_time,
           'ForeignKey' => foreign_key,
-          'Status' => status
+          'Status' => status,
+          'ControlAmount' => control_amount,
+          'ControlItemCount' => control_count
         }
 
         post(batches_path, options)
