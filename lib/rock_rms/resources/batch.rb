@@ -27,10 +27,11 @@ module RockRMS
           'CampusId' => campus_id,
           'BatchEndDateTime' => end_time,
           'ForeignKey' => foreign_key,
-          'Status' => status,
-          'ControlAmount' => control_amount,
-          'ControlItemCount' => control_count
+          'Status' => status
         }
+
+        options['ControlAmount'] = control_amount if control_amount
+        options['ControlItemCount'] = control_count if control_count
 
         post(batches_path, options)
       end

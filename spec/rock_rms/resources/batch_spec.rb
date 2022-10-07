@@ -75,9 +75,7 @@ RSpec.describe RockRMS::Client::Batch, type: :model do
             'BatchStartDateTime' => '1',
             'BatchEndDateTime' => '1',
             'ForeignKey' => 1,
-            'Status' => 1,
-            'ControlAmount' => nil,
-            'ControlItemCount' => nil
+            'Status' => 1
           }
         ).and_call_original
       resource
