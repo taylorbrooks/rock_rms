@@ -6,7 +6,9 @@ module RockRMS
       BASE_MAPPING = {
         id: 'Id',
         created_date_time: 'CreatedDateTime',
-        modified_date_time: 'ModifiedDateTime'
+        modified_date_time: 'ModifiedDateTime',
+        attributes: 'Attributes',
+        attribute_values: 'AttributeValues'
       }.freeze
 
       def self.format(data)
@@ -31,8 +33,21 @@ module RockRMS
         dict
           .merge(BASE_MAPPING)
           .each_with_object({}) do |(l, r), object|
-            object[l] = data[r]
+            if l == :attributes || l == :attribute_values
+              format_klass = l == :attributes ? Attribute : AttributeValue
+              object[l] = format_attributes(data[r], format_klass)
+            else
+              object[l] = data[r]
+            end
           end
+      end
+
+      def format_attributes(res, klass)
+        return res if res.nil?
+
+        res.each_with_object({}) do |(attr, val), object|
+          object[attr] = klass.format(val)
+        end
       end
     end
   end

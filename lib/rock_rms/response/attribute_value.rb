@@ -4,6 +4,7 @@ module RockRMS
       MAP = {
         value: 'Value',
         value_as_number: 'ValueAsNumeric',
+        value_formatted: 'ValueFormatted',
         entity_id: 'EntityId'
       }.freeze
 

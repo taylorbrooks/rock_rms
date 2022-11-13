@@ -4,7 +4,8 @@ module RockRMS
       MAP = {
         name: 'Name',
         key: 'Key',
-        description: 'Description'
+        description: 'Description',
+        entity_type_id: 'EntityTypeId'
       }.freeze
 
       def format_single(data)

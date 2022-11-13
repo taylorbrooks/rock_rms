@@ -32,6 +32,8 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         id
         created_date_time
         modified_date_time
+        attributes
+        attribute_values
       ]
 
       expect(response.keys).to eq(expected_keys)

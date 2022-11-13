@@ -1,13 +1,79 @@
 [
-
-    {
-        "Guid": "36cf10d6-c695-413d-8e7c-4546efef385e",
-        "Id": 1,
-        "DefinedTypeId": 1,
-        "Description": "A Person Record",
-        "IsSystem": true,
-        "Order": 0, 
-        "Value": "Person"
+  {
+    "Guid": "36cf10d6-c695-413d-8e7c-4546efef385e",
+    "Id": 1,
+    "DefinedTypeId": 1,
+    "Description": "A Person Record",
+    "IsSystem": true,
+    "Order": 0,
+    "Value": "Person",
+    "Attributes": {
+      "FinancialAccount": {
+        "Key": "FinancialAccount",
+        "Name": "FinancialAccount",
+        "Id": 10771
+      },
+      "Subaccount": {
+        "Key": "Subaccount",
+        "Name": "Subaccount",
+        "Id": 10772
+      },
+      "SortOrder": {
+        "Key": "SortOrder",
+        "Name": "SortOrder",
+        "Id": 10773
+      },
+      "MerlinWidgetKey": {
+        "Key": "MerlinWidgetKey",
+        "Name": "Merlin Widget Key",
+        "Id": 10813
+      }
+    },
+    "AttributeValues": {
+      "FinancialAccount": {
+        "AttributeId": 10771,
+        "EntityId": 6266,
+        "Value": "e6aa6cb5-3310-4c50-ba3c-6a518d57c728",
+        "ValueFormatted": "ABTS of CU",
+        "PersistedTextValue": null,
+        "PersistedHtmlValue": null,
+        "PersistedCondensedTextValue": null,
+        "PersistedCondensedHtmlValue": null,
+        "IsPersistedValueDirty": true
+      },
+      "Subaccount": {
+        "AttributeId": 10772,
+        "EntityId": 6266,
+        "Value": "f649378b-f71c-4706-84de-e48b23c28fc4",
+        "ValueFormatted": "001",
+        "PersistedTextValue": null,
+        "PersistedHtmlValue": null,
+        "PersistedCondensedTextValue": null,
+        "PersistedCondensedHtmlValue": null,
+        "IsPersistedValueDirty": true
+      },
+      "SortOrder": {
+        "AttributeId": 10773,
+        "EntityId": 6266,
+        "Value": "1",
+        "ValueFormatted": "1",
+        "PersistedTextValue": null,
+        "PersistedHtmlValue": null,
+        "PersistedCondensedTextValue": null,
+        "PersistedCondensedHtmlValue": null,
+        "IsPersistedValueDirty": true
+      },
+      "MerlinWidgetKey": {
+        "AttributeId": 10813,
+        "EntityId": 6266,
+        "Value": "",
+        "ValueFormatted": "",
+        "PersistedTextValue": "",
+        "PersistedHtmlValue": "",
+        "PersistedCondensedTextValue": "",
+        "PersistedCondensedHtmlValue": "",
+        "IsPersistedValueDirty": false
+      }
     }
-
+  }
 ]

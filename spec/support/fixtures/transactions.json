@@ -6,7 +6,7 @@
         "Guid": "49fdc90aaabb",
         "Id": 1422,
         "AttributeValues": null,
-        "Attributes": null,
+        "Attributes": {},
         "CreatedByPersonAliasId": 1,
         "CreatedDateTime": 727,
         "ModifiedAuditValuesAlreadyUpdated": false,
