@@ -14,7 +14,7 @@ RSpec.describe RockRMS::Response::AttributeValue, type: :model do
 
     it 'has the correct number keys' do
       keys = result.first.keys
-      expect(keys.count).to eq(8)
+      expect(keys.count).to eq(9)
     end
 
     it 'translates keys' do
