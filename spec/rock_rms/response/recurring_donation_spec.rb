@@ -30,6 +30,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         transaction_type_id
         summary
         id
+        guid
         created_date_time
         modified_date_time
         attributes
@@ -42,6 +43,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
     it 'translates keys' do
       result.zip(parsed) do |r, p|
         expect(r[:id]).to eq(p['Id'])
+        expect(r[:guid]).to eq(p['Guid'])
         expect(r[:active]).to eq(p['IsActive'])
         expect(r[:financial_gateway_id]).to eq(p['FinancialGatewayId'])
         expect(r[:gateway_schedule_id]).to eq(p['GatewayScheduleId'])

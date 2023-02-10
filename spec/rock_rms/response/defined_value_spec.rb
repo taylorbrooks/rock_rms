@@ -14,13 +14,14 @@ RSpec.describe RockRMS::Response::DefinedValue, type: :model do
 
     it 'has the correct number keys' do
       keys = result.first.keys
-      expect(keys.count).to eq(9)
+      expect(keys.count).to eq(10)
     end
 
     it 'translates keys' do
       result.zip(parsed) do |r, p|
         expect(r[:id]).to eq(p['Id'])
         expect(r[:value]).to eq(p['Value'])
+        expect(r[:guid]).to eq(p['Guid'])
         expect(r[:description]).to eq(p['Description'])
       end
     end

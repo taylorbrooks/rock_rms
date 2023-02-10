@@ -5,6 +5,7 @@ module RockRMS
 
       BASE_MAPPING = {
         id: 'Id',
+        guid: 'Guid',
         created_date_time: 'CreatedDateTime',
         modified_date_time: 'ModifiedDateTime',
         attributes: 'Attributes',

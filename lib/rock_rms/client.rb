@@ -35,6 +35,8 @@ module RockRMS
     include RockRMS::Client::Registration
     include RockRMS::Client::SavedPaymentMethod
     include RockRMS::Client::ServiceJob
+    include RockRMS::Client::SystemCommunication
+    include RockRMS::Client::SystemEmail
     include RockRMS::Client::Transaction
     include RockRMS::Client::TransactionDetail
     include RockRMS::Client::TransactionImage
