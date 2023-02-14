@@ -5,7 +5,8 @@ module RockRMS
         title: 'Title',
         from: 'From',
         subject: 'Subject',
-        body: 'Body'
+        body: 'Body',
+        foreign_key: 'ForeignKey'
       }.freeze
 
       def format_single(data)
