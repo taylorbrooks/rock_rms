@@ -22,6 +22,7 @@ RSpec.describe RockRMS::Response::Transaction, type: :model do
         expect(r[:transaction_code]).to eq(p['TransactionCode'])
         expect(r[:payment_detail_id]).to eq(p['FinancialPaymentDetailId'])
         expect(r[:transaction_type_id]).to eq(p['TransactionTypeValueId'])
+        expect(r[:source_type_id]).to eq(p['SourceTypeValueId'])
         expect(r[:details]).to eq(
           RockRMS::Response::TransactionDetail.format(p['TransactionDetails'])
         )

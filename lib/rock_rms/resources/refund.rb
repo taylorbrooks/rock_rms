@@ -33,7 +33,8 @@ module RockRMS
             'TransactionCode'     => transaction_code,
             'TransactionDateTime' => date,
             'TransactionDetails'  => refunded_details(old_transaction[:details], transaction_amount, refund_amount),
-            'TransactionTypeValueId' => old_transaction[:transaction_type_id]
+            'TransactionTypeValueId' => old_transaction[:transaction_type_id],
+            'SourceTypeValueId' => old_transaction[:source_type_id]
           }
         }
         post(refund_path, params)
