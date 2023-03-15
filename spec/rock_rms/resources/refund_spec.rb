@@ -70,6 +70,7 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
                   }
                 ],
                 'TransactionTypeValueId' => 53,
+                'SourceTypeValueId' => 10,
                 'TransactionCode' => nil
               }
             }
@@ -123,6 +124,7 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
                   }
                 ],
                 'TransactionTypeValueId' => 53,
+                'SourceTypeValueId' => 10,
                 'TransactionCode' => nil
               }
             }
