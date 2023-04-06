@@ -63,4 +63,43 @@ RSpec.describe RockRMS::Client::GroupMember, type: :model do
       client.delete_group_member(123)
     end
   end
+
+  describe '#create_known_relationship' do
+    context 'arguments' do
+      it 'require `person_id`' do
+        expect { client.create_known_relationship }
+          .to raise_error(ArgumentError, /person_id/)
+      end
+
+      it 'require `related_person_id`' do
+        expect { client.create_known_relationship }
+          .to raise_error(ArgumentError, /related_person_id/)
+      end
+
+      it 'require `relationship_role_id`' do
+        expect { client.create_known_relationship }
+          .to raise_error(ArgumentError, /relationship_role_id/)
+      end
+
+    end
+
+    subject(:resource) do
+      client.create_known_relationship(
+        person_id: 123,
+        relationship_role_id: 1,
+        related_person_id: 456,
+      )
+    end
+
+    it 'returns integer' do
+      expect(resource).to be_a(Integer)
+    end
+
+    it 'passes options' do
+      expect(client).to receive(:post)
+        .with('GroupMembers/KnownRelationship?personId=123&relatedPersonId=456&relationshipRoleId=1').and_call_original
+      resource
+    end
+  end
+
 end
