@@ -82,5 +82,34 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
       end
     end
 
+    describe '#create_transaction_detail' do
+      context 'simple' do
+        subject(:resource) do
+          client.create_transaction_detail(
+            transaction_id: 123,
+            fund_id: 2,
+            amount: 5.00
+          )
+        end
+  
+        it 'returns nothing' do
+          expect(subject).to eq(12345)
+        end
+  
+        it 'passes options' do
+          expect(client).to receive(:post)
+            .with(
+              'FinancialTransactionDetails',
+              {
+                'AccountId' => 2,
+                'Amount' => 5.00,
+                'TransactionId' => 123
+              }
+            ).and_call_original
+          resource
+        end
+      end
+    end
+
   end
 end
