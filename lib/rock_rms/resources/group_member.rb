@@ -25,6 +25,16 @@ module RockRMS
         delete(group_member_path(id))
       end
 
+      def create_known_relationship(person_id:, related_person_id:, relationship_role_id:)
+        url_params = {
+          personId: person_id,
+          relatedPersonId: related_person_id,
+          relationshipRoleId: relationship_role_id
+        }
+
+        post("GroupMembers/KnownRelationship?#{URI.encode_www_form(url_params)}")
+      end
+
       private
 
       def group_member_path(id = nil)

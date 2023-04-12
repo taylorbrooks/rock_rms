@@ -59,6 +59,7 @@ class RockMock < Sinatra::Base
     create_attribute: 'Attributes',
     create_attribute_value: 'AttributeValues',
     create_group_member: 'GroupMembers',
+    create_known_relationship: 'GroupMembers/KnownRelationship',
     create_transaction: 'FinancialTransactions',
     create_payment_detail: 'FinancialPaymentDetails',
     create_phone_number: 'PhoneNumbers',
