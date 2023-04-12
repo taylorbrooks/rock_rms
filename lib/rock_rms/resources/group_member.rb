@@ -15,6 +15,12 @@ module RockRMS
         )
       end
 
+      def list_group_members(options = {})
+        Response::GroupMember.format(
+          get(group_member_path, options)
+        )
+      end
+
       def delete_group_member(id)
         delete(group_member_path(id))
       end
