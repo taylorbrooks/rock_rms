@@ -31,6 +31,7 @@ class RockMock < Sinatra::Base
     families:      'Groups/GetFamilies/:id',
     gateways:      'FinancialGateways',
     group:         'Groups/:id',
+    group_members: 'GroupMembers',
     groups:        'Groups',
     payment_details: 'FinancialPaymentDetails',
     people_search: 'People/Search',

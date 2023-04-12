@@ -3,6 +3,17 @@ require 'spec_helper'
 RSpec.describe RockRMS::Client::GroupMember, type: :model do
   include_context 'resource specs'
 
+  describe '#list_group_members' do
+    it 'returns a array' do
+      resource = client.list_group_members
+
+      expect(resource).to be_a(Array)
+      expect(resource.first).to be_a(Hash)
+      expect(resource.first).to include(:id)
+      expect(resource.first).to include(:email)
+    end
+  end
+
   describe '#create_group_member' do
     context 'arguments' do
       it 'require `group_id`' do
