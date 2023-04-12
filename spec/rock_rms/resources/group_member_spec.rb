@@ -9,8 +9,9 @@ RSpec.describe RockRMS::Client::GroupMember, type: :model do
 
       expect(resource).to be_a(Array)
       expect(resource.first).to be_a(Hash)
-      expect(resource.first).to include(:id)
-      expect(resource.first).to include(:email)
+      expect(resource.first).to include(:group_id)
+      expect(resource.first[:person]).to include(:id)
+      expect(resource.first[:person]).to include(:email)
     end
   end
 

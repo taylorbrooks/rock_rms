@@ -2,6 +2,7 @@ module RockRMS
   module Response
     class Person < Base
       MAP = {
+        id:         'Id',
         name:       'FullName',
         email:      'Email',
         first_name: 'FirstName',
