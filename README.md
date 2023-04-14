@@ -22,10 +22,17 @@ Add this line to your application's Gemfile:
 
 ### Usage
 ````ruby
+  # Authenticating with username and password
   client = RockRMS::Client.new(
     url: ...,
     username: ...,
     password: ...,
+  )
+
+  # Authenticating with authorization token
+  client = RockRMS::Client.new(
+    url: ...,
+    authorization_token: ...,
   )
 
   # Find a specific person
