@@ -58,7 +58,8 @@ module RockRMS
         transaction_code: nil,
         transaction_type_value_id: nil,
         authorized_person_id: nil,
-        date: nil
+        date: nil,
+        foreign_currency_code_value_id: nil
       )
         options = {}
 
@@ -71,6 +72,7 @@ module RockRMS
         options['TransactionCode']         = transaction_code          if transaction_code
         options['AuthorizedPersonAliasId'] = authorized_person_id      if authorized_person_id
         options['TransactionDateTime']     = date                      if date
+        options['ForeignCurrencyCodeValueId'] = foreign_currency_code_value_id if foreign_currency_code_value_id
 
         patch(transaction_path(id), options)
       end
