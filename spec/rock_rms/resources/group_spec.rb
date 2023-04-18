@@ -107,4 +107,35 @@ RSpec.describe RockRMS::Client::Group, type: :model do
       client.list_families_for_person(123)
     end
   end
+
+
+  describe '#save_address' do
+    context 'arguments' do
+      it 'require `group_id`' do
+        expect { client.save_group_address }
+          .to raise_error(ArgumentError, /group_id/)
+      end
+
+      it 'require `location_type_id`' do
+        expect { client.save_group_address }
+          .to raise_error(ArgumentError, /location_type_id/)
+      end
+
+      it 'require `address`' do
+        expect { client.save_group_address }
+          .to raise_error(ArgumentError, /address/)
+      end
+
+    end
+
+    subject(:resource) do
+      client.save_group_address(group_id: 1, location_type_id: 1, address: { street1: '123 Main St', postal_code: '12345' })
+    end
+
+    it 'passes options' do
+      expect(client).to receive(:put)
+        .with("Groups/SaveAddress/1/1?street1=123+Main+St&postalCode=12345").and_call_original
+      resource
+    end
+  end
 end
