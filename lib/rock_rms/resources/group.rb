@@ -39,12 +39,12 @@ module RockRMS
       def save_group_address(group_id:, location_type_id:, address:)
 
         # change keys to json case
-        address = address.transform_keys { |k| camelcase(k.to_s) }
+        url_params = address.transform_keys { |k| camelcase(k.to_s) }.filter { |_, v| v }
 
-        put(
-          "Groups/SaveAddress/#{group_id}/#{location_type_id}",
-          **address
-        )
+        #
+        # why URL params and not POST body? That's what the Rock API docs say to do.
+        #
+        put("Groups/SaveAddress/#{group_id}/#{location_type_id}?#{URI.encode_www_form(url_params)}")
       end
 
       private

@@ -134,13 +134,7 @@ RSpec.describe RockRMS::Client::Group, type: :model do
 
     it 'passes options' do
       expect(client).to receive(:put)
-        .with(
-          "Groups/SaveAddress/1/1",
-          {
-            'street1' => '123 Main St',
-            'postalCode' => '12345'
-          }
-        ).and_call_original
+        .with("Groups/SaveAddress/1/1?street1=123+Main+St&postalCode=12345").and_call_original
       resource
     end
   end
