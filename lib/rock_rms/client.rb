@@ -48,16 +48,21 @@ module RockRMS
     include RockRMS::Client::WorkflowActivityType
     include RockRMS::Client::WorkflowType
 
-    attr_reader :url, :username, :password, :logger, :cookie, :connection, :adapter, :ssl
+    attr_reader :url, :username, :password, :logger, :cookie, :connection, :adapter, :ssl, :authorization_token
 
-    def initialize(url:, username:, password:, logger: true, adapter: Faraday.default_adapter, ssl: nil)
+    def initialize(url:, username: nil, password: nil, authorization_token: nil, logger: true, adapter: Faraday.default_adapter, ssl: nil)
+      if username.nil? && password.nil? && authorization_token.nil?
+        raise ArgumentError, 'either username and password or authorization_token is required'
+      end
+
       @url      = "#{url}/api/"
-      @username = username
-      @password = password
+      @username = username unless authorization_token
+      @password = password unless authorization_token
+      @authorization_token = authorization_token unless username && password
       @logger   = logger
       @adapter  = adapter
       @ssl      = ssl
-      @cookie   = auth['set-cookie']
+      @cookie   = auth['set-cookie'] unless auth.nil?
     end
 
     def delete(path, options = {})
@@ -83,6 +88,8 @@ module RockRMS
     private
 
     def auth
+      return nil if username.nil? && password.nil?
+
       begin
         auth_request('Auth/Login')
       rescue Faraday::ParsingError => e
@@ -110,6 +117,7 @@ module RockRMS
       }
 
       headers['Cookie'] = cookie if cookie
+      headers['Authorization-Token'] = authorization_token if authorization_token
 
       client_opts = {
         url: url,

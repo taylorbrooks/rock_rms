@@ -9,6 +9,14 @@ RSpec.describe RockRMS::Client do
     }
   end
   let(:attrs_without_logging) { attrs.merge(logger: false) }
+  let(:attrs_without_authentication)  do
+    {
+      url: 'http://some-rock-uri.com',
+      username: nil,
+      password: nil,
+      authorization_token: nil
+    }
+  end
 
   subject(:client) { described_class.new(**attrs_without_logging) }
   let(:noisy_client) { described_class.new(**attrs) }
@@ -19,14 +27,9 @@ RSpec.describe RockRMS::Client do
         .to raise_error(ArgumentError, /url/)
     end
 
-    it 'requries `username` param' do
-      expect { described_class.new }
-        .to raise_error(ArgumentError, /username/)
-    end
-
-    it 'requries `password` param' do
-      expect { described_class.new }
-        .to raise_error(ArgumentError, /password/)
+    it 'requries either `username` and `password` params or `authorization_token` param' do
+      expect { described_class.new(attrs_without_authentication) }
+        .to raise_error(ArgumentError, /username and password or authorization_token/)
     end
 
     context 'url' do
