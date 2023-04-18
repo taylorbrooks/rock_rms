@@ -76,6 +76,15 @@ class RockMock < Sinatra::Base
     end
   end
 
+  # PUT requests
+  {
+    group_save_address: 'Groups/SaveAddress/:group_id/:location_type_id',
+  }.each do |json, end_point|
+    put "/api/#{end_point}" do
+      json_response 204, "#{json}.json"
+    end
+  end
+
   # PATCH requests
   [
     'FinancialBatches/:id',
