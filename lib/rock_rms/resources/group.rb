@@ -37,21 +37,12 @@ module RockRMS
       # }
       #
       def save_group_address(group_id:, location_type_id:, address:)
+        url_params = TransformHashKeys.camelize_keys(address)
 
-        # change keys to json case
-        url_params = address.transform_keys { |k| camelcase(k.to_s) }.filter { |_, v| v }
-
-        #
-        # why URL params and not POST body? That's what the Rock API docs say to do.
-        #
         put("Groups/SaveAddress/#{group_id}/#{location_type_id}?#{URI.encode_www_form(url_params)}")
       end
 
       private
-
-      def camelcase(term)
-        term.to_s.gsub(/(?:^|_+)([^_])/) { $1.upcase }.tap { |s| s[0] = s[0].downcase }
-      end
 
       def group_path(id = nil)
         id ? "Groups/#{id}" : 'Groups'
