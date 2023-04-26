@@ -28,7 +28,7 @@ RSpec.describe RockRMS::Client do
     end
 
     it 'requries either `username` and `password` params or `authorization_token` param' do
-      expect { described_class.new(attrs_without_authentication) }
+      expect { described_class.new(**attrs_without_authentication) }
         .to raise_error(ArgumentError, /username and password or authorization_token/)
     end
 
