@@ -1,11 +1,19 @@
-require 'faraday_middleware/response_middleware'
+require 'oj'
 
 module FaradayMiddleware
-  class ParseOj < ResponseMiddleware
-    dependency 'oj'
+  class ParseOj < Faraday::Middleware
+    def on_complete(env)
+      if empty_body?(env[:body].strip)
+        env[:body] = nil
+      else
+        env[:body] = Oj.load(env[:body], mode: :compat)
+      end
+    end
 
-    define_parser do |body|
-      Oj.load(body, mode: :compat) unless body.strip.empty?
+    private
+
+    def empty_body?(body)
+      body.empty? && body == ''
     end
   end
 end

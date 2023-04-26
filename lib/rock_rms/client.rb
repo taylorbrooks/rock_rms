@@ -1,5 +1,4 @@
 require 'faraday'
-require 'faraday_middleware'
 require 'faraday/multipart'
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each { |f| require f }
