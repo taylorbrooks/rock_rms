@@ -12,6 +12,14 @@
     "ModifiedByPersonAliasId": 1,
     "ModifiedAuditValuesAlreadyUpdated": false,
     "Id": 11615,
-    "Guid": "70d06b09-97cd-4788-9667-6f0b11dcde70"
+    "Guid": "70d06b09-97cd-4788-9667-6f0b11dcde70",
+    "Attribute": {
+      "AbbreviatedName": "Job Pulse",
+      "EntityTypeId": 7,
+      "Key": "JobPulse",
+      "Name": "Job Pulse",
+      "Id": 22,
+      "Guid": "abcd"
+    }
   }
 ]
