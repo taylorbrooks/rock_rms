@@ -29,6 +29,7 @@ module RockRMS
 
       def format_person(res)
         return res if res.nil?
+
         Person.format(res['Person'])
       end
 
