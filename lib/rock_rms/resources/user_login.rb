@@ -7,16 +7,18 @@ module RockRMS
       end
 
       def create_user_login(
+        api_key: nil,
         username:,
-        password:,
+        password: nil,
         person_id:,
         is_confirmed: false
       )
         options = {
+          'ApiKey' => api_key,
           'UserName' => username,
           'PersonId' => person_id,
           'EntityTypeId' => 27,
-          'IsConfirmed' => false,
+          'IsConfirmed' => is_confirmed,
           'IsLockedOut' => false,
           'IsPasswordChangeRequired' => true,
           'LastPasswordChangedDateTime' => Time.now,
