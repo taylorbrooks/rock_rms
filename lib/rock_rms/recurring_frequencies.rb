@@ -6,6 +6,7 @@ module RecurringFrequencies
     'twice-a-month' => 134,
     'monthly'       => 135,
     'quarterly'     => 153,
+    'twice a year'  => 154,
     'yearly'        => 155
   }.freeze
 end
