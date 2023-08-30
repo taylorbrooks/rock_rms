@@ -25,7 +25,9 @@ module RockRMS
         source_type_id: 10,
         transaction_code: nil,
         start_date:,
-        summary: nil
+        summary: nil,
+        status: nil,
+        status_message: nil
       )
 
         options = {
@@ -41,7 +43,9 @@ module RockRMS
           'GatewayScheduleId'           => gateway_schedule_id,
           'SourceTypeValueId'           => source_type_id,
           'ForeignKey'                  => foreign_key,
-          'Summary'                     => summary
+          'Summary'                     => summary,
+          'Status'                      => status,
+          'StatusMessage'               => status_message
         }
 
         options['EndDate'] = end_date if end_date
@@ -57,7 +61,9 @@ module RockRMS
         active: nil,
         frequency: nil,
         end_date: nil,
-        summary: nil
+        summary: nil,
+        status: nil,
+        status_message: nil
       )
         options = { 'NextPaymentDate' => next_payment_date }
         options['FinancialPaymentDetailId'] = payment_detail_id if payment_detail_id
@@ -66,6 +72,8 @@ module RockRMS
         options['TransactionFrequencyValueId'] = RecurringFrequencies::RECURRING_FREQUENCIES[frequency] if !frequency.nil?
         options['EndDate']                  = end_date if end_date
         options['Summary']                  = summary if summary
+        options['Status']                   = status if status
+        options['StatusMessage']            = status_message if status_message
 
         patch(recurring_donation_path(id), options)
       end

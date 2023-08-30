@@ -147,6 +147,8 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
             'SourceTypeValueId' => 10,
             'ForeignKey' => nil,
             'Summary' => nil,
+            'Status' => nil,
+            'StatusMessage' => nil
           }
         )
         .and_call_original

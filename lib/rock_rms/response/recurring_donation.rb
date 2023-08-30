@@ -15,7 +15,9 @@ module RockRMS
         transaction_details: 'ScheduledTransactionDetails',
         transaction_code: 'TransactionCode',
         transaction_type_id: 'TransactionTypeValueId',
-        summary: 'Summary'
+        summary: 'Summary',
+        status: 'Status',
+        status_message: 'StatusMessage',
       }.freeze
 
       def format_single(data)
