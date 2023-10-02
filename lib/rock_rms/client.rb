@@ -21,10 +21,12 @@ module RockRMS
     include RockRMS::Client::Campus
     include RockRMS::Client::DefinedType
     include RockRMS::Client::DefinedValue
+    include RockRMS::Client::ExceptionLog
     include RockRMS::Client::Gateway
     include RockRMS::Client::Group
     include RockRMS::Client::GroupMember
     include RockRMS::Client::History
+    include RockRMS::Client::LavaShortcode
     include RockRMS::Client::Page
     include RockRMS::Client::PaymentDetail
     include RockRMS::Client::Person
