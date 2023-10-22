@@ -18,7 +18,10 @@ module RockRMS
         active:,
         is_system:,
         markup:,
-        parameters:
+        enabled_lava_commands:,
+        parameters:,
+        tag_name:,
+        tag_type:
       )
         options = {
           'Name' => name,
@@ -27,7 +30,10 @@ module RockRMS
           'IsActive' => active,
           'IsSystem' => is_system,
           'Markup' => markup,
-          'Parameters' => parameters
+          'EnabledLavaCommands' => enabled_lava_commands,
+          'Parameters' => parameters,
+          'TagName' => tag_name,
+          'TagType' => tag_type,
         }
 
         post(lava_shortcodes_path, options)
@@ -41,18 +47,24 @@ module RockRMS
         active: nil,
         is_system: nil,
         markup: nil,
-        parameters: nil
+        enabled_lava_commands: nil,
+        parameters: nil,
+        tag_name: nil,
+        tag_type: nil
       )
 
         options = {}
 
-        options['Name']          = name if name
-        options['Description']   = description if description
+        options['Name']          = name          if name
+        options['Description']   = description   if description
         options['Documentation'] = documentation if documentation
-        options['IsActive']      = active if active
-        options['IsSystem']      = is_system if is_system
-        options['Markup']        = markup if markup
-        options['Parameters']    = parameters if parameters
+        options['IsActive']      = active        if active
+        options['IsSystem']      = is_system     if is_system
+        options['Markup']        = markup        if markup
+        options['Parameters']    = parameters    if parameters
+        options['TagName']       = tag_name      if tag_name
+        options['TagType']       = tag_type      if tag_type
+        options['EnabledLavaCommands'] = enabled_lava_commands if enabled_lava_commands
 
         patch(lava_shortcodes_path(id), options)
       end

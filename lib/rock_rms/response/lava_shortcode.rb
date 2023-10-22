@@ -7,7 +7,9 @@ module RockRMS
         documentation: 'Documentation',
         active: 'IsActive',
         is_system: 'IsSystem',
+        enabled_lava_commands: 'EnabledLavaCommands',
         tag_name: 'TagName',
+        tag_type: 'TagType',
         markup: 'Markup',
         parameters: 'Parameters'
       }.freeze
