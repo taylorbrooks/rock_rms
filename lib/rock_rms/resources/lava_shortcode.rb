@@ -58,8 +58,8 @@ module RockRMS
         options['Name']          = name          if name
         options['Description']   = description   if description
         options['Documentation'] = documentation if documentation
-        options['IsActive']      = active        if active
-        options['IsSystem']      = is_system     if is_system
+        options['IsActive']      = active        unless active.nil?
+        options['IsSystem']      = is_system     unless is_system.nil?
         options['Markup']        = markup        if markup
         options['Parameters']    = parameters    if parameters
         options['TagName']       = tag_name      if tag_name
