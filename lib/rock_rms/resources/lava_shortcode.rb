@@ -21,7 +21,8 @@ module RockRMS
         enabled_lava_commands:,
         parameters:,
         tag_name:,
-        tag_type:
+        tag_type:,
+        foreign_key: nil
       )
         options = {
           'Name' => name,
@@ -34,6 +35,7 @@ module RockRMS
           'Parameters' => parameters,
           'TagName' => tag_name,
           'TagType' => tag_type,
+          'ForeignKey' => foreign_key
         }
 
         post(lava_shortcodes_path, options)
@@ -50,7 +52,8 @@ module RockRMS
         enabled_lava_commands: nil,
         parameters: nil,
         tag_name: nil,
-        tag_type: nil
+        tag_type: nil,
+        foreign_key: nil
       )
 
         options = {}
@@ -64,6 +67,7 @@ module RockRMS
         options['Parameters']    = parameters    if parameters
         options['TagName']       = tag_name      if tag_name
         options['TagType']       = tag_type      if tag_type
+        options['ForeignKey']    = foreign_key   if foreign_key
         options['EnabledLavaCommands'] = enabled_lava_commands if enabled_lava_commands
 
         patch(lava_shortcodes_path(id), options)
