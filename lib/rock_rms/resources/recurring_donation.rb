@@ -73,7 +73,7 @@ module RockRMS
         options['EndDate']                  = end_date if end_date
         options['Summary']                  = summary if summary
         options['Status']                   = status if status
-        options['StatusMessage']            = status_message if status_message
+        options['StatusMessage']            = status_message if status_message || status_message == ''
 
         patch(recurring_donation_path(id), options)
       end
