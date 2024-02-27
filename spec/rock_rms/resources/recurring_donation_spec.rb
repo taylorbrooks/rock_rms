@@ -72,14 +72,14 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
           'FinancialScheduledTransactions/123',
           {
             'NextPaymentDate' => '2018-01-01',
-            'StatusMessage' => nil
+            'StatusMessage' => ''
           }
       ).and_call_original
 
       resource = client.update_recurring_donation(
         123,
         next_payment_date: '2018-01-01',
-        status_message: nil
+        status_message: ''
       )
 
       expect(resource).to be_nil

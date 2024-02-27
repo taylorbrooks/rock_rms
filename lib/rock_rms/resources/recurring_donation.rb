@@ -63,7 +63,7 @@ module RockRMS
         end_date: nil,
         summary: nil,
         status: nil,
-        status_message: 'allowed_to_be_nil'
+        status_message: nil
       )
         options = { 'NextPaymentDate' => next_payment_date }
         options['FinancialPaymentDetailId'] = payment_detail_id if payment_detail_id
@@ -73,7 +73,7 @@ module RockRMS
         options['EndDate']                  = end_date if end_date
         options['Summary']                  = summary if summary
         options['Status']                   = status if status
-        options['StatusMessage']            = status_message unless status_message == 'allowed_to_be_nil'
+        options['StatusMessage']            = status_message if status_message || status_message == ''
 
         patch(recurring_donation_path(id), options)
       end
