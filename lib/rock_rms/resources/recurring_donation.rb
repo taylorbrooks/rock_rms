@@ -27,7 +27,8 @@ module RockRMS
         start_date:,
         summary: nil,
         status: nil,
-        status_message: nil
+        status_message: nil,
+        guid: nil
       )
 
         options = {
@@ -49,6 +50,7 @@ module RockRMS
         }
 
         options['EndDate'] = end_date if end_date
+        options['Guid'] = guid if guid
 
         post(recurring_donation_path, options)
       end
