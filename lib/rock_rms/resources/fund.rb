@@ -11,6 +11,15 @@ module RockRMS
         Response::Fund.format(res)
       end
 
+      def create_fund(name:, is_tax_deductible:)
+        options = {
+          'Name' => name,
+          'IsTaxDeductible' => is_tax_deductible,
+        }
+
+        post(fund_path, options)
+      end
+
       private
 
       def fund_path(id = nil)
