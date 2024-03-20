@@ -20,7 +20,6 @@ module RockRMS
 
         transaction_amount = old_transaction[:details].map{|d| d[:amount]}.reduce(0.0){|sum,x| sum + x }
 
-        scheduled_transaction_id = old_transaction[:recurring_donation_id]
 
         refund_amount = amount || transaction_amount
 
@@ -37,7 +36,7 @@ module RockRMS
             'TransactionDetails'  => refunded_details(old_transaction[:details], transaction_amount, refund_amount),
             'TransactionTypeValueId' => old_transaction[:transaction_type_id],
             'SourceTypeValueId' => old_transaction[:source_type_id],
-            'ScheduledTransactionId' => scheduled_transaction_id,
+            'ScheduledTransactionId' => old_transaction[:recurring_donation_id]
           }
         }
         post(refund_path, params)
