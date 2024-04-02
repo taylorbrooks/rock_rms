@@ -12,13 +12,6 @@ RSpec.describe RockRMS::Client::PaymentDetail, type: :model do
   end
 
   describe '#create_payment_detail' do
-    context 'arguments' do
-      it 'require `payment_type`' do
-        expect { client.create_payment_detail }
-          .to raise_error(ArgumentError, /payment_type/)
-      end
-    end
-
     subject(:resource) do
       client.create_payment_detail(payment_type: 'card', card_type: 'amex')
     end
