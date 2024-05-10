@@ -35,6 +35,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         guid
         created_date_time
         modified_date_time
+        created_by_person_alias_id
         attributes
         attribute_values
       ]

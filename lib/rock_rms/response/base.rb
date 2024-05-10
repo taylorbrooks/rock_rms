@@ -8,6 +8,7 @@ module RockRMS
         guid: 'Guid',
         created_date_time: 'CreatedDateTime',
         modified_date_time: 'ModifiedDateTime',
+        created_by_person_alias_id: 'CreatedByPersonAliasId',
         attributes: 'Attributes',
         attribute_values: 'AttributeValues'
       }.freeze
