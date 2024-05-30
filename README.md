@@ -55,4 +55,4 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 - Suggest or add new features
 
 ### Copyright
-Copyright (c) 2018 Taylor Brooks. See LICENSE for details.
+Copyright (c) 2017-2024 Taylor Brooks. See LICENSE for details.
