@@ -36,6 +36,8 @@ module FaradayMiddleware
         raise RockRMS::GatewayTimeout, error_message(env)
       when 520
         raise RockRMS::CloudflareError, error_message(env)
+      when 522
+        raise RockRMS::CloudflareError, error_message(env)
       when ERROR_STATUSES
         raise RockRMS::Error, error_message(env)
       end
