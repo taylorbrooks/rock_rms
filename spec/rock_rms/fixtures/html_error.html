@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Rock - Error</title>
+
+    <link rel="stylesheet" href="/Themes/Rock/Styles/bootstrap.css" />
+    <link rel="stylesheet" href="/Themes/Rock/Styles/theme.css" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="/Assets/Icons/favicon.ico" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="/Assets/Icons/touch-icon-ipad-retina.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="114x114"
+      href="/Assets/Icons/touch-icon-iphone-retina.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="72x72"
+      href="/Assets/Icons/touch-icon-ipad.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="/Assets/Icons/touch-icon-iphone.png"
+    />
+
+    <script src="/Scripts/Bundles/RockJQueryLatest?v=RWC4egkRBNjCo9_aBrw2jUeb13vsJBPHaIryUym02aM1" />
+    <script>
+      $(document).ready(function () {
+        $(".stack-trace").hide();
+
+        //toggle the componenet with class msg_body
+        $(".exception-type").on("click", function () {
+          $(this).next(".stack-trace").slideToggle(500);
+        });
+      });
+    </script>
+  </head>
+  <body id="splash" class="error">
+    <form method="post" action="../../Error.aspx" id="form1">
+      <input
+        type="hidden"
+        name="__VIEWSTATE"
+        id="__VIEWSTATE"
+        value="zY3trHaJu9HpA6R0Qft80K1ia7i3JJbO0VBknpFbuqk8oF5SF3gh7FUwarjAwfgedCthmVdHOqSvT0WmCRZpYPhblTHuZLxOyIRLPaz+IxogqoYs0ET7RTbtJtieJmQDVE11QuH4fxaeQgxbI84aIhN6CSnQbpot5jFjPVD5k4PiMPY5S42Uq3BkX2OOzXqjhb4k2H+sxH19h7VBPpfJoMNiUqedQ3P7K97mJraVs3UhVGzKF5UHvQyy9mNxJ2OVhWx2tqSEIZU3k8e/JXRdVxNWbieFa79X+5u0mCYqrXAAyTDxBXkH8iIHbAH/D7SJAOn29a7zZU8L3E/J1quHI/vy/mpSuWgkYV/H0phoHQ46oF3XN1lDDJyCYskr8aZFtUSht12G3c5OTkNWH5hEFmDZiEtS/I31WhiAMMM0b5n1uojkgYzTg2jdwM2v4Jd/UkjMC9rgLBaOB0f///e67xsZkaT+GzzI8FpUFcgu17E1digy6Nlfe8uxRzEjrJOR0RJ3fAq3IAxQ+CFByvXzhpvoNsEOMyn8qOhJixIT10yReGQPn7RD9zToTZ8ZdluGoDPTgBfA+pDdduJV2AEXgqW7eXfRb+o0cr7mWgiNenibtWXNJCXThJOn9x6qr68dRY2QhZKqonH/EV3cKqdJfVYwLYgiiRxI6sMVBfdti9YJfbaT0D+scBxvgTmP+b0jdqvzNE0bUkgW3ylvcbqn2S+HVyupvqf7P2X54jU7/ewv4bd8eknSfDMxRoBUZ5KDdNePYKGrEPz5TlmjDht1FDjqme8XmMb1kEYWFzIrFOYPlrs0oLmoHV/tj+2daJ4yP1f9HxAlbofYbvGqVqA8CvpqhsnnzqLs/AoYT+rAuSAfMUMu3OlL8dL4gXWNrncR0TVmT39OTXqtx3GSM1gF7mmiNq6tjvYMpcUlI1LL6UDB8T+3S7gFnGdJTm67z6004DwysceCPSIGM1yc0BvwLx+B4ZlGNCgBW9L3ahGkjBskBg7VrnfwnsKeG6JHt7z/QL3Kvvt37tzJ+2t2+dOZqXfoyMOFloNGtpzkkkDYDAUC1rTYv4WcBUfrNQYygrDbVf2oxUTThRAInH1FNln8QUKGSA+WT1UlKSDl/8FGWR+vzvCz/MLVArkIc5sxs9rhd6D+7dB20YgY6xBV/7WncgJbSiuasZP6WdQPwENbp3nz5mTstfVDhGMqCvDhZmLxQK9HBw5rVAiNXQ169hTW6WGfODRU2Ee2xy4Tultqdf0caNvfHK0ErMszxToeYPgO6nhimAh9ioolgyXyUzImmlXisIFxABiWjOxaqg50kB2ZaLjBYnTx7srcuvQmyIatZ09E+KO91NvcQfu/yzaBW7s1s1DH2TInrk1lJw4DG/kr55+RtHiktJB2+xnb50+jnk844z8486MFWgpPnOe+EVqo1t6/vcQb0Lg/6D423+iw4LCa+c6Ycwgm9f85ReiXjLmUmimZ4DGb9m27jRklVOV/L6LCLAXaDozb2Yr1iR0nf2n84/Z3LmPhrKKkk4ycENFoD8KZCZ9VF1hniVwGWiYR6/KUPajJ8NrlVh8Bh0vNYCJ31PVrUehN64mFQsSQ7PNZ5ymoCr+69iRWDHRmp8Z257rxGfKQeaV8OZwyfAmeQDcwdkprnTBRMfywIq6c1HqgjySD0V6JLDquTibw3tqchSdqxlC42LCB3MWI05K9bLUKum9VT64joeBOJWTrMNkBIiN4NGzKOvSi6lXQhcroGgRihZPqckA26sbjAnvzhXL+65BFFwIvYuZp88XpJxlBWNIGTcxIHSjdiMMTtUDA5b0x2X42XrAiLzUeZfwUKNQBYvNrmBfw313/C7NsX6sMFMemaFOFNOX8VQzGxMv85nWcCd22S+lI+MOowqJH8TH1IS8liEXmjZJC+gQvHx+8C36iWAurhZErIPqiY0BXry7o7nadk5XzFmosoDgmC8A6NzfQeLCVvwFp4sgg1TuYCg=="
+      />
+
+      <input
+        type="hidden"
+        name="__VIEWSTATEGENERATOR"
+        id="__VIEWSTATEGENERATOR"
+        value="AB827D4F"
+      />
+
+      <div id="content">
+        <div id="logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="60.185"
+            height="60.063"
+          >
+            <path
+              class="rock-logo"
+              fill="#FFF"
+              d="M57.705 60.063L41.387 40.936s11.83-.026 11.928-.028c1.313.1 2.654-.351 3.736-1.259 2.33-1.948 2.643-5.414.693-7.752L32.396 2.151c-.242-.319-.516-.62-.836-.891-.039-.029-.084-.051-.121-.082-.012-.01-.027-.018-.039-.025-.279-.216-.566-.405-.867-.563-.018-.009-.039-.014-.059-.021-.301-.151-.609-.276-.922-.366-.057-.013-.119-.025-.178-.039-.277-.063-.557-.129-.84-.15-.172-.021-.346-.008-.516-.008-.172 0-.34-.014-.514.008-.281.021-.559.087-.84.1-.059.014-.115.026-.174.039-.318.09-.625.215-.924.366-.021.009-.039.014-.057 0-.305.156-.598.347-.869.563-.018.009-.025.017-.037.025-.039.031-.084.053-.123.1-.32.271-.594.57-.84.885L0 29.86h14.461l13.557-15.891 13.604 15.967-12.104.008c-.045 0-.088.013-.133 0-.287 0-.578.026-.865.071-.082.017-.166.035-.244.054-.26.053-.52.132-.775.2-.094.034-.182.072-.266.117-.232.098-.455.213-.672.352-.096.062-.193.131-.285.2-.117.081-.238.143-.346.229-.076.067-.137.147-.211.221-.088.082-.174.172-.258.3-.166.171-.318.351-.453.531-.068.105-.131.205-.195.308-.127.198-.236.396-.332.6-.059.126-.107.255-.156.384-.072.199-.145.398-.191.605-.037.145-.063.301-.084.5-.035.202-.059.403-.07.606-.006.074-.023.137-.023.209v.3c.012.2 0 .4.1.557.025.2.1.4.1.555.039.2.1.3.1.5.072.2.2.4.2.588.061.1.1.2.2.35.123.2.3.4.4.6.045.1.1.1.1.168l18.004 21.104h14.459v-.09z"
+            />
+          </svg>
+        </div>
+
+        <div id="content-box">
+          <div class="row">
+            <div class="col-md-12">
+              <div id="pnlException">
+                <div class="error-wrap">
+                  <h1>That Wasn't Supposed To Happen...</h1>
+
+                  <p class="error-icon warning">
+                    <i class="fa fa-exclamation-triangle"></i>
+                  </p>
+
+                  <p>
+                    An error has occurred while processing your request. Your
+                    organization's administrators have been notified of this
+                    problem.
+                  </p>
+
+                  <p>
+                    <a onclick="history.go(-1);" class="btn btn-sm btn-primary"
+                      >Go Back</a
+                    >
+                  </p>
+                </div>
+
+                <div class="error-details"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
