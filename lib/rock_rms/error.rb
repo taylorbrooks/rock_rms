@@ -41,9 +41,25 @@ module FaradayMiddleware
       when ERROR_STATUSES
         raise RockRMS::Error, error_message(env)
       end
+
+      check_html_error(env)
     end
 
     private
+
+    def html_body?(body)
+      body.start_with?('<!DOCTYPE html>')
+    end
+
+    def check_html_error(env)
+      return unless html_body?(env[:body])
+
+      return unless /An error has occurred while processing your request/ =~ env[:body]
+
+      raise RockRMS::InternalServerError, error_message(
+        status: 500, url: env[:url], body: 'Unknown API error.'
+      )
+    end
 
     def error_message(env)
       "#{env[:status]}: #{env[:url]} #{env[:body]}"

@@ -73,4 +73,12 @@ RSpec.describe RockRMS::Error do
       end
     end
   end
+
+  context 'html error responses' do
+    it 'raises exception for html error' do
+      body = File.read('spec/rock_rms/fixtures/html_error.html')
+      stub(200, body)
+      expect_failure(500, 'Unknown API error.')
+    end
+  end
 end
