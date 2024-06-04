@@ -48,7 +48,7 @@ module FaradayMiddleware
     private
 
     def html_body?(body)
-      body.start_with?('<!DOCTYPE html>')
+      body.lstrip.start_with?('<!DOCTYPE html>')
     end
 
     def check_html_error(env)
