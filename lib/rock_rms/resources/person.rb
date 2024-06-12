@@ -73,6 +73,16 @@ module RockRMS
         put(people_path(id), options)
       end
 
+      def launch_person_workflow(
+        id,
+        workflow_type_id:,
+        workflow_name:,
+        attributes: {}
+      )
+        query_string = "?workflowTypeId=#{workflow_type_id}&workflowName=#{workflow_name}"
+        post(people_path + "/LaunchWorkflow/#{id}#{query_string}", attributes)
+      end
+
       private
 
       def people_path(id = nil)
