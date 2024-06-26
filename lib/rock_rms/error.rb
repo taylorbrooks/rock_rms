@@ -46,17 +46,23 @@ module FaradayMiddleware
     private
 
     def html_body?(body)
-      body.lstrip.start_with?('<!DOCTYPE html>')
+      /(<!DOCTYPE html>)|(<html>)/ =~ body
     end
 
     def check_html_error(env)
       return unless html_body?(env[:body])
 
-      return unless /An error has occurred while processing your request/ =~ env[:body]
+      if /An error has occurred while processing your request/ =~ env[:body]
+        raise RockRMS::InternalServerError, error_message(
+          status: 500, url: env[:url], body: 'Unknown API error.'
+        )
+      end
 
-      raise RockRMS::InternalServerError, error_message(
-        status: 500, url: env[:url], body: 'Unknown API error.'
-      )
+      if /Page Not Found/ =~ env[:body]
+        raise RockRMS::NotFound, error_message(
+          status: 404, url: env[:url], body: 'Page not found.'
+        )
+      end
     end
 
     def error_message(env)

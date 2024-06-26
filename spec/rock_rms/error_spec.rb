@@ -75,10 +75,16 @@ RSpec.describe RockRMS::Error do
   end
 
   context 'html error responses' do
-    it 'raises exception for html error' do
-      body = File.read('spec/rock_rms/fixtures/html_error.html')
+    it 'raises exception for internal error' do
+      body = File.read('spec/rock_rms/fixtures/internal_error.html')
       stub(200, body)
       expect_failure(500, 'Unknown API error.')
+    end
+
+    it 'raises exception for not found error' do
+      body = File.read('spec/rock_rms/fixtures/not_found_error.html')
+      stub(200, body)
+      expect_failure(404, 'Page not found.')
     end
   end
 end

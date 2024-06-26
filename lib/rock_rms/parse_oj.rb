@@ -15,7 +15,7 @@ module FaradayMiddleware
     private
 
     def html_body?(body)
-      body.start_with?('<!DOCTYPE html>')
+      /(<!DOCTYPE html>)|(<html>)/ =~ body
     end
 
     def empty_body?(body)
