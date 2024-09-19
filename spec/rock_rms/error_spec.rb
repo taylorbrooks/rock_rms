@@ -86,5 +86,11 @@ RSpec.describe RockRMS::Error do
       stub(200, body)
       expect_failure(404, 'Page not found.')
     end
+
+    it 'raises exception for not found  error' do
+      body = File.read('spec/rock_rms/fixtures/document_moved.html')
+      stub(200, body)
+      expect_failure(404, 'Object Moved')
+    end
   end
 end

@@ -46,7 +46,7 @@ module FaradayMiddleware
     private
 
     def html_body?(body)
-      /(<!DOCTYPE html>)|(<html>)/ =~ body
+      /(<!DOCTYPE html>)|(<html>)|(<head>)/ =~ body
     end
 
     def check_html_error(env)
@@ -61,6 +61,12 @@ module FaradayMiddleware
       if /Page Not Found/ =~ env[:body]
         raise RockRMS::NotFound, error_message(
           status: 404, url: env[:url], body: 'Page not found.'
+        )
+      end
+
+      if /Document Moved/ =~ env[:body]
+        raise RockRMS::NotFound, error_message(
+          status: 404, url: env[:url], body: 'Object Moved'
         )
       end
     end
