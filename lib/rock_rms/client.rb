@@ -49,9 +49,9 @@ module RockRMS
     include RockRMS::Client::WorkflowActivityType
     include RockRMS::Client::WorkflowType
 
-    attr_reader :url, :username, :password, :logger, :cookie, :connection, :adapter, :ssl, :authorization_token
+    attr_reader :url, :username, :password, :logger, :cookie, :connection, :adapter, :ssl, :authorization_token, :proxy
 
-    def initialize(url:, username: nil, password: nil, authorization_token: nil, logger: true, adapter: Faraday.default_adapter, ssl: nil)
+    def initialize(url:, username: nil, password: nil, authorization_token: nil, logger: true, adapter: Faraday.default_adapter, ssl: nil, proxy: nil)
       if username.nil? && password.nil? && authorization_token.nil?
         raise ArgumentError, 'either username and password or authorization_token is required'
       end
@@ -63,6 +63,7 @@ module RockRMS
       @logger   = logger
       @adapter  = adapter
       @ssl      = ssl
+      @proxy    = proxy
       @cookie   = auth['set-cookie'] unless auth.nil?
     end
 
@@ -126,6 +127,7 @@ module RockRMS
       }
 
       client_opts[:ssl] = ssl if ssl
+      client_opts[:proxy] = proxy if proxy
 
       Faraday.new(client_opts) do |conn|
         conn.request   :multipart
