@@ -5,6 +5,7 @@ module RockRMS
         id:         'Id',
         name:       'FullName',
         email:      'Email',
+        email_preference: 'EmailPreference',
         first_name: 'FirstName',
         last_name:  'LastName',
         giving_id:  'GivingId',
