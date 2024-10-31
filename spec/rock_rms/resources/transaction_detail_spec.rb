@@ -111,5 +111,16 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
       end
     end
 
+    describe '#delete_transaction_detail' do
+      it 'returns nothing' do
+        expect(client.delete_transaction_detail(123)).to eq(nil)
+      end
+
+      it 'passes id' do
+        expect(client).to receive(:delete).with('FinancialTransactionDetails/123')
+        client.delete_transaction_detail(123)
+      end
+    end
+
   end
 end

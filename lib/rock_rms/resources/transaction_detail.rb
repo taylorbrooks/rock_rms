@@ -52,6 +52,10 @@ module RockRMS
         post(transaction_detail_path, options)
       end
 
+      def delete_transaction_detail(id)
+        delete(transaction_detail_path(id))
+      end
+
       private
 
       def transaction_detail_path(id = nil)
