@@ -9,6 +9,7 @@ class RockMock < Sinatra::Base
     'FinancialPaymentDetails/:id',
     'FinancialPersonSavedAccounts/:id',
     'FinancialTransactions/:id',
+    'FinancialTransactionDetails/:id',
     'FinancialScheduledTransactionDetails/:id',
     'GroupMembers/:id'
   ].each do |end_point|
