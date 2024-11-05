@@ -1,0 +1,13 @@
+{
+  "Id": 345,
+  "ForeignKey": null,
+  "Name": "Channel name",
+  "Description": "Channel description",
+  "IsActive": true,
+  "IconCssClass": "icon-class",
+  "ChannelTypeId": "1",
+  "CreatedDateTime": null,
+  "ModifiedDateTime": "2017-07-26T14:41:58.103",
+  "CreatedByPersonAliasId": null,
+  "ModifiedByPersonAliasId": 12
+}

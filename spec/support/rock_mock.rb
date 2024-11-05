@@ -26,6 +26,12 @@ class RockMock < Sinatra::Base
     batch:         'FinancialBatches/:id',
     batches:       'FinancialBatches',
     campus:        'Campuses/:id',
+    content_channel: 'ContentChannels/:id',
+    content_channels: 'ContentChannels',
+    content_channel_item: 'ContentChannelItems/:id',
+    content_channel_items: 'ContentChannelItems',
+    content_channel_type: 'ContentChannelTypes/:id',
+    content_channel_types: 'ContentChannelTypes',
     transaction:   'FinancialTransactions/:id',
     transactions:  'FinancialTransactions',
     defined_values:'DefinedValues',
@@ -88,6 +94,7 @@ class RockMock < Sinatra::Base
 
   # PATCH requests
   [
+    'ContentChannels/:id',
     'FinancialBatches/:id',
     'FinancialScheduledTransactions/:id',
     'FinancialTransactions/:id',

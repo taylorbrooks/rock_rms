@@ -17,7 +17,6 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
       expected_keys = %i[
         active
         financial_gateway_id
-        foreign_key
         frequency
         end_date
         gateway_schedule_id
@@ -38,6 +37,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         created_by_person_alias_id
         attributes
         attribute_values
+        foreign_key
       ]
 
       expect(response.keys).to eq(expected_keys)

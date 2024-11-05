@@ -10,7 +10,8 @@ module RockRMS
         modified_date_time: 'ModifiedDateTime',
         created_by_person_alias_id: 'CreatedByPersonAliasId',
         attributes: 'Attributes',
-        attribute_values: 'AttributeValues'
+        attribute_values: 'AttributeValues',
+        foreign_key: 'ForeignKey'
       }.freeze
 
       def self.format(data)

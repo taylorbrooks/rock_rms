@@ -1,11 +1,8 @@
 module RockRMS
   module Response
-    class SystemCommunication < Base
+    class ContentChannelType < Base
       MAP = {
-        title: 'Title',
-        from: 'From',
-        subject: 'Subject',
-        body: 'Body',
+        name: 'Name'
       }.freeze
 
       def format_single(data)
