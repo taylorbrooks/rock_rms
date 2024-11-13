@@ -2,7 +2,6 @@ module RockRMS
   module Response
     class SavedPaymentMethod < Base
       MAP = {
-        foreign_key: 'ForeignKey',
         gateway_id: 'FinancialGatewayId',
         gateway_person_id: 'GatewayPersonIdentifier',
         is_default: 'IsDefault',

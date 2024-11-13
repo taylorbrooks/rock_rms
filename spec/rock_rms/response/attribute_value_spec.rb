@@ -14,7 +14,7 @@ RSpec.describe RockRMS::Response::AttributeValue, type: :model do
 
     it 'has the correct number keys' do
       keys = result.first.keys
-      expect(keys.count).to eq(12)
+      expect(keys.count).to eq(13)
     end
 
     it 'translates keys' do
@@ -32,11 +32,12 @@ RSpec.describe RockRMS::Response::AttributeValue, type: :model do
           created_date_time: nil,
           description: nil,
           entity_type_id: 7,
+          foreign_key: nil,
           guid: "abcd",
           id: 22,
           key: "JobPulse",
           modified_date_time: nil,
-          name: "Job Pulse"
+          name: "Job Pulse",
         })
       end
     end

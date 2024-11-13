@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe RockRMS::Response::DefinedValue, type: :model do
-  let(:parsed) { JSON.parse(FixturesHelper.read('defined_values.json')) }
+RSpec.describe RockRMS::Response::ContentChannelType, type: :model do
+  let(:parsed) { JSON.parse(FixturesHelper.read('content_channel_types.json')) }
 
   describe '.format' do
     subject(:result) { described_class.format(parsed) }
@@ -14,15 +14,13 @@ RSpec.describe RockRMS::Response::DefinedValue, type: :model do
 
     it 'has the correct number keys' do
       keys = result.first.keys
-      expect(keys.count).to eq(12)
+      expect(keys.count).to eq(9)
     end
 
     it 'translates keys' do
       result.zip(parsed) do |r, p|
         expect(r[:id]).to eq(p['Id'])
-        expect(r[:value]).to eq(p['Value'])
-        expect(r[:guid]).to eq(p['Guid'])
-        expect(r[:description]).to eq(p['Description'])
+        expect(r[:name]).to eq(p['Name'])
       end
     end
   end

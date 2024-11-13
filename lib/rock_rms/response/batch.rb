@@ -9,8 +9,7 @@ module RockRMS
         end_date: 'BatchEndDateTime',
         campus_id: 'CampusId',
         is_campus: 'Campus',
-        status: 'Status',
-        foreign_key: 'ForeignKey'
+        status: 'Status'
       }.freeze
 
       def format_single(data)

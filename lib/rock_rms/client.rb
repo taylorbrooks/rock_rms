@@ -19,6 +19,9 @@ module RockRMS
     include RockRMS::Client::BlockType
     include RockRMS::Client::Fund
     include RockRMS::Client::Campus
+    include RockRMS::Client::ContentChannel
+    include RockRMS::Client::ContentChannelType
+    include RockRMS::Client::ContentChannelItem
     include RockRMS::Client::DefinedType
     include RockRMS::Client::DefinedValue
     include RockRMS::Client::ExceptionLog

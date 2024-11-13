@@ -4,7 +4,6 @@ module RockRMS
       MAP = {
         active: 'IsActive',
         financial_gateway_id: 'FinancialGatewayId',
-        foreign_key: 'ForeignKey',
         frequency: 'TransactionFrequencyValueId',
         end_date: 'EndDate',
         gateway_schedule_id: 'GatewayScheduleId',
