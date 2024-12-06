@@ -29,7 +29,8 @@ module RockRMS
         summary: nil,
         recurring_donation_id: nil,
         gateway_id: nil,
-        transaction_type_value_id: 53        # contribution, registration
+        transaction_type_value_id: 53,        # contribution, registration
+        show_as_anonymous: nil
       )
 
         options = {
@@ -59,7 +60,8 @@ module RockRMS
         transaction_type_value_id: nil,
         authorized_person_id: nil,
         date: nil,
-        foreign_currency_code_value_id: nil
+        foreign_currency_code_value_id: nil,
+        show_as_anonymous: nil
       )
         options = {}
 
@@ -73,6 +75,7 @@ module RockRMS
         options['AuthorizedPersonAliasId'] = authorized_person_id      if authorized_person_id
         options['TransactionDateTime']     = date                      if date
         options['ForeignCurrencyCodeValueId'] = foreign_currency_code_value_id if foreign_currency_code_value_id
+        options['ShowAsAnonymous'] = show_as_anonymous if show_as_anonymous
 
         patch(transaction_path(id), options)
       end

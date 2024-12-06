@@ -15,6 +15,7 @@ module RockRMS
         payment_detail_id: 'FinancialPaymentDetailId',
         transaction_type_id: 'TransactionTypeValueId',
         source_type_id: 'SourceTypeValueId',
+        show_as_anonymous: 'ShowAsAnonymous',
       }.freeze
 
 
