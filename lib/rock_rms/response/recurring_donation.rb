@@ -10,6 +10,7 @@ module RockRMS
         next_payment_date: 'NextPaymentDate',
         payment_details: 'FinancialPaymentDetail',
         person_id: 'AuthorizedPersonAliasId',
+        previous_gateway_schedule_ids: 'PreviousGatewayScheduleIdsJson',
         start_date: 'StartDate',
         transaction_details: 'ScheduledTransactionDetails',
         transaction_code: 'TransactionCode',
