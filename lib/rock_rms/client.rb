@@ -16,6 +16,7 @@ module RockRMS
     include RockRMS::Client::Batch
     include RockRMS::Client::BinaryFile
     include RockRMS::Client::Block
+    include RockRMS::Client::BlockAction
     include RockRMS::Client::BlockType
     include RockRMS::Client::Fund
     include RockRMS::Client::Campus
