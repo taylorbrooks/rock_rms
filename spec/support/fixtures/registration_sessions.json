@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Guid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "RegistrationInstanceId": 123,
+    "RegistrationData": "{\"SomeData\":\"Value\"}",
+    "SessionStartDateTime": "2025-03-09T12:00:00.000Z",
+    "ExpirationDateTime": "2025-03-10T12:00:00.000Z",
+    "ClientIpAddress": "192.168.1.1",
+    "PaymentGatewayReference": "ref123456",
+    "SessionStatus": 1,
+    "RegistrationId": 456,
+    "CreatedDateTime": "2025-03-09T12:00:00.000Z",
+    "ModifiedDateTime": "2025-03-09T12:00:00.000Z",
+    "CreatedByPersonAliasId": 789,
+    "ForeignKey": null
+  }
+]
