@@ -22,6 +22,8 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency     'faraday', '> 2.0'
   s.add_runtime_dependency     'faraday-multipart'
+  s.add_runtime_dependency     'zlib'
+  s.add_runtime_dependency     'stringio'
   s.add_runtime_dependency     'json'
   s.add_runtime_dependency     'oj'
 
