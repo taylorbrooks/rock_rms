@@ -15,7 +15,7 @@ module RockRMS
         id:,
         foreign_key: nil
       )
-        options = { foreign_key: foreign_key }.compact
+        options = { 'ForeignKey' => foreign_key }.compact
 
         patch(content_channel_path(id), options)
       end

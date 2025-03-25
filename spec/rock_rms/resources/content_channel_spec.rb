@@ -40,7 +40,7 @@ RSpec.describe RockRMS::Client::ContentChannel, type: :model do
     end
 
     it 'sends a patch request' do
-      expect(client).to receive(:patch).with('ContentChannels/123', { foreign_key: 3925 })
+      expect(client).to receive(:patch).with('ContentChannels/123', { 'ForeignKey' => 3925 })
       client.update_content_channel(id: 123, foreign_key: 3925)
     end
   end
