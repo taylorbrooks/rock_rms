@@ -13,6 +13,12 @@ module RockRMS
         Response::Registration.format(res)
       end
 
+      def update_registration(id, scheduled_transaction_id: nil)
+        options = {}
+        options['PaymentPlanFinancialScheduledTransactionId'] = scheduled_transaction_id if scheduled_transaction_id
+        patch(registration_path(id), options)
+      end
+
       def delete_registration(id)
         delete(registration_path(id))
       end

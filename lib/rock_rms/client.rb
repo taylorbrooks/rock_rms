@@ -25,6 +25,7 @@ module RockRMS
     include RockRMS::Client::ContentChannelItem
     include RockRMS::Client::DefinedType
     include RockRMS::Client::DefinedValue
+    include RockRMS::Client::EntityType
     include RockRMS::Client::ExceptionLog
     include RockRMS::Client::Gateway
     include RockRMS::Client::Group

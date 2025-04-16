@@ -62,6 +62,7 @@ module RockRMS
         payment_detail_id: nil,
         active: nil,
         frequency: nil,
+        number_of_payments: nil,
         end_date: nil,
         summary: nil,
         status: nil,
@@ -72,6 +73,7 @@ module RockRMS
         options['TransactionCode']          = transaction_code  if transaction_code
         options['IsActive']                 = active            if !active.nil?
         options['TransactionFrequencyValueId'] = RecurringFrequencies::RECURRING_FREQUENCIES[frequency] if !frequency.nil?
+        options['NumberOfPayments']         = number_of_payments if !number_of_payments.nil?
         options['EndDate']                  = end_date if end_date
         options['Summary']                  = summary if summary
         options['Status']                   = status if status
