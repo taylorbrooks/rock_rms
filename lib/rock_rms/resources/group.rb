@@ -9,6 +9,24 @@ module RockRMS
         Response::Group.format(get(group_path(id)))
       end
 
+      def create_group(
+        name:,
+        group_type_id:,
+        campus_id: nil,
+        foreign_key: nil,
+        foreign_id: nil
+      )
+        options = {
+          'Name' => name,
+          'GroupTypeId' => group_type_id,
+          'CampusId' => campus_id,
+          'ForeignKey' => foreign_key,
+          'ForeignId' => foreign_id
+        }
+
+        post(group_path, options)
+      end
+
       def list_groups_for_person(person_id, options = {})
         opts = options.dup
         opts['$filter'] = Array(opts['$filter'])
