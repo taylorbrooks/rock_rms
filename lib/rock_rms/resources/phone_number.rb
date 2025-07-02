@@ -5,10 +5,16 @@ module RockRMS
         Response::PhoneNumber.format(get(phone_number_path, options))
       end
 
-      def create_phone_number(number_type_value_id:, number:, person_id:)
+      def create_phone_number(
+        number_type_value_id:,
+        number:,
+        person_id:,
+        is_system: true,
+        is_messaging_enabled: false
+      )
         options = {
-          'IsSystem' => true,
-          'IsMessagingEnabled' => false,
+          'IsSystem' => is_system,
+          'IsMessagingEnabled' => is_messaging_enabled,
           'NumberTypeValueId' => number_type_value_id,
           'Number' => number,
           'PersonId' => person_id
