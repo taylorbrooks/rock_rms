@@ -14,7 +14,7 @@ module RockRMS
         alias_id:   'PrimaryAliasId',
         connection_status_value_id: 'ConnectionStatusValueId',
         record_type_value_id: 'RecordTypeValueId',
-        primary_family_id: 'PrimaryFamilyId',
+        primary_family_id: 'PrimaryFamilyId'
       }.freeze
 
       def format_single(data)

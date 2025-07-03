@@ -9,8 +9,7 @@ module RockRMS
         is_active: 'IsActive',
         is_public: 'IsPublic',
         is_tax_deductible: 'IsTaxDeductible',
-        gl_code: 'GlCode',
-        foreign_id: 'ForeignId'
+        gl_code: 'GlCode'
       }.freeze
 
       def format_single(data)

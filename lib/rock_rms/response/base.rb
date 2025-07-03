@@ -11,7 +11,8 @@ module RockRMS
         created_by_person_alias_id: 'CreatedByPersonAliasId',
         attributes: 'Attributes',
         attribute_values: 'AttributeValues',
-        foreign_key: 'ForeignKey'
+        foreign_key: 'ForeignKey',
+        foreign_id: 'ForeignId'
       }.freeze
 
       def self.format(data)

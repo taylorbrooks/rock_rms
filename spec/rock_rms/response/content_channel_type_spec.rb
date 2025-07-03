@@ -14,7 +14,7 @@ RSpec.describe RockRMS::Response::ContentChannelType, type: :model do
 
     it 'has the correct number keys' do
       keys = result.first.keys
-      expect(keys.count).to eq(9)
+      expect(keys.count).to eq(10)
     end
 
     it 'translates keys' do

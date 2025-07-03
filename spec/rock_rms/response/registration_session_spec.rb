@@ -31,6 +31,7 @@ RSpec.describe RockRMS::Response::RegistrationSession, type: :model do
         attributes
         attribute_values
         foreign_key
+        foreign_id
       ]
 
       expect(response.keys).to eq(expected_keys)
