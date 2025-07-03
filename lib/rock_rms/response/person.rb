@@ -10,6 +10,7 @@ module RockRMS
         last_name:  'LastName',
         giving_id:  'GivingId',
         giving_group_id: 'GivingGroupId',
+        graduation_year: 'GraduationYear',
         alias_id:   'PrimaryAliasId',
         connection_status_value_id: 'ConnectionStatusValueId',
         record_type_value_id: 'RecordTypeValueId',
