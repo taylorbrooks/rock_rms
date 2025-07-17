@@ -8,6 +8,7 @@ module RockRMS
         end_date: 'EndDate',
         gateway_schedule_id: 'GatewayScheduleId',
         next_payment_date: 'NextPaymentDate',
+        number_of_payments: 'NumberOfPayments',
         payment_details: 'FinancialPaymentDetail',
         person_id: 'AuthorizedPersonAliasId',
         previous_gateway_schedule_ids: 'PreviousGatewayScheduleIdsJson',

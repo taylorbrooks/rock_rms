@@ -21,6 +21,7 @@ RSpec.describe RockRMS::Response::RecurringDonation, type: :model do
         end_date
         gateway_schedule_id
         next_payment_date
+        number_of_payments
         payment_details
         person_id
         previous_gateway_schedule_ids
