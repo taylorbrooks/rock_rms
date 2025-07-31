@@ -5,7 +5,8 @@ module RockRMS
         exp_month: 'ExpirationMonth',
         exp_year: 'ExpirationYear',
         payment_type_id: 'CurrencyTypeValueId',
-        masked_number: 'AccountNumberMasked'
+        masked_number: 'AccountNumberMasked',
+        gateway_person_identifier: 'GatewayPersonIdentifier'
       }.freeze
 
       def format_single(data)
