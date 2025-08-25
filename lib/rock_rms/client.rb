@@ -31,6 +31,7 @@ module RockRMS
     include RockRMS::Client::Group
     include RockRMS::Client::GroupMember
     include RockRMS::Client::History
+    include RockRMS::Client::Lava
     include RockRMS::Client::LavaShortcode
     include RockRMS::Client::Page
     include RockRMS::Client::PaymentDetail
