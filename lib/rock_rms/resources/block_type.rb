@@ -6,6 +6,10 @@ module RockRMS
         Response::BlockType.format(res)
       end
 
+      def delete_block_type(id)
+        delete(block_type_path(id))
+      end
+
       def block_type_path(id = nil)
         id ? "BlockTypes/#{id}" : 'BlockTypes'
       end
