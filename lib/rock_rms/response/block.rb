@@ -4,7 +4,9 @@ module RockRMS
       MAP = {
         name: 'Name',
         block_type: 'BlockType',
-        page_id: 'PageId'
+        order: 'Order',
+        page_id: 'PageId',
+        zone: 'Zone'
       }.freeze
 
       def format_single(data)
