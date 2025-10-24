@@ -20,13 +20,25 @@ RSpec.describe RockRMS::Client::RecurringDonationDetail, type: :model do
           .to raise_error(ArgumentError, /recurring_donation_id/)
       end
 
+      it 'allows `entity_type_id` and `entity_id`' do
+        expect { client.create_recurring_donation_detail(
+          fund_id: 1,
+          amount: 5.00,
+          recurring_donation_id: 1,
+          entity_type_id: 1,
+          entity_id: 123
+        ) }.not_to raise_error
+      end
+
     end
 
     subject(:resource) do
       client.create_recurring_donation_detail(
         fund_id: 1,
         amount: 5.00,
-        recurring_donation_id: 1
+        recurring_donation_id: 1,
+        entity_type_id: 1,
+        entity_id: 123
       )
     end
 
@@ -42,6 +54,8 @@ RSpec.describe RockRMS::Client::RecurringDonationDetail, type: :model do
             'AccountId' => 1,
             'ScheduledTransactionId' => 1,
             'Amount' => 5.00,
+            'EntityTypeId' => 1,
+            'EntityId' => 123
           }
         )
         .and_call_original
@@ -54,7 +68,9 @@ RSpec.describe RockRMS::Client::RecurringDonationDetail, type: :model do
       client.update_recurring_donation_detail(
         123,
         fund_id: 2,
-        amount: 100.0
+        amount: 100.0,
+        entity_type_id: 1,
+        entity_id: 123
       )
     end
 
@@ -68,7 +84,9 @@ RSpec.describe RockRMS::Client::RecurringDonationDetail, type: :model do
           'FinancialScheduledTransactionDetails/123',
           {
             'AccountId' => 2,
-            'Amount' => 100.0
+            'Amount' => 100.0,
+            'EntityTypeId' => 1,
+            'EntityId' => 123
           }
         ).and_call_original
       resource
