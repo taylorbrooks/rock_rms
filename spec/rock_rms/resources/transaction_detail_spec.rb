@@ -39,6 +39,9 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
         client.update_transaction_detail(
           123,
           fund_id: 2,
+          entity_type_id: 1,
+          entity_id: 123,
+          summary: 'Big Bird'
         )
       end
 
@@ -51,7 +54,10 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
           .with(
             'FinancialTransactionDetails/123',
             {
-              'AccountId' => 2
+              'AccountId' => 2,
+              'EntityTypeId' => 1,
+              'EntityId' => 123,
+              'Summary' => 'Big Bird'
             }
           ).and_call_original
         resource
@@ -88,7 +94,10 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
           client.create_transaction_detail(
             transaction_id: 123,
             fund_id: 2,
-            amount: 5.00
+            amount: 5.00,
+            entity_type_id: 1,
+            entity_id: 123,
+            summary: 'Big Bird'
           )
         end
   
@@ -103,7 +112,10 @@ RSpec.describe RockRMS::Client::TransactionDetail, type: :model do
               {
                 'AccountId' => 2,
                 'Amount' => 5.00,
-                'TransactionId' => 123
+                'TransactionId' => 123,
+                'EntityTypeId' => 1,
+                'EntityId' => 123,
+                'Summary' => 'Big Bird'
               }
             ).and_call_original
           resource
