@@ -18,7 +18,8 @@ module RockRMS
         fee_amount: nil,
         fee_coverage_amount: nil,
         entity_type_id: nil,
-        entity_id: nil
+        entity_id: nil,
+        summary: nil
       )
         options = {}
         options['AccountId']         = fund_id        if fund_id
@@ -26,6 +27,7 @@ module RockRMS
         options['FeeAmount']         = fee_amount     if fee_amount
         options['EntityTypeId']      = entity_type_id if entity_type_id
         options['EntityId']          = entity_id      if entity_id
+        options['Summary']           = summary        if summary
         options['FeeCoverageAmount'] = fee_coverage_amount if fee_coverage_amount
 
         patch(transaction_detail_path(id), options)
@@ -38,7 +40,8 @@ module RockRMS
         fee_amount: nil,
         fee_coverage_amount: nil,
         entity_type_id: nil,
-        entity_id: nil
+        entity_id: nil,
+        summary: nil
       )
         options = {}
         options['TransactionId']     = transaction_id
@@ -48,7 +51,7 @@ module RockRMS
         options['EntityTypeId']      = entity_type_id if entity_type_id
         options['EntityId']          = entity_id      if entity_id
         options['FeeCoverageAmount'] = fee_coverage_amount if fee_coverage_amount
-
+        options['Summary']           = summary        if summary
         post(transaction_detail_path, options)
       end
 
