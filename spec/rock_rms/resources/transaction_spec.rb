@@ -62,7 +62,7 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
         authorized_person_id: 1,
         batch_id: 1,
         date: 1,
-        funds: [{ amount: 450, fund_id: 2 }],
+        funds: [{ amount: 450, fund_id: 2, summary: 'Wacky Wednesday' }],
         payment_detail_id: 1,
         transaction_code: 'asdf',
         summary: 'taco tuesday',
@@ -86,7 +86,7 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
             'FinancialPaymentDetailId' => 1,
             'TransactionCode' => 'asdf',
             'TransactionDateTime' => 1,
-            'TransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2, 'EntityTypeId' => nil, 'EntityId' => nil, 'FeeAmount' => nil, 'FeeCoverageAmount' => nil }],
+            'TransactionDetails' => [{ 'Amount' => 450, 'AccountId' => 2, 'EntityTypeId' => nil, 'EntityId' => nil, 'FeeAmount' => nil, 'FeeCoverageAmount' => nil, 'Summary' => 'Wacky Wednesday' }],
             'TransactionTypeValueId' => 53,
             'SourceTypeValueId' => 10,
             'Summary' => 'taco tuesday'
