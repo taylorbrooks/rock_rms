@@ -85,6 +85,25 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
       expect(resource).to be_nil
     end
 
+    it 'updates transaction_type_value_id' do
+      expect(client).to receive(:patch)
+        .with(
+          'FinancialScheduledTransactions/123',
+          {
+            'NextPaymentDate' => '2018-01-01',
+            'TransactionTypeValueId' => 54
+          }
+      ).and_call_original
+
+      resource = client.update_recurring_donation(
+        123,
+        next_payment_date: '2018-01-01',
+        transaction_type_value_id: 54
+      )
+
+      expect(resource).to be_nil
+    end
+
     context 'arguments' do
       it 'require `id`' do
         expect { client.update_recurring_donation }
@@ -172,6 +191,43 @@ RSpec.describe RockRMS::Client::RecurringDonation, type: :model do
         )
         .and_call_original
       resource
+    end
+
+    it 'passes transaction_type_value_id when provided' do
+      expect(client).to receive(:post)
+        .with(
+          'FinancialScheduledTransactions',
+          hash_including('TransactionTypeValueId' => 54)
+        )
+        .and_call_original
+
+      client.create_recurring_donation(
+        authorized_person_id: 1,
+        funds: [{ amount: 450, fund_id: 2 }],
+        transaction_code: 'asdf',
+        frequency: 'monthly',
+        next_payment_date: '2010-01-01',
+        start_date: '2010-01-01',
+        transaction_type_value_id: 54
+      )
+    end
+
+    it 'does not include TransactionTypeValueId when not provided' do
+      expect(client).to receive(:post)
+        .with(
+          'FinancialScheduledTransactions',
+          hash_not_including('TransactionTypeValueId')
+        )
+        .and_call_original
+
+      client.create_recurring_donation(
+        authorized_person_id: 1,
+        funds: [{ amount: 450, fund_id: 2 }],
+        transaction_code: 'asdf',
+        frequency: 'monthly',
+        next_payment_date: '2010-01-01',
+        start_date: '2010-01-01'
+      )
     end
   end
 end
