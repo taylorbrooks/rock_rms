@@ -28,7 +28,8 @@ module RockRMS
         summary: nil,
         status: nil,
         status_message: nil,
-        guid: nil
+        guid: nil,
+        transaction_type_value_id: nil
       )
 
         options = {
@@ -51,6 +52,7 @@ module RockRMS
 
         options['EndDate'] = end_date if end_date
         options['Guid'] = guid if guid
+        options['TransactionTypeValueId'] = transaction_type_value_id if transaction_type_value_id
 
         post(recurring_donation_path, options)
       end
@@ -66,7 +68,8 @@ module RockRMS
         end_date: nil,
         summary: nil,
         status: nil,
-        status_message: :default_value
+        status_message: :default_value,
+        transaction_type_value_id: nil
       )
         options = { 'NextPaymentDate' => next_payment_date }
         options['FinancialPaymentDetailId'] = payment_detail_id if payment_detail_id
@@ -78,6 +81,7 @@ module RockRMS
         options['Summary']                  = summary if summary
         options['Status']                   = status if status
         options['StatusMessage']            = status_message unless status_message == :default_value
+        options['TransactionTypeValueId']   = transaction_type_value_id if transaction_type_value_id
 
         patch(recurring_donation_path(id), options)
       end
