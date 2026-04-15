@@ -1,3 +1,3 @@
 module RockRMS
-  VERSION = '9.29.0'.freeze
+  VERSION = '9.30.0'.freeze
 end
