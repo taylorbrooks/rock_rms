@@ -13,6 +13,7 @@ module RockRMS
         graduation_year: 'GraduationYear',
         alias_id:   'PrimaryAliasId',
         connection_status_value_id: 'ConnectionStatusValueId',
+        record_source_value_id: 'RecordSourceValueId',
         record_type_value_id: 'RecordTypeValueId',
         primary_family_id: 'PrimaryFamilyId'
       }.freeze

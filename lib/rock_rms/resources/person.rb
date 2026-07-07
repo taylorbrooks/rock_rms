@@ -42,6 +42,7 @@ module RockRMS
         gender: 1,
         connection_status_value_id: nil,
         record_status_value_id: nil,
+        record_source_value_id: nil,
         record_type_value_id: 1,
         email_preference: 0
       )
@@ -53,6 +54,7 @@ module RockRMS
           'EmailPreference' => email_preference,
           'Gender' => gender,
           'ConnectionStatusValueId' => connection_status_value_id,
+          'RecordSourceValueId' => record_source_value_id,
           'RecordStatusValueId' => record_status_value_id,
           'RecordTypeValueId' => record_type_value_id
         }
