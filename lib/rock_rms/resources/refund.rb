@@ -33,7 +33,7 @@ module RockRMS
             'FinancialPaymentDetailId' => old_transaction[:payment_detail_id],
             'TransactionCode'     => transaction_code,
             'TransactionDateTime' => date,
-            'TransactionDetails'  => refunded_details(old_transaction[:details], transaction_amount, refund_amount),
+            'TransactionDetails'  => refunded_details(old_transaction[:details], refund_amount),
             'TransactionTypeValueId' => old_transaction[:transaction_type_id],
             'SourceTypeValueId' => old_transaction[:source_type_id],
             'ScheduledTransactionId' => old_transaction[:recurring_donation_id]
@@ -44,8 +44,8 @@ module RockRMS
 
       private
 
-      def refunded_details(details, transaction_amount, refund_amount)
-        apportion_refund_amount_over_accounts(details, transaction_amount, refund_amount).map do |dt|
+      def refunded_details(details, refund_amount)
+        apportion_refund_amount_over_accounts(details, refund_amount).map do |dt|
           {
             'Amount' => -dt[:amount],
             'AccountId' => dt[:fund_id],
@@ -55,25 +55,17 @@ module RockRMS
         end
       end
 
-      def apportion_refund_amount_over_accounts(details, transaction_amount, refund_amount)
-        if refund_amount >= transaction_amount
-          details
-        else
-          ratio = refund_amount / transaction_amount
-          initial_acc = {total_amount: transaction_amount, details: []}
-          result = details.reduce(initial_acc) do |acc, detail|
-            amount_for_this_detail = (detail[:amount] * ratio).round(2)
-            new_total_amount = acc[:total_amount] - amount_for_this_detail
-            detail[:amount] = amount_for_this_detail
-            new_details = acc[:details] << detail
-            {
-              total_amount: new_total_amount,
-              details: new_details,
-            }
-          end
+      def apportion_refund_amount_over_accounts(details, refund_amount)
+        detail_cents = details.map { |detail| (detail[:amount] * 100).round }
+        total_cents = detail_cents.sum
+        refund_cents = (refund_amount * 100).round
+        return details if refund_cents >= total_cents
 
-          result[:details]
-        end
+        shares, remainders = detail_cents.map { |cents| (cents * refund_cents).divmod(total_cents) }.transpose
+        leftover = refund_cents - shares.sum
+        details.each_index.sort_by { |i| [-remainders[i], i] }.first(leftover).each { |i| shares[i] += 1 }
+
+        details.zip(shares).map { |detail, cents| detail.merge(amount: cents / 100.0) }
       end
 
       def refund_path(id = nil)

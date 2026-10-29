@@ -136,4 +136,57 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
       end
     end
   end
+
+  describe 'apportioning a partial refund' do
+    def details_for(*amounts)
+      amounts.each_with_index.map do |amount, index|
+        { amount: amount, fund_id: index + 1, entity_type_id: nil, entity_id: nil }
+      end
+    end
+
+    def refunded_amounts(details, refund_amount)
+      client.send(:refunded_details, details, refund_amount).map { |line| line['Amount'] }
+    end
+
+    it 'gives the leftover cent to the largest remainder, ties to the earlier line' do
+      lines = client.send(:refunded_details, details_for(250, 20, 50), 100)
+
+      expect(lines.map { |line| line['Amount'] }).to eq([-78.13, -6.25, -15.62])
+      expect(lines.map { |line| line['AccountId'] }).to eq([1, 2, 3])
+    end
+
+    it 'sums to exactly the refund for every partial refund in whole cents' do
+      details = details_for(123.45, 67.89, 0.67, 19.99)
+
+      misses = (1..21_199).reject do |refund_cents|
+        line_cents = refunded_amounts(details, refund_cents / 100.0).sum { |amount| (amount * 100).round }
+        line_cents == -refund_cents
+      end
+
+      expect(misses).to be_empty
+    end
+
+    it 'keeps a $0.00 line' do
+      expect(refunded_amounts(details_for(50, 0, 50), 33.33)).to eq([-16.67, 0, -16.66])
+    end
+
+    it 'refunds a negative line as a positive amount' do
+      expect(refunded_amounts(details_for(101, -21), 40)).to eq([-50.5, 10.5])
+    end
+
+    it 'negates each original amount on a full refund' do
+      details = details_for(10, 90.5)
+
+      expect(refunded_amounts(details, 100.5)).to eq([-10, -90.5])
+      expect(refunded_amounts(details, 150)).to eq([-10, -90.5])
+    end
+
+    it 'leaves the passed-in details unchanged' do
+      details = details_for(250, 20, 50)
+
+      client.send(:refunded_details, details, 100)
+
+      expect(details.map { |detail| detail[:amount] }).to eq([250, 20, 50])
+    end
+  end
 end
