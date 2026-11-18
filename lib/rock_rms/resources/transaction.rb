@@ -46,6 +46,7 @@ module RockRMS
           'SourceTypeValueId' => source_type_id, # website, kiosk, mobile app
           'Summary' => summary
         }
+        options['ShowAsAnonymous'] = show_as_anonymous if show_as_anonymous
         post(transaction_path, options)
       end
 
