@@ -95,6 +95,26 @@ RSpec.describe RockRMS::Client::Transaction, type: :model do
         .and_call_original
       resource
     end
+
+    context 'with show_as_anonymous' do
+      subject(:resource) do
+        client.create_transaction(
+          authorized_person_id: 1,
+          batch_id: 1,
+          date: 1,
+          funds: [{ amount: 450, fund_id: 2 }],
+          payment_detail_id: 1,
+          show_as_anonymous: true
+        )
+      end
+
+      it 'passes ShowAsAnonymous' do
+        expect(client).to receive(:post)
+          .with('FinancialTransactions', hash_including('ShowAsAnonymous' => true))
+          .and_call_original
+        resource
+      end
+    end
   end
 
   describe '#update_transaction' do
