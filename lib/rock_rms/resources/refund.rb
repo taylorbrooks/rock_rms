@@ -12,14 +12,12 @@ module RockRMS
         amount: nil,
         gateway_id: nil
       )
-
         old_transaction = list_transactions(
           '$expand' => 'TransactionDetails',
           '$filter' => "Id eq #{transaction_id}"
         ).first
 
         transaction_amount = old_transaction[:details].map{|d| d[:amount]}.reduce(0.0){|sum,x| sum + x }
-
 
         refund_amount = amount || transaction_amount
 
