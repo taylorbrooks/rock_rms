@@ -135,5 +135,50 @@ RSpec.describe RockRMS::Client::Refund, type: :model do
         resource
       end
     end
+
+    context 'show_as_anonymous' do
+      subject(:resource) do
+        client.create_refund(
+          transaction_id: 3000,
+          batch_id: 1,
+          date: '2018-02-01',
+          reason_id: 1
+        )
+      end
+
+      before do
+        allow(client).to receive(:list_transactions).and_wrap_original do |original, *args|
+          original.call(*args).map { |t| t.merge(show_as_anonymous: original_flag) }
+        end
+      end
+
+      context 'when the original transaction is anonymous' do
+        let(:original_flag) { true }
+
+        it 'passes ShowAsAnonymous' do
+          expect(client).to receive(:post)
+            .with(
+              'FinancialTransactionRefunds',
+              hash_including('FinancialTransaction' => hash_including('ShowAsAnonymous' => true))
+            )
+            .and_call_original
+          resource
+        end
+      end
+
+      context 'when the original transaction is not anonymous' do
+        let(:original_flag) { false }
+
+        it 'leaves ShowAsAnonymous out' do
+          expect(client).to receive(:post)
+            .with(
+              'FinancialTransactionRefunds',
+              hash_including('FinancialTransaction' => hash_excluding('ShowAsAnonymous'))
+            )
+            .and_call_original
+          resource
+        end
+      end
+    end
   end
 end

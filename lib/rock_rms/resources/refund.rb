@@ -23,21 +23,24 @@ module RockRMS
 
         refund_amount = amount || transaction_amount
 
+        financial_transaction = {
+          'AuthorizedPersonAliasId' => old_transaction[:person_id],
+          'BatchId' => batch_id,
+          'FinancialGatewayId' => gateway_id,
+          'FinancialPaymentDetailId' => old_transaction[:payment_detail_id],
+          'TransactionCode'     => transaction_code,
+          'TransactionDateTime' => date,
+          'TransactionDetails'  => refunded_details(old_transaction[:details], transaction_amount, refund_amount),
+          'TransactionTypeValueId' => old_transaction[:transaction_type_id],
+          'SourceTypeValueId' => old_transaction[:source_type_id],
+          'ScheduledTransactionId' => old_transaction[:recurring_donation_id]
+        }
+        financial_transaction['ShowAsAnonymous'] = true if old_transaction[:show_as_anonymous]
+
         params = {
           'OriginalTransactionId' => transaction_id,
           'RefundReasonValueId' => reason_id,
-          'FinancialTransaction' => {
-            'AuthorizedPersonAliasId' => old_transaction[:person_id],
-            'BatchId' => batch_id,
-            'FinancialGatewayId' => gateway_id,
-            'FinancialPaymentDetailId' => old_transaction[:payment_detail_id],
-            'TransactionCode'     => transaction_code,
-            'TransactionDateTime' => date,
-            'TransactionDetails'  => refunded_details(old_transaction[:details], transaction_amount, refund_amount),
-            'TransactionTypeValueId' => old_transaction[:transaction_type_id],
-            'SourceTypeValueId' => old_transaction[:source_type_id],
-            'ScheduledTransactionId' => old_transaction[:recurring_donation_id]
-          }
+          'FinancialTransaction' => financial_transaction
         }
         post(refund_path, params)
       end
